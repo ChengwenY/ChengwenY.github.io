@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 苑成文的Blog</title>
+  <title>对sunnyxx的面试题的一个总结 | 苑成文的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="@property 后面可以有哪些修饰符？
+什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。
+怎么用 copy 关键字？实现&amp;lt;N">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://chengweny.github.io/2015/07/01/hello-world/index.html">
+<meta property="og:title" content="对sunnyxx的面试题的一个总结">
+<meta property="og:url" content="http://chengweny.github.io/2015/07/06/对sunnyxx的面试题的一个总结/index.html">
 <meta property="og:site_name" content="苑成文的Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-06-30T16:19:21.000Z">
+<meta property="og:description" content="@property 后面可以有哪些修饰符？
+什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。
+怎么用 copy 关键字？实现&amp;lt;N">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/696ec57djw1ett7iidatuj20ky0a0gmx.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/696ec57djw1ett7j6khb1j20kw09wt9w.jpg">
+<meta property="og:updated_time" content="2015-07-06T10:36:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="对sunnyxx的面试题的一个总结">
+<meta name="twitter:description" content="@property 后面可以有哪些修饰符？
+什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。
+怎么用 copy 关键字？实现&amp;lt;N">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的Blog" type="application/atom+xml">
   
@@ -173,11 +178,11 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-对sunnyxx的面试题的一个总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/07/01/hello-world/" class="article-date">
-  	<time datetime="2015-06-30T16:19:21.000Z" itemprop="datePublished">2015-07-01</time>
+      <a href="/2015/07/06/对sunnyxx的面试题的一个总结/" class="article-date">
+  	<time datetime="2015-07-06T10:35:34.000Z" itemprop="datePublished">2015-07-06</time>
 </a>
     </div>
   
@@ -190,7 +195,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      对sunnyxx的面试题的一个总结
     </h1>
   
 
@@ -198,7 +203,15 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</div>
+
         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/面试/">面试</a>
+	</div>
+
 
         <div class="clearfix"></div>
       </div>
@@ -206,15 +219,14 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <ul>
+<li><strong>@property 后面可以有哪些修饰符？</strong><br><img src="http://ww2.sinaimg.cn/large/696ec57djw1ett7iidatuj20ky0a0gmx.jpg" alt="art"><br><img src="http://ww1.sinaimg.cn/large/696ec57djw1ett7j6khb1j20kw09wt9w.jpg" alt="art"></li>
+<li><strong>什么情况使用 weak 关键字，相比 assign 有什么不同？</strong><br>声明 delegate 时，或弱引用对象的时候用<code>weak</code>。<br>assign一般用于声明基本数据类型和结构体，如<code>int</code> <code>CGFloat</code> 等。<br><code>weak</code>指针指向一个对象时，如果对象被释放，指针指向nil。<code>assign</code>指针不会自动指向nil，会变为一个悬挂指针。</li>
+<li><strong>怎么用 copy 关键字？</strong><br>实现<code>&lt;NSCoping&gt;</code>协议的自定义对象才可用copy关键字。</li>
+<li><strong>这个写法会出什么问题： @property (copy) NSMutableArray *array;</strong><br>array指针指向的数组对象变为不可变数组。</li>
+<li><strong>如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？</strong><br>实现<code>&lt;NSCoping&gt;</code>协议<br>重写setter： 给成员变量赋值时copy一下。：）</li>
+<li><strong>@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的</strong><br>用<code>@property</code>声明属性后，编译器会自动写出一套存取方法，这个过程叫<code>自动合成（autosynthesis）</code>。这个过程由编译器在编译期执行。</li>
+</ul>
 
       
     </div>
@@ -224,15 +236,11 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2015/07/05/第一篇博客/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          第一篇博客
-        
-      </div>
-    </a>
   
+    <a href="/2015/07/05/第一篇博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一篇博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -259,7 +267,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://chengweny.github.io/2015/07/01/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="对sunnyxx的面试题的一个总结" data-title="对sunnyxx的面试题的一个总结" data-url="http://chengweny.github.io/2015/07/06/对sunnyxx的面试题的一个总结/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
