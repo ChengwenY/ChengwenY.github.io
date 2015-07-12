@@ -17,7 +17,7 @@
 怎么用 copy 关键字？实现&amp;lt;N">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/696ec57djw1ett7iidatuj20ky0a0gmx.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/696ec57djw1ett7j6khb1j20kw09wt9w.jpg">
-<meta property="og:updated_time" content="2015-07-06T10:38:16.000Z">
+<meta property="og:updated_time" content="2015-07-11T16:10:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对sunnyxx的面试题的一个总结">
 <meta name="twitter:description" content="@property 后面可以有哪些修饰符？
@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/面试-刨根问底/" style="font-size: 10px;">面试 刨根问底</a>
+						<a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/刨根问底/" style="font-size: 10px;">刨根问底</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -204,7 +204,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试-刨根问底/">面试 刨根问底</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/刨根问底/">刨根问底</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
 	</div>
 
         
@@ -225,7 +225,14 @@
 <li><strong>怎么用 copy 关键字？</strong><br>实现<code>&lt;NSCoping&gt;</code>协议的自定义对象才可用copy关键字。</li>
 <li><strong>这个写法会出什么问题： @property (copy) NSMutableArray *array;</strong><br>array指针指向的数组对象变为不可变数组。</li>
 <li><strong>如何让自己的类用 copy 修饰符？如何重写带 copy 关键字的 setter？</strong><br>实现<code>&lt;NSCoping&gt;</code>协议<br>重写setter： 给成员变量赋值时copy一下。：）</li>
-<li><strong>@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的</strong><br>用<code>@property</code>声明属性后，编译器会自动写出一套存取方法，这个过程叫<code>自动合成（autosynthesis）</code>。这个过程由编译器在编译期执行。</li>
+<li><p><strong>@property 的本质是什么？ivar、getter、setter 是如何生成并添加到这个类中的</strong><br>用<code>@property</code>声明属性后，编译器会自动写出一套存取方法，这个过程叫<code>自动合成（autosynthesis）</code>。这个过程由编译器在编译期执行。</p>
+</li>
+<li><p><strong>objc使用什么机制管理对象内存？</strong><br>引用计数</p>
+</li>
+<li><p><strong>ARC通过什么方式帮助开发者管理内存？</strong><br>编译器进行内存管理,自动引用计数，为对象类型附加所有权修饰符。<code>__strong</code> <code>__weak</code> <code>__unsafe_unretained</code> <code>__autoreleasing</code></p>
+</li>
+<li><p><strong>不手动指定autoreleasepool的前提下，一个autorealese对象在什么时刻释放？（比如在一个vc的viewDidLoad中创建）</strong> </p>
+</li>
 </ul>
 
       
