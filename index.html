@@ -208,6 +208,35 @@
 <figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func doSomeMightCauseError() -&gt; (Bool, <span class="built_in">NSError</span>?) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> success &#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="literal">true</span>, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (<span class="literal">false</span>, <span class="built_in">NSError</span>(domain: <span class="string">""</span>, code: <span class="number">1</span>, userInfo: <span class="literal">nil</span>))</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="常量、变量">常量、变量</h3><p>常量声明 <code>let max = 10</code></p>
 <p>变量声明 <code>var variable = 10</code></p>
+<p>类型标注 <code>var welcomeMessage: String</code></p>
+<blockquote>
+<p><strong>类型安全和类型推断</strong></p>
+<p>由于 Swift 是类型安全的，所以它会在编译你的代码时进行类型检查（type checks），并把不匹配的类型标记为错误。这可以让你在开发的时候尽早发现并修复错误</p>
+<p><code>let a = 100</code> <code>a</code> 被推断为<code>Int</code></p>
+</blockquote>
+<h3 id="可选类型_（optionals）">可选类型 （optionals）</h3><blockquote>
+<p>使用可选类型（optionals）来处理值可能缺失的情况。</p>
+<p>有值等于 <code>X</code> 或者没有值等于 <code>nil</code></p>
+<p><code>var optionalVar: String? = &quot;123&quot;</code></p>
+</blockquote>
+<p><strong>关于nil</strong></p>
+<blockquote>
+<p>Swift 的<code>nil</code>和 Objective-C 中的<code>nil</code>并不一样。在 Objective-C 中，<code>nil</code>是一个指向不存在对象的指针。在 Swift 中，<code>nil</code>不是指针——它是一个确定的值，用来表示值缺失。任何类型的可选状态都可以被设置为<code>nil</code>，不只是对象类型。</p>
+</blockquote>
+<p><strong>强制解析</strong></p>
+<blockquote>
+<p>使用<code>if</code>语句和<code>nil</code>比较来判断一个可选值是否包含值。</p>
+<p>当确定可选类型确实包含值之后，在变量名后加一个<code>!</code> 来获取值。表示确定这个可选值有值。</p>
+<p>使用<code>!</code>来获取一个不存在的可选值会导致运行时错误。使用!来强制解析值之前，一定要确定可选包含一个非<code>nil</code>的值。</p>
+</blockquote>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> optionalVar != <span class="literal">nil</span> &#123;</span><br><span class="line">print(optionalVar!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>可选绑定</strong></p>
+<blockquote>
+<p>使用可选绑定（optional binding）来判断可选类型是否包含值，如果包含就把值赋给一个临时常量或者变量。</p>
+</blockquote>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> let a = optionalVar &#123;</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>隐式解析可选类型</strong></p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可选类型`String`</span></span><br><span class="line">let possibleString: String? = <span class="string">"An optional string."</span></span><br><span class="line">let forcedString: String = possibleString! <span class="comment">// 需要惊叹号来获取值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//隐式解析可选类型</span></span><br><span class="line"></span><br><span class="line">let assumedString: String! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line">let implicitString: String = assumedString  <span class="comment">// 不需要感叹号</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
