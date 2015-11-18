@@ -7,32 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="基础部分基本数据类型Swift 包含C和OC 上的所有基础数据类型 Int Double Float Bool String
 还提供了3个基本集合类型 Array Set Dictionary
-高阶数据类型 元组
-
-定义
-元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 
-let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
+字符串和字符123var variableString = &quot;Horse&quot;variableString += &quot; and carriage&quot;// variableString 现在为 &quot;Horse and">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift(一) 基础部分">
 <meta property="og:url" content="http://chengweny.github.io/2015/11/16/Swift-一-基础部分/index.html">
 <meta property="og:site_name" content="苑成文的Blog">
 <meta property="og:description" content="基础部分基本数据类型Swift 包含C和OC 上的所有基础数据类型 Int Double Float Bool String
 还提供了3个基本集合类型 Array Set Dictionary
-高阶数据类型 元组
-
-定义
-元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 
-let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
-<meta property="og:updated_time" content="2015-11-16T09:22:55.000Z">
+字符串和字符123var variableString = &quot;Horse&quot;variableString += &quot; and carriage&quot;// variableString 现在为 &quot;Horse and">
+<meta property="og:updated_time" content="2015-11-18T06:52:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift(一) 基础部分">
 <meta name="twitter:description" content="基础部分基本数据类型Swift 包含C和OC 上的所有基础数据类型 Int Double Float Bool String
 还提供了3个基本集合类型 Array Set Dictionary
-高阶数据类型 元组
-
-定义
-元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 
-let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
+字符串和字符123var variableString = &quot;Horse&quot;variableString += &quot; and carriage&quot;// variableString 现在为 &quot;Horse and">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的Blog" type="application/atom+xml">
   
@@ -231,6 +219,15 @@ let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
       
         <h2 id="基础部分">基础部分</h2><h3 id="基本数据类型">基本数据类型</h3><p>Swift 包含C和OC 上的所有基础数据类型 <code>Int Double Float Bool String</code></p>
 <p>还提供了3个基本集合类型 <code>Array Set Dictionary</code></p>
+<h4 id="字符串和字符">字符串和字符</h4><figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var variableString = <span class="string">"Horse"</span></span><br><span class="line">variableString += <span class="string">" and carriage"</span></span><br><span class="line"><span class="comment">// variableString 现在为 "Horse and carriage"</span></span><br></pre></td></tr></table></figure>
+<p><strong>字符串插值 (String Interpolation)</strong></p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let multiplier = <span class="number">3</span></span><br><span class="line">let message = <span class="string">"\(multiplier) times 2.5 is \(Double(multiplier) * 2.5)"</span></span><br><span class="line"><span class="comment">// message is "3 times 2.5 is 7.5"</span></span><br></pre></td></tr></table></figure>
+<p><strong>字符串索引</strong></p>
+<blockquote>
+<p>每一个<code>String</code>值都有一个关联的索引(index)类型，<code>String.Index</code>，它对应着字符串中的每一个<code>Character</code>的位置。</p>
+<p>不同的字符可能会占用不同数量的内存空间，所以要知道Character的确定位置，就必须从String开头遍历每一个 Unicode 标量直到结尾。因此，Swift 的字符串不能用整数(integer)做索引。</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let greeting = <span class="string">"Guten Tag!"</span></span><br><span class="line">greeting[greeting<span class="variable">.startIndex</span>]</span><br><span class="line"><span class="comment">// G</span></span><br><span class="line">greeting[greeting<span class="variable">.endIndex</span><span class="variable">.predecessor</span>()]</span><br><span class="line"><span class="comment">// !</span></span><br><span class="line">greeting[greeting<span class="variable">.startIndex</span><span class="variable">.successor</span>()]</span><br><span class="line"><span class="comment">// u</span></span><br><span class="line">let index = greeting<span class="variable">.startIndex</span><span class="variable">.advancedBy</span>(<span class="number">7</span>)</span><br><span class="line">greeting[index]</span><br><span class="line"><span class="comment">// a</span></span><br></pre></td></tr></table></figure>
 <p>高阶数据类型 <strong>元组</strong></p>
 <blockquote>
 <p>定义</p>
