@@ -3,36 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Swift(一) 基础部分 | 苑成文的Blog</title>
+  <title>Swift(二) 基本运算符 | 苑成文的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础部分基本数据类型Swift 包含C和OC 上的所有基础数据类型 Int Double Float Bool String
-还提供了3个基本集合类型 Array Set Dictionary
-高阶数据类型 元组
+  <meta name="description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
 
-定义
-元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 
-let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
+空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
+表达式a必须是Optional类型
+默认值b的类型必须要和a存储值的类型保持一致
+
+区间运算符a...b
+12345678for index in 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift(一) 基础部分">
-<meta property="og:url" content="http://chengweny.github.io/2015/11/16/Swift-一-基础部分/index.html">
+<meta property="og:title" content="Swift(二) 基本运算符">
+<meta property="og:url" content="http://chengweny.github.io/2015/11/18/Swift-二-基本运算符/index.html">
 <meta property="og:site_name" content="苑成文的Blog">
-<meta property="og:description" content="基础部分基本数据类型Swift 包含C和OC 上的所有基础数据类型 Int Double Float Bool String
-还提供了3个基本集合类型 Array Set Dictionary
-高阶数据类型 元组
+<meta property="og:description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
 
-定义
-元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 
-let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
-<meta property="og:updated_time" content="2015-11-16T09:22:55.000Z">
+空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
+表达式a必须是Optional类型
+默认值b的类型必须要和a存储值的类型保持一致
+
+区间运算符a...b
+12345678for index in 1">
+<meta property="og:updated_time" content="2015-11-18T04:04:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift(一) 基础部分">
-<meta name="twitter:description" content="基础部分基本数据类型Swift 包含C和OC 上的所有基础数据类型 Int Double Float Bool String
-还提供了3个基本集合类型 Array Set Dictionary
-高阶数据类型 元组
+<meta name="twitter:title" content="Swift(二) 基本运算符">
+<meta name="twitter:description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
 
-定义
-元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 
-let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
+空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
+表达式a必须是Optional类型
+默认值b的类型必须要和a存储值的类型保持一致
+
+区间运算符a...b
+12345678for index in 1">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的Blog" type="application/atom+xml">
   
@@ -188,11 +191,11 @@ let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Swift-一-基础部分" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Swift-二-基本运算符" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/16/Swift-一-基础部分/" class="article-date">
-  	<time datetime="2015-11-16T07:56:09.000Z" itemprop="datePublished">2015-11-16</time>
+      <a href="/2015/11/18/Swift-二-基本运算符/" class="article-date">
+  	<time datetime="2015-11-18T04:03:06.000Z" itemprop="datePublished">2015-11-18</time>
 </a>
     </div>
   
@@ -205,7 +208,7 @@ let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
         
   
     <h1 class="article-title" itemprop="name">
-      Swift(一) 基础部分
+      Swift(二) 基本运算符
     </h1>
   
 
@@ -229,47 +232,16 @@ let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基础部分">基础部分</h2><h3 id="基本数据类型">基本数据类型</h3><p>Swift 包含C和OC 上的所有基础数据类型 <code>Int Double Float Bool String</code></p>
-<p>还提供了3个基本集合类型 <code>Array Set Dictionary</code></p>
-<p>高阶数据类型 <strong>元组</strong></p>
+        <h2 id="基本运算符">基本运算符</h2><h3 id="空合运算符（Nil_Coalescing_Operator）">空合运算符（Nil Coalescing Operator）</h3><p><code>a??b</code> = <code>a != nil ? a! : b</code></p>
 <blockquote>
-<p>定义</p>
-<p>元组（tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。 </p>
-<p><code>let people = (&quot;xiaoMing&quot;, 22)</code></p>
+<p>空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:</p>
+<p>表达式a必须是Optional类型</p>
+<p>默认值b的类型必须要和a存储值的类型保持一致</p>
 </blockquote>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func doSomeMightCauseError() -&gt; (Bool, <span class="built_in">NSError</span>?) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> success &#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="literal">true</span>, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> (<span class="literal">false</span>, <span class="built_in">NSError</span>(domain: <span class="string">""</span>, code: <span class="number">1</span>, userInfo: <span class="literal">nil</span>))</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="常量、变量">常量、变量</h3><p>常量声明 <code>let max = 10</code></p>
-<p>变量声明 <code>var variable = 10</code></p>
-<p>类型标注 <code>var welcomeMessage: String</code></p>
-<blockquote>
-<p><strong>类型安全和类型推断</strong></p>
-<p>由于 Swift 是类型安全的，所以它会在编译你的代码时进行类型检查（type checks），并把不匹配的类型标记为错误。这可以让你在开发的时候尽早发现并修复错误</p>
-<p><code>let a = 100</code> <code>a</code> 被推断为<code>Int</code></p>
-</blockquote>
-<h3 id="可选类型_（optionals）">可选类型 （optionals）</h3><blockquote>
-<p>使用可选类型（optionals）来处理值可能缺失的情况。</p>
-<p>有值等于 <code>X</code> 或者没有值等于 <code>nil</code></p>
-<p><code>var optionalVar: String? = &quot;123&quot;</code></p>
-</blockquote>
-<p><strong>关于nil</strong></p>
-<blockquote>
-<p>Swift 的<code>nil</code>和 Objective-C 中的<code>nil</code>并不一样。在 Objective-C 中，<code>nil</code>是一个指向不存在对象的指针。在 Swift 中，<code>nil</code>不是指针——它是一个确定的值，用来表示值缺失。任何类型的可选状态都可以被设置为<code>nil</code>，不只是对象类型。</p>
-</blockquote>
-<p><strong>强制解析</strong></p>
-<blockquote>
-<p>使用<code>if</code>语句和<code>nil</code>比较来判断一个可选值是否包含值。</p>
-<p>当确定可选类型确实包含值之后，在变量名后加一个<code>!</code> 来获取值。表示确定这个可选值有值。</p>
-<p>使用<code>!</code>来获取一个不存在的可选值会导致运行时错误。使用!来强制解析值之前，一定要确定可选包含一个非<code>nil</code>的值。</p>
-</blockquote>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> optionalVar != <span class="literal">nil</span> &#123;</span><br><span class="line">print(optionalVar!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>可选绑定</strong></p>
-<blockquote>
-<p>使用可选绑定（optional binding）来判断可选类型是否包含值，如果包含就把值赋给一个临时常量或者变量。</p>
-</blockquote>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> let a = optionalVar &#123;</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>隐式解析可选类型</strong></p>
-<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可选类型`String`</span></span><br><span class="line">let possibleString: String? = <span class="string">"An optional string."</span></span><br><span class="line">let forcedString: String = possibleString! <span class="comment">// 需要惊叹号来获取值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//隐式解析可选类型</span></span><br><span class="line"></span><br><span class="line">let assumedString: String! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line">let implicitString: String = assumedString  <span class="comment">// 不需要感叹号</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="区间运算符">区间运算符</h3><p><code>a...b</code></p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1.</span>..<span class="number">5</span> &#123;</span><br><span class="line">print(<span class="string">"\(index) * 5 = \(index * 5)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
+<h3 id="半开区间运算符">半开区间运算符</h3><p><code>a..&lt;b</code></p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let names = [<span class="string">"Anna"</span>, <span class="string">"Alex"</span>, <span class="string">"Brian"</span>, <span class="string">"Jack"</span>]</span><br><span class="line">let count = names<span class="variable">.count</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0.</span>.&lt;count &#123;</span><br><span class="line">print(<span class="string">"第 \(i + 1) 个人叫 \(names[i])"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第 1 个人叫 Anna</span></span><br><span class="line"><span class="comment">// 第 2 个人叫 Alex</span></span><br><span class="line"><span class="comment">// 第 3 个人叫 Brian</span></span><br><span class="line"><span class="comment">// 第 4 个人叫 Jack</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -278,18 +250,9 @@ let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
     
 <nav id="article-nav">
   
-    <a href="/2015/11/18/Swift-二-基本运算符/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Swift(二) 基本运算符
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/07/06/对sunnyxx的面试题的一个总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">对sunnyxx的面试题的一个总结</div>
+    <a href="/2015/11/16/Swift-一-基础部分/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift(一) 基础部分</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -318,7 +281,7 @@ let people = (&amp;quot;xiaoMing&amp;quot;, 22)">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Swift-一-基础部分" data-title="Swift(一) 基础部分" data-url="http://chengweny.github.io/2015/11/16/Swift-一-基础部分/"></div>
+	<div class="ds-thread" data-thread-key="Swift-二-基本运算符" data-title="Swift(二) 基本运算符" data-url="http://chengweny.github.io/2015/11/18/Swift-二-基本运算符/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
