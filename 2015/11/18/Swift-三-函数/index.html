@@ -7,29 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="函数func funcName(parameters) -&amp;gt; returnType
 函数定义无参数无返回值
-1234func sayHello() &amp;#123;print(&quot;hello&quot;)&amp;#125;
+1234func sayHello() &amp;#123;    print(&quot;hello&quot;)&amp;#125;
 多参函数
-123func sayHello(personName: String) &amp;#123;print(&quot;\(personName) say hello&quot;)&amp;#125;
-12345678/">
+123func sayHello(personName: String) &amp;#123;    print(&quot;\(personName) say hello&quot;)&amp;#125;
+1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift(三) 函数">
 <meta property="og:url" content="http://chengweny.github.io/2015/11/18/Swift-三-函数/index.html">
 <meta property="og:site_name" content="苑成文的Blog">
 <meta property="og:description" content="函数func funcName(parameters) -&amp;gt; returnType
 函数定义无参数无返回值
-1234func sayHello() &amp;#123;print(&quot;hello&quot;)&amp;#125;
+1234func sayHello() &amp;#123;    print(&quot;hello&quot;)&amp;#125;
 多参函数
-123func sayHello(personName: String) &amp;#123;print(&quot;\(personName) say hello&quot;)&amp;#125;
-12345678/">
-<meta property="og:updated_time" content="2015-11-18T13:21:55.000Z">
+123func sayHello(personName: String) &amp;#123;    print(&quot;\(personName) say hello&quot;)&amp;#125;
+1">
+<meta property="og:updated_time" content="2015-11-18T13:28:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift(三) 函数">
 <meta name="twitter:description" content="函数func funcName(parameters) -&amp;gt; returnType
 函数定义无参数无返回值
-1234func sayHello() &amp;#123;print(&quot;hello&quot;)&amp;#125;
+1234func sayHello() &amp;#123;    print(&quot;hello&quot;)&amp;#125;
 多参函数
-123func sayHello(personName: String) &amp;#123;print(&quot;\(personName) say hello&quot;)&amp;#125;
-12345678/">
+123func sayHello(personName: String) &amp;#123;    print(&quot;\(personName) say hello&quot;)&amp;#125;
+1">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的Blog" type="application/atom+xml">
   
@@ -228,10 +228,10 @@
       
         <h2 id="函数">函数</h2><p><code>func funcName(parameters) -&gt; returnType</code></p>
 <h3 id="函数定义">函数定义</h3><p><strong>无参数无返回值</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>多参函数</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName: String)</span></span> &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(personName)</span> say hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可变参数</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(names: String...)</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> say hello"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName: String)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(personName)</span> say hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可变参数</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(names: String...)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> say hello"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>参数名</strong></p>
 <blockquote>
 <p>函数参数都有一个外部参数名（external parameter name）和一个局部参数名（local parameter name）。</p>
