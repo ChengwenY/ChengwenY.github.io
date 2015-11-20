@@ -3,36 +3,57 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Swift (八) 下标脚本 | 苑成文的Blog</title>
+  <title>Swift(十) 扩展 | 苑成文的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="下标脚本定义
-下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。
-下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。
-下标脚本可以设定为读写或只读有点类似计算属性
+  <meta name="description" content="扩展
+Swift中可以为类、结构体、枚举、协议添加扩展。
+Swift中扩展没有名字
 
-语法
-123456789subscript(index: Int) -">
+Swift中扩展可以:
+
+添加计算型属性和计算型静态属性
+定义实例方法和类型方法
+提供新的构造器(只能向类中添加新的便利构造器，但是它们不能向类中添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。)
+定义下标
+定义和使用新的嵌套类型
+使一个已有类型符合某个协议
+
+语法123extensi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift (八) 下标脚本">
-<meta property="og:url" content="http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/index.html">
+<meta property="og:title" content="Swift(十) 扩展">
+<meta property="og:url" content="http://chengweny.github.io/2015/11/20/Swift-十-扩展/index.html">
 <meta property="og:site_name" content="苑成文的Blog">
-<meta property="og:description" content="下标脚本定义
-下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。
-下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。
-下标脚本可以设定为读写或只读有点类似计算属性
+<meta property="og:description" content="扩展
+Swift中可以为类、结构体、枚举、协议添加扩展。
+Swift中扩展没有名字
 
-语法
-123456789subscript(index: Int) -">
-<meta property="og:updated_time" content="2015-11-19T14:27:25.000Z">
+Swift中扩展可以:
+
+添加计算型属性和计算型静态属性
+定义实例方法和类型方法
+提供新的构造器(只能向类中添加新的便利构造器，但是它们不能向类中添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。)
+定义下标
+定义和使用新的嵌套类型
+使一个已有类型符合某个协议
+
+语法123extensi">
+<meta property="og:updated_time" content="2015-11-20T08:40:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift (八) 下标脚本">
-<meta name="twitter:description" content="下标脚本定义
-下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。
-下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。
-下标脚本可以设定为读写或只读有点类似计算属性
+<meta name="twitter:title" content="Swift(十) 扩展">
+<meta name="twitter:description" content="扩展
+Swift中可以为类、结构体、枚举、协议添加扩展。
+Swift中扩展没有名字
 
-语法
-123456789subscript(index: Int) -">
+Swift中扩展可以:
+
+添加计算型属性和计算型静态属性
+定义实例方法和类型方法
+提供新的构造器(只能向类中添加新的便利构造器，但是它们不能向类中添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。)
+定义下标
+定义和使用新的嵌套类型
+使一个已有类型符合某个协议
+
+语法123extensi">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的Blog" type="application/atom+xml">
   
@@ -188,11 +209,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Swift-八-下标脚本" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Swift-十-扩展" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/19/Swift-八-下标脚本/" class="article-date">
-  	<time datetime="2015-11-19T14:23:15.000Z" itemprop="datePublished">2015-11-19</time>
+      <a href="/2015/11/20/Swift-十-扩展/" class="article-date">
+  	<time datetime="2015-11-20T08:36:47.000Z" itemprop="datePublished">2015-11-20</time>
 </a>
     </div>
   
@@ -205,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Swift (八) 下标脚本
+      Swift(十) 扩展
     </h1>
   
 
@@ -229,16 +250,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="下标脚本">下标脚本</h2><h3 id="定义">定义</h3><blockquote>
-<p>下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。</p>
-<p>下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。</p>
-<p>下标脚本可以设定为读写或只读有点类似计算属性</p>
+        <h2 id="扩展">扩展</h2><blockquote>
+<p>Swift中可以为类、结构体、枚举、协议添加扩展。</p>
+<p>Swift中扩展没有名字</p>
 </blockquote>
-<p><strong>语法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// 返回一个适当的 Int 类型的值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span>(newValue) &#123;</span><br><span class="line">        <span class="comment">// 执行适当的赋值操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>用法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numberOfLegs = [<span class="string">"spider"</span>: <span class="number">8</span>, <span class="string">"ant"</span>: <span class="number">6</span>, <span class="string">"cat"</span>: <span class="number">4</span>]</span><br><span class="line">numberOfLegs[<span class="string">"bird"</span>] = <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h3 id="实例">实例</h3><p>Xcode</p>
+<p><strong>Swift中扩展可以:</strong></p>
+<ul>
+<li>添加计算型属性和计算型静态属性</li>
+<li>定义实例方法和类型方法</li>
+<li>提供新的构造器(只能向类中添加新的便利构造器，但是它们不能向类中添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。)</li>
+<li>定义下标</li>
+<li>定义和使用新的嵌套类型</li>
+<li>使一个已有类型符合某个协议</li>
+</ul>
+<h3 id="语法">语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span> </span>&#123;</span><br><span class="line"><span class="comment">// 加到SomeType的新功能写到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>见Xcode</p>
 
       
     </div>
@@ -248,18 +274,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/20/Swift-九-构造方法-析构方法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/11/20/Swift-十一-协议/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Swift(九) 构造方法/析构方法
+          Swift(十一) 协议
         
       </div>
     </a>
   
   
-    <a href="/2015/11/19/Swift-七-属性、方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Swift (七) 属性、方法</div>
+    <a href="/2015/11/20/Swift-九-构造方法-析构方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift(九) 构造方法/析构方法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -288,7 +314,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Swift-八-下标脚本" data-title="Swift (八) 下标脚本" data-url="http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/"></div>
+	<div class="ds-thread" data-thread-key="Swift-十-扩展" data-title="Swift(十) 扩展" data-url="http://chengweny.github.io/2015/11/20/Swift-十-扩展/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
