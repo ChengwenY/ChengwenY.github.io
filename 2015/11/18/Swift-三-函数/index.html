@@ -21,7 +21,7 @@
 多参函数
 123func sayHello(personName: String) &amp;#123;    print(&quot;\(personName) say hello&quot;)&amp;#125;
 1">
-<meta property="og:updated_time" content="2015-11-18T13:28:17.000Z">
+<meta property="og:updated_time" content="2015-11-24T02:39:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift(三) 函数">
 <meta name="twitter:description" content="函数func funcName(parameters) -&amp;gt; returnType
@@ -243,7 +243,7 @@
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName: String, withFriend friend: String)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(personName)</span> say hello with friend <span class="subst">\(friend)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数调用</span></span><br><span class="line">sayHello(<span class="string">"小明"</span>, withFriend: <span class="string">"小红"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>指定参数名称</li>
+<li>指定外部参数名称</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(to person: String, and anotherPerson: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Hello <span class="subst">\(person)</span> and <span class="subst">\(anotherPerson)</span>!"</span>)</span><br><span class="line">&#125;</span><br><span class="line">sayHello(to: <span class="string">"Bill"</span>, and: <span class="string">"Ted"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
