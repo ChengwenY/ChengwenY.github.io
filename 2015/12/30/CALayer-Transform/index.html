@@ -3,39 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Swift(二) 基本运算符 | 苑成文的blog</title>
+  <title>CALayer Transform | 苑成文的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
+  <meta name="description" content="变换仿射变换
 
-空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
-表达式a必须是Optional类型
-默认值b的类型必须要和a存储值的类型保持一致
+“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行
 
-区间运算符a...b
-12345678for index in 1">
+123CGAffineTransformMakeRotation(CGFloat angle) CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)CGAffineTransformMakeTranslation(CGFloat tx, CGFloat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift(二) 基本运算符">
-<meta property="og:url" content="http://chengweny.github.io/2015/11/18/Swift-二-基本运算符/index.html">
+<meta property="og:title" content="CALayer Transform">
+<meta property="og:url" content="http://chengweny.github.io/2015/12/30/CALayer-Transform/index.html">
 <meta property="og:site_name" content="苑成文的blog">
-<meta property="og:description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
+<meta property="og:description" content="变换仿射变换
 
-空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
-表达式a必须是Optional类型
-默认值b的类型必须要和a存储值的类型保持一致
+“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行
 
-区间运算符a...b
-12345678for index in 1">
-<meta property="og:updated_time" content="2015-11-18T13:21:33.000Z">
+123CGAffineTransformMakeRotation(CGFloat angle) CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)CGAffineTransformMakeTranslation(CGFloat tx, CGFloat">
+<meta property="og:image" content="http://cl.ly/image/3d0V383O3108/CGAffineTransform.png">
+<meta property="og:image" content="http://cl.ly/image/163v3E1Q1V1z/CATransform3D.png">
+<meta property="og:image" content="http://cl.ly/image/1p091D2f3A0h/%E5%9D%90%E6%A0%87%E7%B3%BB.png">
+<meta property="og:updated_time" content="2015-12-31T01:55:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift(二) 基本运算符">
-<meta name="twitter:description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
+<meta name="twitter:title" content="CALayer Transform">
+<meta name="twitter:description" content="变换仿射变换
 
-空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
-表达式a必须是Optional类型
-默认值b的类型必须要和a存储值的类型保持一致
+“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行
 
-区间运算符a...b
-12345678for index in 1">
+123CGAffineTransformMakeRotation(CGFloat angle) CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)CGAffineTransformMakeTranslation(CGFloat tx, CGFloat">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的blog" type="application/atom+xml">
   
@@ -187,11 +181,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Swift-二-基本运算符" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CALayer-Transform" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/18/Swift-二-基本运算符/" class="article-date">
-  	<time datetime="2015-11-18T04:03:06.000Z" itemprop="datePublished">2015-11-18</time>
+      <a href="/2015/12/30/CALayer-Transform/" class="article-date">
+  	<time datetime="2015-12-30T11:07:56.000Z" itemprop="datePublished">2015-12-30</time>
 </a>
     </div>
   
@@ -204,7 +198,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Swift(二) 基本运算符
+      CALayer Transform
     </h1>
   
 
@@ -213,12 +207,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Swift/">Swift</a>
+	<a class="article-category-link" href="/categories/OC/">OC</a>
 	</div>
 
 
@@ -228,16 +222,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基本运算符">基本运算符</h2><h3 id="空合运算符（Nil_Coalescing_Operator）">空合运算符（Nil Coalescing Operator）</h3><p><code>a??b</code> = <code>a != nil ? a! : b</code></p>
+        <h2 id="变换">变换</h2><h3 id="仿射变换">仿射变换</h3><p><img src="http://cl.ly/image/3d0V383O3108/CGAffineTransform.png" alt="CGAffineTransform"></p>
 <blockquote>
-<p>空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:</p>
-<p>表达式a必须是Optional类型</p>
-<p>默认值b的类型必须要和a存储值的类型保持一致</p>
+<p>“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行</p>
 </blockquote>
-<h3 id="区间运算符">区间运算符</h3><p><code>a...b</code></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
-<h3 id="半开区间运算符">半开区间运算符</h3><p><code>a..&lt;b</code></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Anna"</span>, <span class="string">"Alex"</span>, <span class="string">"Brian"</span>, <span class="string">"Jack"</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="built_in">count</span> = names.<span class="built_in">count</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"第 <span class="subst">\(i + <span class="number">1</span>)</span> 个人叫 <span class="subst">\(names[i])</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第 1 个人叫 Anna</span></span><br><span class="line"><span class="comment">// 第 2 个人叫 Alex</span></span><br><span class="line"><span class="comment">// 第 3 个人叫 Brian</span></span><br><span class="line"><span class="comment">// 第 4 个人叫 Jack</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGAffineTransformMakeRotation</span>(<span class="built_in">CGFloat</span> angle) </span><br><span class="line"><span class="built_in">CGAffineTransformMakeScale</span>(<span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy)</span><br><span class="line"><span class="built_in">CGAffineTransformMakeTranslation</span>(<span class="built_in">CGFloat</span> tx, <span class="built_in">CGFloat</span> ty)</span><br></pre></td></tr></table></figure>
+<p>iOS 变换函数使用弧度为单位</p>
+<p>库中提供了两个宏定义做弧度角度转换</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#define RADIANS_TO_DEGREES(x) ((x)/M_PI*180.0) </span></span><br><span class="line"><span class="preprocessor">#define DEGREES_TO_RADIANS(x) ((x)/180.0*M_PI)</span></span><br></pre></td></tr></table></figure>
+<h3 id="混合变换">混合变换</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGAffineTransformRotate</span>(<span class="built_in">CGAffineTransform</span> t, <span class="built_in">CGFloat</span> angle)     </span><br><span class="line"><span class="comment">// t 表示想要混合的CGAffineTransform</span></span><br><span class="line"><span class="built_in">CGAffineTransformScale</span>(<span class="built_in">CGAffineTransform</span> t, <span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy)      </span><br><span class="line"><span class="built_in">CGAffineTransformTranslate</span>(<span class="built_in">CGAffineTransform</span> t, <span class="built_in">CGFloat</span> tx, <span class="built_in">CGFloat</span> ty)</span><br></pre></td></tr></table></figure>
+<p>混合两个已存在的变换矩阵</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGAffineTransformConcat</span>(<span class="built_in">CGAffineTransform</span> t1, <span class="built_in">CGAffineTransform</span> t2);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>变换的顺序会影响最终的结果，也就是说旋转之后的平移和平移之后的旋转结果可能不同。<br><a href="http://wiki.jikexueyuan.com/project/ios-core-animation/transform.html" target="_blank" rel="external">阅读实例</a></p>
+</blockquote>
+<h3 id="3D变换">3D变换</h3><p><img src="http://cl.ly/image/163v3E1Q1V1z/CATransform3D.png" alt=""></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CATransform3DMakeRotation</span>(<span class="built_in">CGFloat</span> angle, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y, <span class="built_in">CGFloat</span> z)</span><br><span class="line"><span class="built_in">CATransform3DMakeScale</span>(<span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy, <span class="built_in">CGFloat</span> sz) </span><br><span class="line"><span class="built_in">CATransform3DMakeTranslation</span>(Gloat tx, <span class="built_in">CGFloat</span> ty, <span class="built_in">CGFloat</span> tz)</span><br></pre></td></tr></table></figure>
+<p>iOS上的坐标系及绕x、y、z 轴旋转</p>
+<p><img src="http://cl.ly/image/1p091D2f3A0h/%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt=""></p>
+<h4 id="透视投影">透视投影</h4><blockquote>
+<p>CATransform3D的透视效果通过一个矩阵中一个很简单的元素来控制：m34。m34用于按比例缩放X和Y的值来计算到底要离视角多远。</p>
+<p>m34的默认值是0，我们可以通过设置m34为-1.0 / d来应用透视效果，d 通常为 <a href="http://wiki.jikexueyuan.com/project/ios-core-animation/transform.html#5930ece8da08d1469c5ae1133bc84e07" target="_blank" rel="external">500-1000</a></p>
+</blockquote>
+
       
     </div>
     
@@ -246,18 +253,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/18/Swift-三-函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/30/iOS-Touch-Event-Responder-Chain/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Swift(三) 函数
+          iOS Touch Event &amp; Responder Chain
         
       </div>
     </a>
   
   
-    <a href="/2015/11/16/Swift-一-基础部分/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Swift(一) 基础部分</div>
+    <a href="/2015/12/30/CALayer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CALayer</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -286,7 +293,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Swift-二-基本运算符" data-title="Swift(二) 基本运算符" data-url="http://chengweny.github.io/2015/11/18/Swift-二-基本运算符/"></div>
+	<div class="ds-thread" data-thread-key="CALayer-Transform" data-title="CALayer Transform" data-url="http://chengweny.github.io/2015/12/30/CALayer-Transform/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

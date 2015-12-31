@@ -3,39 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Swift(二) 基本运算符 | 苑成文的blog</title>
+  <title>CALayer | 苑成文的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
-
-空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
-表达式a必须是Optional类型
-默认值b的类型必须要和a存储值的类型保持一致
-
-区间运算符a...b
-12345678for index in 1">
+  <meta name="description" content="CALayercontents属性为layer 添加图片 
+contentGravity相当于UIView的contentMode 属性
+contentsScale为1 代表每个点绘制1个像素，一般设为图片的scale。当contentGravity 属性为kCAGravityResizeAspect时不会产生影响
+contentsRect默认{0,0,1,1} 设置寄宿图的显示区域，其余区域会被">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift(二) 基本运算符">
-<meta property="og:url" content="http://chengweny.github.io/2015/11/18/Swift-二-基本运算符/index.html">
+<meta property="og:title" content="CALayer">
+<meta property="og:url" content="http://chengweny.github.io/2015/12/30/CALayer/index.html">
 <meta property="og:site_name" content="苑成文的blog">
-<meta property="og:description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
-
-空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
-表达式a必须是Optional类型
-默认值b的类型必须要和a存储值的类型保持一致
-
-区间运算符a...b
-12345678for index in 1">
-<meta property="og:updated_time" content="2015-11-18T13:21:33.000Z">
+<meta property="og:description" content="CALayercontents属性为layer 添加图片 
+contentGravity相当于UIView的contentMode 属性
+contentsScale为1 代表每个点绘制1个像素，一般设为图片的scale。当contentGravity 属性为kCAGravityResizeAspect时不会产生影响
+contentsRect默认{0,0,1,1} 设置寄宿图的显示区域，其余区域会被">
+<meta property="og:updated_time" content="2015-12-30T11:09:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift(二) 基本运算符">
-<meta name="twitter:description" content="基本运算符空合运算符（Nil Coalescing Operator）a??b = a != nil ? a! : b
-
-空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:
-表达式a必须是Optional类型
-默认值b的类型必须要和a存储值的类型保持一致
-
-区间运算符a...b
-12345678for index in 1">
+<meta name="twitter:title" content="CALayer">
+<meta name="twitter:description" content="CALayercontents属性为layer 添加图片 
+contentGravity相当于UIView的contentMode 属性
+contentsScale为1 代表每个点绘制1个像素，一般设为图片的scale。当contentGravity 属性为kCAGravityResizeAspect时不会产生影响
+contentsRect默认{0,0,1,1} 设置寄宿图的显示区域，其余区域会被">
   
     <link rel="alternative" href="/atom.xml" title="苑成文的blog" type="application/atom+xml">
   
@@ -187,11 +175,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Swift-二-基本运算符" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CALayer" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/18/Swift-二-基本运算符/" class="article-date">
-  	<time datetime="2015-11-18T04:03:06.000Z" itemprop="datePublished">2015-11-18</time>
+      <a href="/2015/12/30/CALayer/" class="article-date">
+  	<time datetime="2015-12-30T11:05:49.000Z" itemprop="datePublished">2015-12-30</time>
 </a>
     </div>
   
@@ -204,7 +192,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Swift(二) 基本运算符
+      CALayer
     </h1>
   
 
@@ -213,12 +201,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Swift/">Swift</a>
+	<a class="article-category-link" href="/categories/OC/">OC</a>
 	</div>
 
 
@@ -228,16 +216,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基本运算符">基本运算符</h2><h3 id="空合运算符（Nil_Coalescing_Operator）">空合运算符（Nil Coalescing Operator）</h3><p><code>a??b</code> = <code>a != nil ? a! : b</code></p>
+        <h2 id="CALayer">CALayer</h2><h3 id="contents属性">contents属性</h3><p>为<code>layer</code> 添加图片 </p>
+<h3 id="contentGravity">contentGravity</h3><p>相当于<code>UIView</code>的<code>contentMode</code> 属性</p>
+<h3 id="contentsScale">contentsScale</h3><p>为1 代表每个点绘制1个像素，一般设为图片的scale。当<code>contentGravity</code> 属性为kCAGravityResizeAspect时不会产生影响</p>
+<h3 id="contentsRect">contentsRect</h3><p>默认{0,0,1,1} 设置寄宿图的显示区域，其余区域会被剪裁</p>
+<h3 id="contentsCenter">contentsCenter</h3><p>设置拉伸区域,相当于UIImage的<code>resizableImageWithCapInsets:</code>方法的效果</p>
+<h3 id="CALayerDelegate">CALayerDelegate</h3><p><code>CALayerDelegate</code> CALayerDelegate是一个非正式协议，只是一个id类型的属性。</p>
+<p>需要被重绘时，CALayer会请求它的代理给他一个寄宿图来显示。它通过调用下面这个方法做到的:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayerCALayer</span> *)layer;</span><br></pre></td></tr></table></figure>
+<p>趁着这个机会，如果代理想直接设置contents属性的话，它就可以这么做，不然没有别的方法可以调用了。如果代理不实现-displayLayer:方法，CALayer就会转而尝试调用下面这个方法：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:</p>
-<p>表达式a必须是Optional类型</p>
-<p>默认值b的类型必须要和a存储值的类型保持一致</p>
+<p><code>UIView</code> 在创建它的宿主图层时，会自动把图层的delegate设置为它自己，并提供一个<code>-displayLayer:</code>的实现。</p>
 </blockquote>
-<h3 id="区间运算符">区间运算符</h3><p><code>a...b</code></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
-<h3 id="半开区间运算符">半开区间运算符</h3><p><code>a..&lt;b</code></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Anna"</span>, <span class="string">"Alex"</span>, <span class="string">"Brian"</span>, <span class="string">"Jack"</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="built_in">count</span> = names.<span class="built_in">count</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"第 <span class="subst">\(i + <span class="number">1</span>)</span> 个人叫 <span class="subst">\(names[i])</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第 1 个人叫 Anna</span></span><br><span class="line"><span class="comment">// 第 2 个人叫 Alex</span></span><br><span class="line"><span class="comment">// 第 3 个人叫 Brian</span></span><br><span class="line"><span class="comment">// 第 4 个人叫 Jack</span></span><br></pre></td></tr></table></figure>
+<h2 id="图层几何学">图层几何学</h2><h3 id="layout">layout</h3><p>UIView 与 CALayer 坐标 </p>
+<p>frame bounds center 属性仅仅是存取方法，改变他们实际上是在改变位于视图下方的CALayer的frame</p>
+<p>当对图层做变换时，如旋转或缩放，frame实际上代表了覆盖在图层旋转之后的整个轴对齐的矩形区域，frame和bounds的宽高可能不一致了</p>
+<h3 id="锚点（anchorPoint）">锚点（anchorPoint）</h3><p><code>anchorPoint</code> 默认为 {0.5, 0.5} 图层会以 <code>anchorPoint</code>所在的点的位置 为图层相对于视图的中心点的位置</p>
+<h2 id="视觉效果">视觉效果</h2><h3 id="阴影">阴影</h3><p><code>shadowOpacity</code> 透明度 0 ~ 1</p>
+<p><code>shadowOffset</code> 偏移量 {0, -3} x , y 轴</p>
+<p><code>shadowRadius</code> 属性控制着阴影的模糊度，当它的值是0的时候，阴影就和视图一样有一个非常确定的边界线。当值越来越大的时候，边界线看上去就会越来越模糊和自然。苹果自家的应用设计更偏向于自然的阴影，所以一个非零值再合适不过了。</p>
+<h3 id="阴影剪裁">阴影剪裁</h3><p>当图层使用<code>maskToBounds</code> 的时候，阴影会被剪裁，这时可以在外层添加一个不使用<code>maskToBounds</code>的空视图 来显示阴影</p>
+<h3 id="shadowPath">shadowPath</h3><p><code>CGPath</code> 指针 通过<code>shadowPath</code> 属性可以指定阴影的形状</p>
+<h3 id="图层模板（mask）">图层模板（mask）</h3><p><code>public var mask: CALayer?</code> <code>mask</code>属性是一个<code>CALayer</code> 变量，定义了图层的可见区域。</p>
+
       
     </div>
     
@@ -246,18 +248,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/18/Swift-三-函数/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/30/CALayer-Transform/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Swift(三) 函数
+          CALayer Transform
         
       </div>
     </a>
   
   
-    <a href="/2015/11/16/Swift-一-基础部分/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Swift(一) 基础部分</div>
+    <a href="/2015/11/22/Swift-十二-泛型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Swift(十二) 泛型</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -286,7 +288,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Swift-二-基本运算符" data-title="Swift(二) 基本运算符" data-url="http://chengweny.github.io/2015/11/18/Swift-二-基本运算符/"></div>
+	<div class="ds-thread" data-thread-key="CALayer" data-title="CALayer" data-url="http://chengweny.github.io/2015/12/30/CALayer/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

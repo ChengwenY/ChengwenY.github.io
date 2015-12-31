@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>苑成文的Blog</title>
+  <title>苑成文的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="One Coder">
 <meta property="og:type" content="website">
-<meta property="og:title" content="苑成文的Blog">
+<meta property="og:title" content="苑成文的blog">
 <meta property="og:url" content="http://chengweny.github.io/page/2/index.html">
-<meta property="og:site_name" content="苑成文的Blog">
-<meta property="og:description">
+<meta property="og:site_name" content="苑成文的blog">
+<meta property="og:description" content="One Coder">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苑成文的Blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="苑成文的blog">
+<meta name="twitter:description" content="One Coder">
   
-    <link rel="alternative" href="/atom.xml" title="苑成文的Blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="苑成文的blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,8 +38,6 @@
 		  <h1 class="header-author"><a href="/">苑成文</a></h1>
 		</hgroup>
 
-		
-		<p class="header-subtitle">Write The Code.</p>
 		
 
 		
@@ -107,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Swift/" style="font-size: 20px;">Swift</a> <a href="/tags/刨根问底/" style="font-size: 10px;">刨根问底</a> <a href="/tags/基本知识/" style="font-size: 10px;">基本知识</a> <a href="/tags/基础知识/" style="font-size: 15px;">基础知识</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/CALayer/" style="font-size: 13.33px;">CALayer</a> <a href="/tags/Responder-Chain/" style="font-size: 10px;">Responder Chain</a> <a href="/tags/Swift/" style="font-size: 16.67px;">Swift</a> <a href="/tags/刨根问底/" style="font-size: 13.33px;">刨根问底</a> <a href="/tags/基本知识/" style="font-size: 10px;">基本知识</a> <a href="/tags/基础知识/" style="font-size: 20px;">基础知识</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -141,8 +139,6 @@
 			  <h1 class="header-author">苑成文</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">Write The Code.</p>
-			
 			<nav class="header-menu">
 				<ul>
 				
@@ -170,6 +166,262 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Swift-五-枚举" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/19/Swift-五-枚举/" class="article-date">
+  	<time datetime="2015-11-19T14:20:24.000Z" itemprop="datePublished">2015-11-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/19/Swift-五-枚举/">Swift(五) 枚举</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="枚举">枚举</h2><h3 id="Swift中枚举特点">Swift中枚举特点</h3><blockquote>
+<p>枚举类型是一等公民（first-class），在 C 语言中枚举将枚举名和一个整型值相对应。Swift 中的枚举更加灵活，不必给每一个枚举成员提供一个值。如果给枚举成员提供一个值（称为“原始”值），则该值的类型可以是字符串，字符，或是一个整型值或浮点数。</p>
+<p>枚举枚举支持计算属性，可以定义构造函数，可以遵守协议，可以扩展。</p>
+</blockquote>
+<h3 id="枚举语法">枚举语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认不为 0，1，2...</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">North</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">South</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">East</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">West</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个成员值可以在同一行上</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Mercury</span>, <span class="type">Venus</span>, <span class="type">Earth</span>, <span class="type">Mars</span>, <span class="type">Jupiter</span>, <span class="type">Saturn</span>, <span class="type">Uranus</span>, <span class="type">Neptune</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="type">North</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">South</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">West</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">East</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> directionToHead = <span class="type">CompassPoint</span>.<span class="type">North</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(directionToHead)</span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br><span class="line">directionToHead = .<span class="type">West</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在通过switch判断枚举类型时 ，必须穷举出所有情况, </span></span><br><span class="line"><span class="comment">//当不需要匹配每个枚举成员的时候，你可以提供一个默认default分支来涵盖所有未明确被提出的枚举成员：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> directionToHead &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> .<span class="type">North</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"north"</span>)</span><br><span class="line">    <span class="keyword">case</span> .<span class="type">South</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"south"</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"default"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关联值（Associated_Values）">关联值（Associated Values）</h3><blockquote>
+<p>相当于枚举成员可以存储值</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//条形码</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Barcode</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="type">UPCA</span>(<span class="type">Int</span>, <span class="type">Int</span>, <span class="type">Int</span>, <span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">QRCode</span>(<span class="type">String</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> productBarcode = <span class="type">Barcode</span>.<span class="type">UPCA</span>(<span class="number">8</span>, <span class="number">8599</span>, <span class="number">51226</span>, <span class="number">3</span>)</span><br><span class="line">productBarcode = <span class="type">Barcode</span>.<span class="type">QRCode</span>(<span class="string">"ABCDEFGHIJ"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> productBarcode &#123;</span><br><span class="line">    <span class="keyword">case</span> .<span class="type">UPCA</span>(<span class="keyword">let</span> numberSystem, <span class="keyword">let</span> manufacturer, <span class="keyword">let</span> product, <span class="keyword">let</span> check):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"UPC-A: <span class="subst">\(numberSystem)</span>, <span class="subst">\(manufacturer)</span>, <span class="subst">\(product)</span>, <span class="subst">\(check)</span>."</span>)</span><br><span class="line">    <span class="keyword">case</span> .<span class="type">QRCode</span>(<span class="keyword">let</span> productCode):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"QR code: <span class="subst">\(productCode)</span>."</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="原始值">原始值</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ASCIIControlCharacter</span>: <span class="title">Character</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Tab</span> = <span class="string">"\t"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">LineFeed</span> = <span class="string">"\n"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">CarriageReturn</span> = <span class="string">"\r"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原始值始终不变， 关联值是可以变化的。</p>
+</blockquote>
+<h3 id="原始值的隐藏赋值">原始值的隐藏赋值</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Planet</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Mercury</span> = <span class="number">1</span>, <span class="type">Venus</span>, <span class="type">Earth</span>, <span class="type">Mars</span>, <span class="type">Jupiter</span>, <span class="type">Saturn</span>, <span class="type">Uranus</span>, <span class="type">Neptune</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">CompassPoint</span>: <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">North</span>, <span class="type">South</span>, <span class="type">East</span>, <span class="type">West</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//CompassPoint.South拥有隐式原始值South</span></span><br><span class="line"><span class="keyword">let</span> earthsOrder = <span class="type">Planet</span>.<span class="type">Earth</span>.rawValue</span><br><span class="line"><span class="comment">// earthsOrder 值为 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sunsetDirection = <span class="type">CompassPoint</span>.<span class="type">West</span>.rawValue</span><br><span class="line"><span class="comment">// sunsetDirection 值为 "West"</span></span><br></pre></td></tr></table></figure>
+<h3 id="递归枚举">递归枚举</h3><blockquote>
+<p>递归枚举（recursive enumeration）是一种枚举类型，它有一个或多个枚举成员使用该枚举类型的实例作为<strong>关联值</strong>。使用递归枚举时，编译器会插入一个间接层。你可以在枚举成员前加上indirect来表示该成员可递归。<strong>也可以在枚举类型的开头加上<code>indirect</code>关键字来表明所有成员都可以递归</strong></p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//见Xcode</span></span><br><span class="line">indirect <span class="class"><span class="keyword">enum</span> <span class="title">ArithmeticExpression</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Number</span>(<span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Addition</span>(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Multiplication</span>(<span class="type">ArithmeticExpression</span>, <span class="type">ArithmeticExpression</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">evaluate</span><span class="params">(expression: ArithmeticExpression)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> expression &#123;</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Number</span>(<span class="keyword">let</span> value):</span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Addition</span>(<span class="keyword">let</span> <span class="keyword">left</span>, <span class="keyword">let</span> <span class="keyword">right</span>):</span><br><span class="line">            <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) + evaluate(<span class="keyword">right</span>)</span><br><span class="line">        <span class="keyword">case</span> .<span class="type">Multiplication</span>(<span class="keyword">let</span> <span class="keyword">left</span>, <span class="keyword">let</span> <span class="keyword">right</span>):</span><br><span class="line">            <span class="keyword">return</span> evaluate(<span class="keyword">left</span>) * evaluate(<span class="keyword">right</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算 (5 + 4) * 2</span></span><br><span class="line"><span class="keyword">let</span> five = <span class="type">ArithmeticExpression</span>.<span class="type">Number</span>(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">let</span> four = <span class="type">ArithmeticExpression</span>.<span class="type">Number</span>(<span class="number">4</span>)</span><br><span class="line"><span class="keyword">let</span> sum = <span class="type">ArithmeticExpression</span>.<span class="type">Addition</span>(five, four)</span><br><span class="line"><span class="keyword">let</span> product = <span class="type">ArithmeticExpression</span>.<span class="type">Multiplication</span>(sum, <span class="type">ArithmeticExpression</span>.<span class="type">Number</span>(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(evaluate(product))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Swift/">Swift</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Swift-四-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/18/Swift-四-闭包/" class="article-date">
+  	<time datetime="2015-11-18T13:17:17.000Z" itemprop="datePublished">2015-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/18/Swift-四-闭包/">Swift(四) 闭包</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="闭包">闭包</h2><h3 id="表达式">表达式</h3><p><code>{(params) -&gt; returnType in statements}</code></p>
+<p><strong>Sort 方法</strong></p>
+<p>见 Xcode</p>
+<h3 id="尾随闭包">尾随闭包</h3><blockquote>
+<p>尾随闭包 - 是一个书写在函数括号之后的闭包表达式 如果只需要一个闭包参数 可以将 <code>()</code> 省略</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">someFunctionThatTakesAClosure</span><span class="params">(closure: <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line"><span class="comment">// 函数体部分</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下是不使用尾随闭包进行函数调用</span></span><br><span class="line">someFunctionThatTakesAClosure(&#123;</span><br><span class="line"><span class="comment">// 闭包主体部分</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下是使用尾随闭包进行函数调用</span></span><br><span class="line">someFunctionThatTakesAClosure() &#123;</span><br><span class="line"><span class="comment">// 闭包主体部分</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="非逃逸闭包(Nonescaping_Closures)">非逃逸闭包(Nonescaping Closures)</h3><blockquote>
+<p>当一个闭包作为参数传到一个函数中，但是这个闭包在函数返回之后才被执行，我们称该闭包从函数中逃逸。</p>
+<p>当你定义接受闭包作为参数的函数时，你可以在参数名之前标注<code>@noescape</code>，用来指明这个闭包是不允许“逃逸”出这个函数的。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">someFunctionWithNoescapeClosure</span><span class="params">(@noescape closure: <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    closure()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> completionHandlers: [() -&gt; <span class="type">Void</span>] = []</span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">someFunctionWithEscapingClosure</span><span class="params">(completionHandler: <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    completionHandlers.append(completionHandler)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">10</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">()</span></span> &#123;</span><br><span class="line">        someFunctionWithEscapingClosure &#123; <span class="keyword">self</span>.x = <span class="number">100</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用 @noescape 使你能在闭包中隐式地引用self</span></span><br><span class="line">        someFunctionWithNoescapeClosure &#123; x = <span class="number">200</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = <span class="type">SomeClass</span>()</span><br><span class="line">instance.doSomething()</span><br><span class="line"><span class="built_in">print</span>(instance.x)</span><br><span class="line"><span class="comment">// prints "200"</span></span><br><span class="line"></span><br><span class="line">completionHandlers.first?()</span><br><span class="line"><span class="built_in">print</span>(instance.x)</span><br></pre></td></tr></table></figure>
+<h3 id="自动闭包（Autoclosures）">自动闭包（Autoclosures）</h3><blockquote>
+<p>自动闭包是一种自动创建的闭包，用于包装传递给函数作为参数的表达式。这种闭包不接受任何参数，当它被调用的时候，会返回被包装在其中的表达式的值。这种便利语法让你能够用一个普通的表达式来代替显式的闭包，从而省略闭包的花括号。</p>
+<p>自动闭包暗含了<code>@noescape</code>特性，如果你想让这个闭包可以“逃逸”，则应该使用@autoclosure(escaping)特性.</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// customersInLine is ["Ewa", "Barry", "Daniella"]</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">serveCustomer</span><span class="params">(@autoclosure customerProvider: <span class="params">()</span></span></span> -&gt; <span class="type">String</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Now serving <span class="subst">\(customerProvider()</span>)!"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// （自动闭包）调用方法</span></span><br><span class="line">serveCustomer(customersInLine.removeAtIndex(<span class="number">0</span>))</span><br><span class="line"><span class="comment">// prints "Now serving Ewa!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// (正常)调用方法</span></span><br><span class="line">serveCustomer( &#123; customersInLine.removeAtIndex(<span class="number">0</span>) &#125; )</span><br></pre></td></tr></table></figure>
+<h3 id="捕获值">捕获值</h3><blockquote>
+<p>闭包中对任何其他元素的引用都是会被闭包自动持有的</p>
+<p>为了优化，如果一个值是不可变的，Swift 可能会改为捕获并保存一份对值的拷贝。</p>
+<p>Swift 也会负责被捕获变量的所有内存管理工作，包括释放不再需要的变量。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">makeIncrementor</span><span class="params">(forIncrement amount: Int)</span></span> -&gt; () -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> runningTotal = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 嵌套函数是最简单的闭包形式</span></span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">incrementor</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在嵌套函数中可以使用外部函数的变量 是因为捕捉了变量的引用</span></span><br><span class="line">        runningTotal += amount</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> runningTotal</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> incrementor</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> incrementByTen = makeIncrementor(forIncrement: <span class="number">10</span>)</span><br><span class="line"><span class="comment">//runningTotal 变量的作用域已经消失，但是返回值还在增加</span></span><br><span class="line"><span class="built_in">print</span>(incrementByTen())</span><br><span class="line"><span class="built_in">print</span>(incrementByTen())</span><br></pre></td></tr></table></figure>
+<h3 id="循环引用">循环引用</h3><blockquote>
+<p><strong><code>weak</code></strong></p>
+<p>当所引用的对象被释放后，被标记为weak的变量会自动变成nil （被标记为@weak 的变量一定需要是Optional值）</p>
+<p><strong><code>unowned</code></strong></p>
+<p>设置以后即使它原来引用的内容已经被释放了，它仍然会保持对被已经释放了的对象的一个 “无效的” 引用，它不能是 Optional 值</p>
+</blockquote>
+<p>见Xcode</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基本知识/">基本知识</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Swift/">Swift</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Swift-三-函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/18/Swift-三-函数/" class="article-date">
+  	<time datetime="2015-11-18T08:06:08.000Z" itemprop="datePublished">2015-11-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/18/Swift-三-函数/">Swift(三) 函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数">函数</h2><p><code>func funcName(parameters) -&gt; returnType</code></p>
+<h3 id="函数定义">函数定义</h3><p><strong>无参数无返回值</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>多参函数</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName: String)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(personName)</span> say hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可变参数</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(names: String...)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span> say hello"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>参数名</strong></p>
+<blockquote>
+<p>函数参数都有一个外部参数名（external parameter name）和一个局部参数名（local parameter name）。</p>
+<p>外部参数名用于在函数调用时标注传递给函数的参数，局部参数名在函数的实现内部使用。</p>
+<p>一般情况下，第一个参数省略其外部参数名，第二个以及随后的参数使用其局部参数名作为外部参数名</p>
+</blockquote>
+<ul>
+<li>函数参数名称</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName: String, withFriend friend: String)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(personName)</span> say hello with friend <span class="subst">\(friend)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数调用</span></span><br><span class="line">sayHello(<span class="string">"小明"</span>, withFriend: <span class="string">"小红"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>指定外部参数名称</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(to person: String, and anotherPerson: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Hello <span class="subst">\(person)</span> and <span class="subst">\(anotherPerson)</span>!"</span>)</span><br><span class="line">&#125;</span><br><span class="line">sayHello(to: <span class="string">"Bill"</span>, and: <span class="string">"Ted"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>忽略外部参数名 用<code>_</code>替代一个明确的参数名</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">(personName: String, <span class="number">_</span> friend: String)</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(personName)</span> say hello with friend <span class="subst">\(friend)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数调用</span></span><br><span class="line">sayHello(<span class="string">"小明"</span>, <span class="string">"小红"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>默认参数值</strong></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">someFunction</span><span class="params">(parameterWithDefault: Int = <span class="number">12</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">someFunction(<span class="number">6</span>) <span class="comment">// parameterWithDefault is 6</span></span><br><span class="line">someFunction() <span class="comment">// parameterWithDefault is 12</span></span><br></pre></td></tr></table></figure>
+<h3 id="常量参数和变量参数">常量参数和变量参数</h3><blockquote>
+<p>函数参数默认是常量。试图在函数体中更改参数值将会导致编译错误</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果不声明为变量参数 将不可修改参数值</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">incrementor</span><span class="params">(<span class="keyword">var</span> variable: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ++variable</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输入输出参数(In-Out_Parameters)">输入输出参数(In-Out Parameters)</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> luckyNumber = <span class="number">7</span></span><br><span class="line"></span><br><span class="line">incrementor(luckyNumber)	<span class="comment">//8</span></span><br><span class="line"></span><br><span class="line">luckyNumber <span class="comment">// 7 说明var 只是在方法内部作用  不会影响输入的值 </span></span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">incrementor</span><span class="params">(<span class="keyword">inout</span> variable: Int)</span></span> &#123;</span><br><span class="line">    ++variable</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">incrementor(&amp;luckyNumber) <span class="comment">//8</span></span><br><span class="line"></span><br><span class="line">luckyNumber <span class="comment">//8</span></span><br></pre></td></tr></table></figure>
+<h3 id="函数类型">函数类型</h3><blockquote>
+<p>每个函数都有种特定的函数类型，由函数的参数类型和返回类型组成。</p>
+</blockquote>
+<h3 id="嵌套函数">嵌套函数</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础知识/">基础知识</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Swift/">Swift</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Swift-二-基本运算符" class="article article-type-post" itemscope itemprop="blogPost">
   
