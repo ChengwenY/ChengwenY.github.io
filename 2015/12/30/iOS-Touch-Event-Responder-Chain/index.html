@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,42 +63,42 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Responder Chain,刨根问底," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Responder Chain,刨根问底,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）
-一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta name="description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机） 一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta name="keywords" content="Responder Chain,刨根问底">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS Touch Event & Responder Chain">
+<meta property="og:title" content="iOS Touch Event &amp; Responder Chain">
 <meta property="og:url" content="http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/index.html">
 <meta property="og:site_name" content="成文的blog">
-<meta property="og:description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）
-一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta property="og:description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机） 一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cl.ly/2q1x041n3S3n/hit-test.png">
 <meta property="og:image" content="http://cl.ly/2y343m2B212X/responder%20chain.png">
 <meta property="og:updated_time" content="2015-12-30T11:11:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS Touch Event & Responder Chain">
-<meta name="twitter:description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）
-一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta name="twitter:title" content="iOS Touch Event &amp; Responder Chain">
+<meta name="twitter:description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机） 一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta name="twitter:image" content="http://cl.ly/2q1x041n3S3n/hit-test.png">
 
 
 
@@ -145,7 +145,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">成文的blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -172,7 +172,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -182,7 +182,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -192,7 +192,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -202,7 +202,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -264,7 +264,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -294,6 +294,11 @@
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
         </div>
       </header>
     
@@ -307,17 +312,17 @@
       
         <h2 id="The_Responder_Chain">The Responder Chain</h2><p>Event 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）</p>
 <p>一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。<br>一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。<br>application单例对象从queue的顶部取出一个事件并分发出去。通常它把这个事件发送给app的keyWindow。keywindow 会把event传递给一个实例对象去处理。这个实例对象取决于这个事件的类型。</p>
-<h3 id="Gesture_Recognizers">Gesture Recognizers</h3><p>gesture recognizers 与UIView 不在一个层级中，所以不参加事件的响应链。系统在将事件发送给hit-test view 之前，系统会先将触摸事件发送到hit-test view上绑定的或hit-test view父视图(superview)上绑定的Gesture Recognizers上。<a href="http://www.cnblogs.com/Camier-myNiuer/p/3295670.html" target="_blank" rel="external">看这里</a></p>
+<h3 id="Gesture_Recognizers">Gesture Recognizers</h3><p>gesture recognizers 与UIView 不在一个层级中，所以不参加事件的响应链。系统在将事件发送给hit-test view 之前，系统会先将触摸事件发送到hit-test view上绑定的或hit-test view父视图(superview)上绑定的Gesture Recognizers上。<a href="http://www.cnblogs.com/Camier-myNiuer/p/3295670.html" target="_blank" rel="noopener">看这里</a></p>
 <h3 id="Hit-Testing">Hit-Testing</h3><p>iOS 通过 hit-testing 来发现touch事件下的view，Hit-testing 需要检测touch是否在任何一个有关联的View的bounds内，如果在，就会递归检测这个view的所有的子view，view层级中包含这个touch point的最低级的那个view就是 hit-test view。在iOS决定这个 hit-test view 之后，它会将这个touch 事件传递给这个view去处理。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">hitTest</span><span class="params">(point: CGPoint, withEvent event: UIEvent?)</span></span> -&gt; <span class="type">UIView</span>? &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> !<span class="keyword">self</span>.userInteractionEnabled || <span class="keyword">self</span>.hidden || <span class="keyword">self</span>.alpha &lt;= <span class="number">0.01</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">self</span>.pointInside(point, withEvent: event) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> view: <span class="type">UIView</span> <span class="keyword">in</span> <span class="keyword">self</span>.subviews &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> covertPoint = view.convertPoint(point, fromView: <span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> hitTestView: <span class="type">UIView</span>? = view.hitTest(covertPoint, withEvent: event)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> hitTestView != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">return</span> hitTestView</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">hitTest</span><span class="params">(point: CGPoint, withEvent event: UIEvent?)</span></span> -&gt; <span class="type">UIView?</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> !<span class="keyword">self</span>.userInteractionEnabled || <span class="keyword">self</span>.hidden || <span class="keyword">self</span>.alpha &lt;= <span class="number">0.01</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">self</span>.pointInside(point, withEvent: event) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> view: <span class="type">UIView</span> <span class="keyword">in</span> <span class="keyword">self</span>.subviews &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> covertPoint = view.convertPoint(point, fromView: <span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> hitTestView: <span class="type">UIView?</span> = view.hitTest(covertPoint, withEvent: event)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> hitTestView != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">return</span> hitTestView</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="The_Responder_Chain_Is_Made_Up_of_Responder_Objects">The Responder Chain Is Made Up of Responder Objects</h3><p>许多类型的事件依赖于响应链去分发事件。响应链是一系列的responder 对象。开始于first responder,结束于application对象。如果first responder 不能处理事件，它把事件传递给响应链中的next responder。</p>
 <p>responder object 能够响应和处理事件，所有的view和大多数的controller都是responder ，注意layer不可以接收事件</p>
 <h3 id="一个点击事件处理的过程。">一个点击事件处理的过程。</h3><p>application 取出touch event事件 调用 [hitTest: withEvent:] 方法 返回inital object 如果当前application 没有忽略触摸事件 <code>isIgnoringInteractionEvents</code> application 调用<code>sendEvent:</code> -&gt; <code>keyWindow sendEvent:</code>  如果hit-Test view 实现了以下方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">touchesMoved</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">touchesCancelled</span><span class="params">(touches: Set&lt;UITouch&gt;?, withEvent event: UIEvent?)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesMoved</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesCancelled</span><span class="params">(touches: Set&lt;UITouch&gt;?, withEvent event: UIEvent?)</span></span></span><br></pre></td></tr></table></figure>
 <p>hit-test view 就会处理这个event， 如果hit-test view 没响应这个事件，会把这个event交给响应链来处理， 直到传递给application，仍然没人响应这个事件的话就扔掉这个事件。</p>
 <p>以下为通过time profile 观察的方法调用</p>
 <p><img src="http://cl.ly/2q1x041n3S3n/hit-test.png" alt="hit-test"></p>
-<p><img src="http://cl.ly/2y343m2B212X/responder%20chain.png" alt=""></p>
+<p><img src="http://cl.ly/2y343m2B212X/responder%20chain.png" alt></p>
 
       
     </div>
@@ -357,6 +362,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/06/test/" rel="prev" title="test">
+                test <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -404,7 +413,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -415,16 +424,14 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="CWY" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="CWY">
           <p class="site-author-name" itemprop="name">CWY</p>
           <p class="site-description motion-element" itemprop="description">Easy to say Hard to do.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -486,10 +493,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -508,6 +515,22 @@
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>

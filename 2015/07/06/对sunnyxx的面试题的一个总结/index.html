@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,45 +63,42 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="刨根问底,面试," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="刨根问底,面试,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="@property 后面可以有哪些修饰符？
-什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。
-怎么用 copy 关键字？实现&amp;lt;N">
+<meta name="description" content="@property 后面可以有哪些修饰符？ 什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。 怎么用 copy 关键字？实现&amp;lt;">
+<meta name="keywords" content="刨根问底,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对sunnyxx的面试题的一个总结">
 <meta property="og:url" content="http://chengweny.github.io/2015/07/06/对sunnyxx的面试题的一个总结/index.html">
 <meta property="og:site_name" content="成文的blog">
-<meta property="og:description" content="@property 后面可以有哪些修饰符？
-什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。
-怎么用 copy 关键字？实现&amp;lt;N">
+<meta property="og:description" content="@property 后面可以有哪些修饰符？ 什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。 怎么用 copy 关键字？实现&amp;lt;">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/696ec57djw1ett7iidatuj20ky0a0gmx.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/696ec57djw1ett7j6khb1j20kw09wt9w.jpg">
 <meta property="og:updated_time" content="2015-07-11T16:10:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对sunnyxx的面试题的一个总结">
-<meta name="twitter:description" content="@property 后面可以有哪些修饰符？
-什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。
-怎么用 copy 关键字？实现&amp;lt;N">
+<meta name="twitter:description" content="@property 后面可以有哪些修饰符？ 什么情况使用 weak 关键字，相比 assign 有什么不同？声明 delegate 时，或弱引用对象的时候用weak。assign一般用于声明基本数据类型和结构体，如int CGFloat 等。weak指针指向一个对象时，如果对象被释放，指针指向nil。assign指针不会自动指向nil，会变为一个悬挂指针。 怎么用 copy 关键字？实现&amp;lt;">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/696ec57djw1ett7iidatuj20ky0a0gmx.jpg">
 
 
 
@@ -148,7 +145,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">成文的blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -175,7 +172,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -185,7 +182,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -195,7 +192,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -205,7 +202,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -267,7 +264,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -296,6 +293,11 @@
           
           
 
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
           
         </div>
       </header>
@@ -409,7 +411,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -420,16 +422,14 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="CWY" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="CWY">
           <p class="site-author-name" itemprop="name">CWY</p>
           <p class="site-description motion-element" itemprop="description">Easy to say Hard to do.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -491,10 +491,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -513,6 +513,22 @@
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>

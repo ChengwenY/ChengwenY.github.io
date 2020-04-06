@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,52 +63,39 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Swift,基础知识," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="基础知识,Swift,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="构造方法（Initialization）
-Swift 中构造方法无需返回值，系统默认实现返回self。
-Swift初始化方法需要保证类型的所有属性都被初始化
-
-123init() &amp;#123;    // 在此处执行构造过程&amp;#125;
-构造参数12345678910111213struct Celsius &amp;#123;    var temperatureInCelsius: Double">
+<meta name="description" content="构造方法（Initialization） Swift 中构造方法无需返回值，系统默认实现返回self。   Swift初始化方法需要保证类型的所有属性都被初始化  123init() &amp;#123;    // 在此处执行构造过程&amp;#125; 构造参数12345678910111213struct Celsius &amp;#123;    var temperatureInCelsius: Double">
+<meta name="keywords" content="基础知识,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift(九) 构造方法/析构方法">
+<meta property="og:title" content="Swift(九) 构造方法&#x2F;析构方法">
 <meta property="og:url" content="http://chengweny.github.io/2015/11/20/Swift-九-构造方法-析构方法/index.html">
 <meta property="og:site_name" content="成文的blog">
-<meta property="og:description" content="构造方法（Initialization）
-Swift 中构造方法无需返回值，系统默认实现返回self。
-Swift初始化方法需要保证类型的所有属性都被初始化
-
-123init() &amp;#123;    // 在此处执行构造过程&amp;#125;
-构造参数12345678910111213struct Celsius &amp;#123;    var temperatureInCelsius: Double">
+<meta property="og:description" content="构造方法（Initialization） Swift 中构造方法无需返回值，系统默认实现返回self。   Swift初始化方法需要保证类型的所有属性都被初始化  123init() &amp;#123;    // 在此处执行构造过程&amp;#125; 构造参数12345678910111213struct Celsius &amp;#123;    var temperatureInCelsius: Double">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-11-20T08:39:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift(九) 构造方法/析构方法">
-<meta name="twitter:description" content="构造方法（Initialization）
-Swift 中构造方法无需返回值，系统默认实现返回self。
-Swift初始化方法需要保证类型的所有属性都被初始化
-
-123init() &amp;#123;    // 在此处执行构造过程&amp;#125;
-构造参数12345678910111213struct Celsius &amp;#123;    var temperatureInCelsius: Double">
+<meta name="twitter:title" content="Swift(九) 构造方法&#x2F;析构方法">
+<meta name="twitter:description" content="构造方法（Initialization） Swift 中构造方法无需返回值，系统默认实现返回self。   Swift初始化方法需要保证类型的所有属性都被初始化  123init() &amp;#123;    // 在此处执行构造过程&amp;#125; 构造参数12345678910111213struct Celsius &amp;#123;    var temperatureInCelsius: Double">
 
 
 
@@ -155,7 +142,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">成文的blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -182,7 +169,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -192,7 +179,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -202,7 +189,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -212,7 +199,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -274,7 +261,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -304,6 +291,11 @@ Swift初始化方法需要保证类型的所有属性都被初始化
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
         </div>
       </header>
     
@@ -317,6 +309,8 @@ Swift初始化方法需要保证类型的所有属性都被初始化
       
         <h2 id="构造方法（Initialization）">构造方法（Initialization）</h2><blockquote>
 <p>Swift 中构造方法无需返回值，系统默认实现返回self。</p>
+</blockquote>
+<blockquote>
 <p>Swift初始化方法需要保证类型的所有属性都被初始化</p>
 </blockquote>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>() &#123;</span><br><span class="line">    <span class="comment">// 在此处执行构造过程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -324,20 +318,24 @@ Swift初始化方法需要保证类型的所有属性都被初始化
 <h3 id="可选属性类型">可选属性类型</h3><blockquote>
 <p>可选类型在声明的时候默认为nil</p>
 </blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SurveyQuestion</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> text: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> response: <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">init</span>(text: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.text = text</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">ask</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(text)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> cheeseQuestion = <span class="type">SurveyQuestion</span>(text: <span class="string">"Do you like cheese?"</span>)</span><br><span class="line">cheeseQuestion.ask()</span><br><span class="line"><span class="comment">// 输出 "Do you like cheese?"</span></span><br><span class="line">cheeseQuestion.response = <span class="string">"Yes, I do like cheese."</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SurveyQuestion</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> text: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> response: <span class="type">String?</span></span><br><span class="line">    <span class="keyword">init</span>(text: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.text = text</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">ask</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(text)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> cheeseQuestion = <span class="type">SurveyQuestion</span>(text: <span class="string">"Do you like cheese?"</span>)</span><br><span class="line">cheeseQuestion.ask()</span><br><span class="line"><span class="comment">// 输出 "Do you like cheese?"</span></span><br><span class="line">cheeseQuestion.response = <span class="string">"Yes, I do like cheese."</span></span><br></pre></td></tr></table></figure>
 <h3 id="构造过程中常量属性的修改">构造过程中常量属性的修改</h3><blockquote>
 <p>可以在构造函数中修改常量属性的值，一旦赋值，将不可更改</p>
 </blockquote>
 <h3 id="默认构造器">默认构造器</h3><h3 id="结构体的逐一成员构造器">结构体的逐一成员构造器</h3><h3 id="值类型的构造器代理">值类型的构造器代理</h3><blockquote>
 <p>构造器可以通过调用其它构造器来完成实例的部分构造过程。这一过程称为构造器代理，它能减少多个构造器间的代码重复。</p>
+</blockquote>
+<blockquote>
 <p>如果为值类型构造器自定义了一个构造器，将不能使用默认构造器（结构体将不能使用逐一构造器）</p>
+</blockquote>
+<blockquote>
 <p>如果想使用？把自定义构造器写在扩展中。</p>
 </blockquote>
 <h3 id="类的继承和构造过程">类的继承和构造过程</h3><blockquote>
 <p>子类完成初始化必须调用父类初始化方法</p>
 </blockquote>
 <h3 id="指定构造器和便利构造器">指定构造器和便利构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>(parameters) &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">convenience <span class="keyword">init</span>(parameters) &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">convenience</span> <span class="keyword">init</span>(parameters) &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="类的构造器代理规则">类的构造器代理规则</h3><ul>
 <li><p>指定构造器必须向上代理</p>
 </li>
@@ -350,10 +348,12 @@ Swift初始化方法需要保证类型的所有属性都被初始化
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        name = <span class="string">"cat"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span>: <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> power: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        power = <span class="number">10</span> <span class="comment">// 1. 设置子类自己需要初始化的参数</span></span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>() <span class="comment">// 2. 调用父类初始化方法</span></span><br><span class="line">        name = <span class="string">"tiger"</span> <span class="comment">// 3. 对父类需要改变的成员赋值 如果不需要改变的话 就不需要2.3 部 swift会自动调用父类init方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="可失败构造器">可失败构造器</h3><blockquote>
 <p>类、结构体、枚举在构造过程中可能失败，如传入参数不符合要求。</p>
+</blockquote>
+<blockquote>
 <p>为了处理这种构造过程中可能出现的失败的情况，可以在类、结构体、枚举中添加一个或多个可失败的构造器，<code>init?</code></p>
 </blockquote>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> species: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>?(species: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> species.isEmpty &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125; <span class="comment">// return nil 表明构造失败</span></span><br><span class="line">        <span class="keyword">self</span>.species = species</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="必要构造器">必要构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    required <span class="keyword">init</span>() &#123;</span><br><span class="line">    <span class="comment">// 构造器的实现代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeSubclass</span>: <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不需要写override</span></span><br><span class="line">    required <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="comment">// 构造器的实现代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="必要构造器">必要构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">    <span class="comment">// 构造器的实现代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeSubclass</span>: <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不需要写override</span></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="comment">// 构造器的实现代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -374,9 +374,9 @@ Swift初始化方法需要保证类型的所有属性都被初始化
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag">#Swift</a>
-          
             <a href="/tags/基础知识/" rel="tag">#基础知识</a>
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
           
         </div>
       
@@ -443,7 +443,7 @@ Swift初始化方法需要保证类型的所有属性都被初始化
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -454,16 +454,14 @@ Swift初始化方法需要保证类型的所有属性都被初始化
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="CWY" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="CWY">
           <p class="site-author-name" itemprop="name">CWY</p>
           <p class="site-description motion-element" itemprop="description">Easy to say Hard to do.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -525,10 +523,10 @@ Swift初始化方法需要保证类型的所有属性都被初始化
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -547,6 +545,22 @@ Swift初始化方法需要保证类型的所有属性都被初始化
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>

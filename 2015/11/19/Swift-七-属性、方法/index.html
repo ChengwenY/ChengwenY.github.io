@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,55 +63,39 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Swift,基础知识," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="基础知识,Swift,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
 
 
 
 
 
 
-<meta name="description" content="属性存储属性
-定义 
-一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量
-
-见Xcode
-mutating
-“Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods.”">
+<meta name="description" content="属性存储属性 定义    一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量  见Xcode mutating “Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods">
+<meta name="keywords" content="基础知识,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift (七) 属性、方法">
 <meta property="og:url" content="http://chengweny.github.io/2015/11/19/Swift-七-属性、方法/index.html">
 <meta property="og:site_name" content="成文的blog">
-<meta property="og:description" content="属性存储属性
-定义 
-一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量
-
-见Xcode
-mutating
-“Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods.”">
+<meta property="og:description" content="属性存储属性 定义    一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量  见Xcode mutating “Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-11-19T14:26:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift (七) 属性、方法">
-<meta name="twitter:description" content="属性存储属性
-定义 
-一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量
-
-见Xcode
-mutating
-“Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods.”">
+<meta name="twitter:description" content="属性存储属性 定义    一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量  见Xcode mutating “Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods">
 
 
 
@@ -158,7 +142,7 @@ mutating
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">成文的blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -185,7 +169,7 @@ mutating
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -195,7 +179,7 @@ mutating
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -205,7 +189,7 @@ mutating
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -215,7 +199,7 @@ mutating
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -277,7 +261,7 @@ mutating
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -307,6 +291,11 @@ mutating
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+          
         </div>
       </header>
     
@@ -320,16 +309,24 @@ mutating
       
         <h2 id="属性">属性</h2><h3 id="存储属性">存储属性</h3><blockquote>
 <p>定义 </p>
+</blockquote>
+<blockquote>
 <p>一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量</p>
 </blockquote>
 <p>见Xcode</p>
 <h3 id="mutating">mutating</h3><blockquote>
 <p>“Structures and enumerations are value types.<br>By default, the properties of a value type cannot be modified from within its instance methods.”</p>
+</blockquote>
+<blockquote>
 <p>结构体和枚举是值类型。一般情况下，值类型的属性不能在它的实例方法中被修改。</p>
 </blockquote>
 <h3 id="延迟存储属性">延迟存储属性</h3><blockquote>
 <p>相当于OC 的懒加载</p>
+</blockquote>
+<blockquote>
 <p>延迟存储属性是指当第一次被调用的时候才会计算其初始值的属性。在属性声明前使用lazy来标示一个延迟存储属性。</p>
+</blockquote>
+<blockquote>
 <p>必须将延迟存储属性声明成变量（使用var关键字），因为属性的初始值可能在实例构造完成之后才会得到。而常量属性在构造过程完成之前必须要有初始值，因此无法声明成延迟属性。</p>
 </blockquote>
 <h3 id="存储属性和实例变量">存储属性和实例变量</h3><blockquote>
@@ -354,12 +351,21 @@ mutating
 </ul>
 <h3 id="类属性">类属性</h3><blockquote>
 <p>使用关键字static来定义类型属性, </p>
+</blockquote>
+<blockquote>
 <p>在为类定义计算型类型属性时，可以改用关键字class来支持子类对父类的实现进行重写</p>
+</blockquote>
+<blockquote>
 <p>注意</p>
+</blockquote>
+<blockquote>
 <p>跟实例的存储型属性不同，必须给存储型类型属性指定默认值，因为类型本身没有构造器，也就无法在初始化过程中使用构造器给类型属性赋值。</p>
+</blockquote>
+<blockquote>
 <p>存储型类型属性是延迟初始化的，它们只有在第一次被访问的时候才会被初始化。即使它们被多个线程同时访问，系统也保证只会对其进行一次初始化，并且不需要对其使用<code>lazy</code>修饰符。</p>
 </blockquote>
-<h2 id="方法">方法</h2><blockquote>
+<p>##方法</p>
+<blockquote>
 <p>类方法 static 类中可改用Class 关键字支持子类重写类方法</p>
 </blockquote>
 
@@ -383,9 +389,9 @@ mutating
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag">#Swift</a>
-          
             <a href="/tags/基础知识/" rel="tag">#基础知识</a>
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
           
         </div>
       
@@ -452,7 +458,7 @@ mutating
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -463,16 +469,14 @@ mutating
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="CWY" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="CWY">
           <p class="site-author-name" itemprop="name">CWY</p>
           <p class="site-description motion-element" itemprop="description">Easy to say Hard to do.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -518,7 +522,7 @@ mutating
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储属性"><span class="nav-number">1.1.</span> <span class="nav-text">存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mutating"><span class="nav-number">1.2.</span> <span class="nav-text">mutating</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟存储属性"><span class="nav-number">1.3.</span> <span class="nav-text">延迟存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储属性和实例变量"><span class="nav-number">1.4.</span> <span class="nav-text">存储属性和实例变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性"><span class="nav-number">1.5.</span> <span class="nav-text">计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#便捷setter声明"><span class="nav-number">1.6.</span> <span class="nav-text">便捷setter声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只读_属性"><span class="nav-number">1.7.</span> <span class="nav-text">只读 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性观察器"><span class="nav-number">1.8.</span> <span class="nav-text">属性观察器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类属性"><span class="nav-number">1.9.</span> <span class="nav-text">类属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储属性"><span class="nav-number">1.1.</span> <span class="nav-text">存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mutating"><span class="nav-number">1.2.</span> <span class="nav-text">mutating</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟存储属性"><span class="nav-number">1.3.</span> <span class="nav-text">延迟存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储属性和实例变量"><span class="nav-number">1.4.</span> <span class="nav-text">存储属性和实例变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性"><span class="nav-number">1.5.</span> <span class="nav-text">计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#便捷setter声明"><span class="nav-number">1.6.</span> <span class="nav-text">便捷setter声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只读_属性"><span class="nav-number">1.7.</span> <span class="nav-text">只读 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性观察器"><span class="nav-number">1.8.</span> <span class="nav-text">属性观察器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类属性"><span class="nav-number">1.9.</span> <span class="nav-text">类属性</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -534,10 +538,10 @@ mutating
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -556,6 +560,22 @@ mutating
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>
