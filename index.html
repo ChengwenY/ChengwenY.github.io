@@ -244,6 +244,118 @@
             
               
                 
+                <a class="post-title-link" href="/2020/04/13/test/" itemprop="url">
+                  test
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-04-13T14:36:01+08:00" content="2020-04-13">
+              2020-04-13
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index">
+                    <span itemprop="name">OC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="test">test</h4>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/30/iOS-Touch-Event-Responder-Chain/" itemprop="url">
                   iOS Touch Event & Responder Chain
                 </a>
@@ -1495,184 +1607,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/19/Swift-六-类和结构体/" itemprop="url">
-                  Swift(六) 类和结构体
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-19T22:20:58+08:00" content="2015-11-19">
-              2015-11-19
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="类和结构体">类和结构体</h2><h3 id="区别">区别</h3><p><strong>相同点</strong></p>
-<ul>
-<li>定义属性用于存储值</li>
-<li>定义方法用于提供功能</li>
-<li>定义附属脚本用于访问</li>
-<li>定义构造器用于生成初始化</li>
-<li>通过扩展以增加默认实现的</li>
-<li>实现协议以提供某种标准功能</li>
-</ul>
-<p><strong>不同点(类多了以下特点)</strong></p>
-<ul>
-<li>继承允许一个类继承另一个类的特征</li>
-<li>类型转换允许在运行时检查和解释一个类实例的类型</li>
-<li>解构器允许一个类实例释放任何其所被分配的资源</li>
-<li>引用计数允许对一个类的多次引用</li>
-</ul>
-<h3 id="定义">定义</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line"><span class="comment">// class definition goes here</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line"><span class="comment">// structure definition goes here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结构体逐一成员构造器">结构体逐一成员构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> height = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width: <span class="number">100</span>, height: <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="结构体和枚举都是值类型">结构体和枚举都是值类型</h3><blockquote>
-<p><strong>值类型和引用类型</strong></p>
-</blockquote>
-<blockquote>
-<p>Swift 的类型分为值类型和引用类型两种，值类型在传递和赋值时将进行复制，而引用类型则只会使用引用对象的一个 “指向”。</p>
-</blockquote>
-<blockquote>
-<p>Swift 中的所有的内建类型都是值类型（Int, Bool, Array, String, Dictionary）</p>
-</blockquote>
-<blockquote>
-<p>值类型的一个特点是在传递和赋值时进行复制，每次复制肯定会产生额外开销，但是在 Swift 中这个消耗被控制在了最小范围内，在没有必要复制的时候，值类型的复制都是不会发生的</p>
-</blockquote>
-<blockquote>
-<p>简单的赋值，参数的传递等等普通操作，虽然我们可能用不同的名字来回设置和传递值类型，但是在内存上它们都是同一块内容</p>
-</blockquote>
-<blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> b = a</span><br><span class="line">a.removeAtIndex(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// 此时 ab的内存地址不在相同</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="恒等运算符">恒等运算符</h3><blockquote>
-<p><strong>===</strong></p>
-</blockquote>
-<blockquote>
-<p>判断两个常量或变量是否指向同一个对象</p>
-</blockquote>
-<h3 id="继承">继承</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeSuperclass</span> </span>&#123;</span><br><span class="line"><span class="comment">// 这里是子类的定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写（overriding）</strong></p>
-<blockquote>
-<p>swift 中可以重写继承来的实例方法，类方法，实例属性，下标脚本, 需加 <code>override</code> 关键字。</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Train</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Choo Choo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写方法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> desc : <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"traveling at \(currentSpeed) miles per hour"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">var</span> maxSpeed = <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hasBasket = <span class="literal">false</span> <span class="comment">// 有一个篮子</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"bicycle make noise"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写属性</strong></p>
-<blockquote>
-<p>重写属性时，必需将它的名字和类型都写出来<br>可以将继承来的只读属性重写为读写属性， 但是不可将一个继承来得读写属性重写为只读属性</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//双人自行车</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tandem</span>: <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> currentNumbersOfPassengers = <span class="number">2</span> <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> tandemDesc = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以将继承来的只读属性重写为读写属性， 但是不可将一个继承来得读写属性重写为只读属性</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> desc: <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.desc</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line"></span><br><span class="line">            tandemDesc = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写属性观察器</strong></p>
-<blockquote>
-<p>不可为常量或只读计算属性添加属性观察器, 这些属性不可被设置。</p>
-</blockquote>
-<blockquote>
-<p>不可同时提供setter和属性观察器。</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutomaticCar</span>: <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> currentSpeed: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            gear = <span class="type">Int</span>(currentSpeed / <span class="number">10.0</span>) + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>防止重写</strong></p>
-<p>加<code>final</code>关键字</p>
-<p>在关键字class前添加final修饰符（final class）来将整个类标记为 final 的</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1716,7 +1650,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
