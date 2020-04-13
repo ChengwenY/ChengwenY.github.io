@@ -244,6 +244,160 @@
             
               
                 
+                <a class="post-title-link" href="/2020/04/13/Web基础知识/" itemprop="url">
+                  Web基础知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-04-13T15:04:12+08:00" content="2020-04-13">
+              2020-04-13
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="盒子模型">盒子模型</h4><p>问题： 父元素设置宽度为100%，设置padding会出现滚动条。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">true<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">true<span class="tag">&lt;<span class="name">title</span>&gt;</span>父元素width为100%，设置padding，出现滚动条<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">true<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">truetrue*&#123;</span><br><span class="line">truetruetruemargin:0;</span><br><span class="line">truetruetruepadding:0;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetrue.box&#123;</span><br><span class="line">truetruetruewidth:100%;</span><br><span class="line">truetruetruebackground: #ccc;</span><br><span class="line">truetruetruepadding:20px;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetrue.box1&#123;</span><br><span class="line">truetruetruewidth:100%;</span><br><span class="line">truetruetruebackground: #eee;</span><br><span class="line">truetruetrueheight: 200px;</span><br><span class="line">truetrue&#125;</span><br><span class="line">true<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">true<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">truetrue<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">true<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>原因子元素盒子渲染时，先确定content的大小，再去计算padding大小，盒子是由内向外计算渲染的。<br>盒子模型分IE盒子模型和W3C盒子模型<br>IE： 设置box-sizing: border-box; width= content+padding+border<br>W3C: 去掉父元素的width：100% 就可以了 width=content</p>
+<h4 id="block_inline_inline-block_区别">block inline inline-block 区别</h4><p>块级元素特点：<br>1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（很霸道，一个块级元素独占一行）<br>2、元素的高度、宽度、行高以及顶和底边距都可设置。<br>3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
+<p>内联元素（行内元素）特点：<br>1、和其他元素都在一行上；<br>2、元素的高度、宽度及顶部和底部边距不可设置；<br>3、元素的宽度就是它包含的文字或图片的宽度，不可改变。<br>常见的行内元素（span、image、a、label、input、abbr（缩写）、em（强调）、big、cite（引用）、i（斜体）、q（短引用）、textarea、select、small、sub、sup，strong、u（下划线）、button（默认display：inline-block））</p>
+<p>内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点。<br>inline-block 元素特点：<br>1、和其他元素都在一行上；<br>2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+<h4 id="position">position</h4><blockquote>
+<ul>
+<li>static</li>
+<li>relative</li>
+<li>absolute</li>
+<li>fixed</li>
+<li>sticky</li>
+</ul>
+</blockquote>
+<h5 id="static">static</h5><p>如果不设置<code>position</code>，默认为<code>static</code>定位，浏览器会根据源码决定元素的位置，此时，<code>top</code>，<code>left</code>，<code>bottom</code>，<code>right</code> 属性无效。</p>
+<h5 id="relative,_absolute,_fixed">relative, absolute, fixed</h5><p>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。<br><strong>relative</strong><br>相对于默认位置（即static时的位置）进行偏移，即定位基点是元素的默认位置。<br><strong>absolute</strong><br>相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。<br>它有一个重要的限制条件：定位基点（一般是父元素）不能是static定位，否则定位基点就会变成整个网页的根元素html<br><strong>fixed</strong><br>fixed表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
+<h5 id="sticky">sticky</h5><p>sticky生效的前提是，必须搭配top、bottom、left、right这四个属性一起使用，不能省略，否则等同于relative定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作sticky的生效门槛。</p>
+<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与sticky元素的距离达到生效门槛，relative定位自动切换为fixed定位；等到父元素完全脱离视口时（即完全不可见），fixed定位自动切换回relative定位。</p>
+<p><a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">参考 CSS 定位详解</a></p>
+<h4 id="外边距重叠">外边距重叠</h4><p>在CSS中，<strong>两个或多个毗邻</strong>的普通流中的盒子（可能是父子元素，也可能是兄弟元素）在<strong>垂直方向</strong>上的外边距会发生叠加，这种形成的外边距称之为外边距叠加。<br>发生外边距重叠的情况：</p>
+<ul>
+<li>都属于普通流的块级盒子且参与到相同的块级格式上下文中</li>
+<li>没有被padding、border、clear和line box分隔开</li>
+<li><p>都属于垂直毗邻盒子边缘：</p>
+</li>
+<li><p>盒子的top margin和它第一个普通流子元素的top margin</p>
+</li>
+<li>盒子的bottom margin和它下一个普通流兄弟的top margin</li>
+<li>盒子的bottom margin和它父元素的bottom margin</li>
+<li>盒子的top margin和bottom margin，且没有创建一个新的块级格式上下文，且有被计算为0的min-height，被计算为0或auto的height，且没有普通流子元素</li>
+</ul>
+<p>如何避免：</p>
+<ul>
+<li>浮动元素不会与任何元素发生叠加，也包括它的子元素</li>
+<li>创建了 BFC 的元素不会和它的子元素发生外边距叠加</li>
+<li>绝对定位元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>inline-block 元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>普通流中的块级元素的 margin-bottom 永远和它相邻的下一个块级元素的 margin-top 叠加，除非相邻的兄弟元素 clear</li>
+<li>普通流中的块级元素（没有 border-top、没有 padding-top）的 margin-top 和它的第一个普通流中的子元素（没有clear）发生 margin-top 叠加</li>
+<li>普通流中的块级元素（height为 auto、min-height为0、没有 border-bottom、没有 padding-bottom）和它的最后一个普通流中的子元素（没有自身发生margin叠加或clear）发生 margin-bottom叠加</li>
+<li>如果一个元素的 min-height 为0、没有 border、没有padding、高度为0或者auto、不包含子元素，那么它自身的外边距会发生叠加</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/30/iOS-Touch-Event-Responder-Chain/" itemprop="url">
                   iOS Touch Event & Responder Chain
                 </a>
@@ -1495,184 +1649,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/19/Swift-六-类和结构体/" itemprop="url">
-                  Swift(六) 类和结构体
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-19T22:20:58+08:00" content="2015-11-19">
-              2015-11-19
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="类和结构体">类和结构体</h2><h3 id="区别">区别</h3><p><strong>相同点</strong></p>
-<ul>
-<li>定义属性用于存储值</li>
-<li>定义方法用于提供功能</li>
-<li>定义附属脚本用于访问</li>
-<li>定义构造器用于生成初始化</li>
-<li>通过扩展以增加默认实现的</li>
-<li>实现协议以提供某种标准功能</li>
-</ul>
-<p><strong>不同点(类多了以下特点)</strong></p>
-<ul>
-<li>继承允许一个类继承另一个类的特征</li>
-<li>类型转换允许在运行时检查和解释一个类实例的类型</li>
-<li>解构器允许一个类实例释放任何其所被分配的资源</li>
-<li>引用计数允许对一个类的多次引用</li>
-</ul>
-<h3 id="定义">定义</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line"><span class="comment">// class definition goes here</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line"><span class="comment">// structure definition goes here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结构体逐一成员构造器">结构体逐一成员构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Resolution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> height = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vga = <span class="type">Resolution</span>(width: <span class="number">100</span>, height: <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="结构体和枚举都是值类型">结构体和枚举都是值类型</h3><blockquote>
-<p><strong>值类型和引用类型</strong></p>
-</blockquote>
-<blockquote>
-<p>Swift 的类型分为值类型和引用类型两种，值类型在传递和赋值时将进行复制，而引用类型则只会使用引用对象的一个 “指向”。</p>
-</blockquote>
-<blockquote>
-<p>Swift 中的所有的内建类型都是值类型（Int, Bool, Array, String, Dictionary）</p>
-</blockquote>
-<blockquote>
-<p>值类型的一个特点是在传递和赋值时进行复制，每次复制肯定会产生额外开销，但是在 Swift 中这个消耗被控制在了最小范围内，在没有必要复制的时候，值类型的复制都是不会发生的</p>
-</blockquote>
-<blockquote>
-<p>简单的赋值，参数的传递等等普通操作，虽然我们可能用不同的名字来回设置和传递值类型，但是在内存上它们都是同一块内容</p>
-</blockquote>
-<blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> b = a</span><br><span class="line">a.removeAtIndex(<span class="number">0</span>)</span><br><span class="line"><span class="comment">// 此时 ab的内存地址不在相同</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="恒等运算符">恒等运算符</h3><blockquote>
-<p><strong>===</strong></p>
-</blockquote>
-<blockquote>
-<p>判断两个常量或变量是否指向同一个对象</p>
-</blockquote>
-<h3 id="继承">继承</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeSuperclass</span> </span>&#123;</span><br><span class="line"><span class="comment">// 这里是子类的定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写（overriding）</strong></p>
-<blockquote>
-<p>swift 中可以重写继承来的实例方法，类方法，实例属性，下标脚本, 需加 <code>override</code> 关键字。</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Train</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Choo Choo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写方法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> currentSpeed = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> desc : <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"traveling at \(currentSpeed) miles per hour"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">var</span> maxSpeed = <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span>: <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hasBasket = <span class="literal">false</span> <span class="comment">// 有一个篮子</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">makeNoise</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"bicycle make noise"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写属性</strong></p>
-<blockquote>
-<p>重写属性时，必需将它的名字和类型都写出来<br>可以将继承来的只读属性重写为读写属性， 但是不可将一个继承来得读写属性重写为只读属性</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//双人自行车</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tandem</span>: <span class="title">Bicycle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> currentNumbersOfPassengers = <span class="number">2</span> <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> tandemDesc = <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以将继承来的只读属性重写为读写属性， 但是不可将一个继承来得读写属性重写为只读属性</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> desc: <span class="type">String</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.desc</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line"></span><br><span class="line">            tandemDesc = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>重写属性观察器</strong></p>
-<blockquote>
-<p>不可为常量或只读计算属性添加属性观察器, 这些属性不可被设置。</p>
-</blockquote>
-<blockquote>
-<p>不可同时提供setter和属性观察器。</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutomaticCar</span>: <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> currentSpeed: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            gear = <span class="type">Int</span>(currentSpeed / <span class="number">10.0</span>) + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>防止重写</strong></p>
-<p>加<code>final</code>关键字</p>
-<p>在关键字class前添加final修饰符（final class）来将整个类标记为 final 的</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1716,7 +1692,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1724,7 +1700,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1733,7 +1709,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
