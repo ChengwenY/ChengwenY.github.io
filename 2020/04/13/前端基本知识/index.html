@@ -84,17 +84,17 @@
 
 
 
-<meta name="description" content="Easy to say Hard to do.">
+<meta name="description" content="盒子模型问题： 父元素设置宽度为100%，设置padding会出现滚动条。12345678910111213141516171819202122232425262728&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;true&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;true&amp;lt;title&amp;gt;父元素width为100%，设置paddin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端基本知识">
 <meta property="og:url" content="http://chengweny.github.io/2020/04/13/前端基本知识/index.html">
 <meta property="og:site_name" content="成文的blog">
-<meta property="og:description" content="Easy to say Hard to do.">
+<meta property="og:description" content="盒子模型问题： 父元素设置宽度为100%，设置padding会出现滚动条。12345678910111213141516171819202122232425262728&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;true&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;true&amp;lt;title&amp;gt;父元素width为100%，设置paddin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-13T06:17:49.631Z">
+<meta property="og:updated_time" content="2020-04-13T07:04:35.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端基本知识">
-<meta name="twitter:description" content="Easy to say Hard to do.">
+<meta name="twitter:description" content="盒子模型问题： 父元素设置宽度为100%，设置padding会出现滚动条。12345678910111213141516171819202122232425262728&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;true&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;true&amp;lt;title&amp;gt;父元素width为100%，设置paddin">
 
 
 
@@ -254,7 +254,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2020-04-13T14:17:49+08:00" content="2020-04-13">
+            <time itemprop="dateCreated" datetime="2020-04-13T15:04:12+08:00" content="2020-04-13">
               2020-04-13
             </time>
           </span>
@@ -287,7 +287,49 @@
       
 
       
-        
+        <h4 id="盒子模型">盒子模型</h4><p>问题： 父元素设置宽度为100%，设置padding会出现滚动条。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="selector-tag">DOCTYPE</span> <span class="selector-tag">html</span>&gt;</span><br><span class="line">&lt;<span class="selector-tag">html</span>&gt;</span><br><span class="line">&lt;<span class="selector-tag">head</span>&gt;</span><br><span class="line">true&lt;meta charset="utf-8"&gt;</span><br><span class="line">true&lt;title&gt;父元素width为100%，设置padding，出现滚动条&lt;/title&gt;</span><br><span class="line">true&lt;style type="text/css"&gt;</span><br><span class="line">truetrue*&#123;</span><br><span class="line">truetruetrue<span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">truetruetrue<span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetrue<span class="selector-class">.box</span>&#123;</span><br><span class="line">truetruetrue<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">truetruetrue<span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">truetruetrue<span class="attribute">padding</span>:<span class="number">20px</span>;</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetrue<span class="selector-class">.box1</span>&#123;</span><br><span class="line">truetruetrue<span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">truetruetrue<span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">truetruetrue<span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">truetrue&#125;</span><br><span class="line">true&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;<span class="selector-tag">body</span>&gt;</span><br><span class="line">true&lt;div class="box"&gt;</span><br><span class="line">truetrue&lt;div class="box1"&gt;&lt;/div&gt;</span><br><span class="line">true&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>原因子元素盒子渲染时，先确定content的大小，再去计算padding大小，盒子是由内向外计算渲染的。<br>盒子模型分IE盒子模型和W3C盒子模型<br>IE： 设置bix-sizing: border-box; width= content+padding+border<br>W3C: 去掉父元素的width：100% 就可以了 width=content</p>
+<h4 id="block_inline_inline-block_区别">block inline inline-block 区别</h4><p>块级元素特点：<br>1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（很霸道，一个块级元素独占一行）<br>2、元素的高度、宽度、行高以及顶和底边距都可设置。<br>3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
+<p>内联元素（行内元素）特点：<br>1、和其他元素都在一行上；<br>2、元素的高度、宽度及顶部和底部边距不可设置；<br>3、元素的宽度就是它包含的文字或图片的宽度，不可改变。<br>常见的行内元素（span、img、a、lable、input、abbr（缩写）、em（强调）、big、cite（引用）、i（斜体）、q（短引用）、textarea、select、small、sub、sup，strong、u（下划线）、button（默认display：inline-block））</p>
+<p>内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点。<br>inline-block 元素特点：<br>1、和其他元素都在一行上；<br>2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
+<h4 id="position">position</h4><blockquote>
+<ul>
+<li>static</li>
+<li>relative</li>
+<li>absolute</li>
+<li>fixed</li>
+<li>sticky</li>
+</ul>
+</blockquote>
+<h5 id="static">static</h5><p>如果不设置<code>position</code>，默认为<code>static</code>定位，浏览器会根据源码决定元素的位置，此时，<code>top</code>，<code>left</code>，<code>bottom</code>，<code>right</code> 属性无效。</p>
+<h5 id="relative,_absolute,_fixed">relative, absolute, fixed</h5><p>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。<br><strong>relative</strong><br>相对于默认位置（即static时的位置）进行偏移，即定位基点是元素的默认位置。<br><strong>absolute</strong><br>相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。<br>它有一个重要的限制条件：定位基点（一般是父元素）不能是static定位，否则定位基点就会变成整个网页的根元素html<br><strong>fixed</strong><br>fixed表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
+<h5 id="sticky">sticky</h5><p>sticky生效的前提是，必须搭配top、bottom、left、right这四个属性一起使用，不能省略，否则等同于relative定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作sticky的生效门槛。</p>
+<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与sticky元素的距离达到生效门槛，relative定位自动切换为fixed定位；等到父元素完全脱离视口时（即完全不可见），fixed定位自动切换回relative定位。</p>
+<p><a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">参考 CSS 定位详解</a></p>
+<h3 id="外边距重叠">外边距重叠</h3><p>在CSS中，<strong>两个或多个毗邻</strong>的普通流中的盒子（可能是父子元素，也可能是兄弟元素）在<strong>垂直方向</strong>上的外边距会发生叠加，这种形成的外边距称之为外边距叠加。<br>发生外边距重叠的情况：</p>
+<ul>
+<li>都属于普通流的块级盒子且参与到相同的块级格式上下文中</li>
+<li>没有被padding、border、clear和line box分隔开</li>
+<li><p>都属于垂直毗邻盒子边缘：</p>
+</li>
+<li><p>盒子的top margin和它第一个普通流子元素的top margin</p>
+</li>
+<li>盒子的bottom margin和它下一个普通流兄弟的top margin</li>
+<li>盒子的bottom margin和它父元素的bottom margin</li>
+<li>盒子的top margin和bottom margin，且没有创建一个新的块级格式上下文，且有被计算为0的min-height，被计算为0或auto的height，且没有普通流子元素</li>
+</ul>
+<p>如何避免：</p>
+<ul>
+<li>浮动元素不会与任何元素发生叠加，也包括它的子元素</li>
+<li>创建了 BFC 的元素不会和它的子元素发生外边距叠加</li>
+<li>绝对定位元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>inline-block 元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
+<li>普通流中的块级元素的 margin-bottom 永远和它相邻的下一个块级元素的 margin-top 叠加，除非相邻的兄弟元素 clear</li>
+<li>普通流中的块级元素（没有 border-top、没有 padding-top）的 margin-top 和它的第一个普通流中的子元素（没有clear）发生 margin-top 叠加</li>
+<li>普通流中的块级元素（height为 auto、min-height为0、没有 border-bottom、没有 padding-bottom）和它的最后一个普通流中的子元素（没有自身发生margin叠加或clear）发生 margin-bottom叠加</li>
+<li>如果一个元素的 min-height 为0、没有 border、没有padding、高度为0或者auto、不包含子元素，那么它自身的外边距会发生叠加</li>
+</ul>
+
       
     </div>
 
@@ -311,8 +353,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/30/iOS-Touch-Event-Responder-Chain/" rel="next" title="iOS Touch Event & Responder Chain">
-                <i class="fa fa-chevron-left"></i> iOS Touch Event & Responder Chain
+              <a href="/2020/04/13/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
               </a>
             
           </div>
@@ -383,7 +425,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -429,7 +471,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#盒子模型"><span class="nav-number">1.</span> <span class="nav-text">盒子模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block_inline_inline-block_区别"><span class="nav-number">2.</span> <span class="nav-text">block inline inline-block 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#position"><span class="nav-number">3.</span> <span class="nav-text">position</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#static"><span class="nav-number">3.1.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#relative,_absolute,_fixed"><span class="nav-number">3.2.</span> <span class="nav-text">relative, absolute, fixed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sticky"><span class="nav-number">3.3.</span> <span class="nav-text">sticky</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#外边距重叠"><span class="nav-number"></span> <span class="nav-text">外边距重叠</span></a></li></div>
             
           </div>
         </section>
