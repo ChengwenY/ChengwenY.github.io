@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="Easy to say Hard to do.">
+<meta name="description" content="Life is like a box of chocolates. You never know what you&apos;re gonna get.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="成文的blog">
+<meta property="og:title" content="YCW&#39;S ZONE">
 <meta property="og:url" content="http://chengweny.github.io/index.html">
-<meta property="og:site_name" content="成文的blog">
-<meta property="og:description" content="Easy to say Hard to do.">
+<meta property="og:site_name" content="YCW&#39;S ZONE">
+<meta property="og:description" content="Life is like a box of chocolates. You never know what you&apos;re gonna get.">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="成文的blog">
-<meta name="twitter:description" content="Easy to say Hard to do.">
+<meta name="twitter:title" content="YCW&#39;S ZONE">
+<meta name="twitter:description" content="Life is like a box of chocolates. You never know what you&apos;re gonna get.">
 
 
 
@@ -96,7 +96,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -124,7 +124,7 @@
 
 
 
-  <title>成文的blog</title>
+  <title>YCW'S ZONE</title>
   
 
 
@@ -155,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">成文的blog</span>
+        <span class="site-title">YCW'S ZONE</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -261,7 +261,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -345,50 +345,15 @@
       
         
           
-            <h4 id="盒子模型">盒子模型</h4><p>问题： 父元素设置宽度为100%，设置padding会出现滚动条。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>父元素width为100%，设置padding，出现滚动条<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">    *&#123;</span><br><span class="line"><span class="css">        <span class="selector-tag">margin</span><span class="selector-pseudo">:0</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">padding</span><span class="selector-pseudo">:0</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#ccc</span>;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">padding</span><span class="selector-pseudo">:20px</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box1</span>&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#eee</span>;</span></span><br><span class="line">        height: 200px;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>原因子元素盒子渲染时，先确定content的大小，再去计算padding大小，盒子是由内向外计算渲染的。<br>盒子模型分IE盒子模型和W3C盒子模型<br>IE： 设置box-sizing: border-box; width= content+padding+border<br>W3C: 去掉父元素的width：100% 就可以了 width=content</p>
-<h4 id="block_inline_inline-block_区别">block inline inline-block 区别</h4><p>块级元素特点：<br>1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。（很霸道，一个块级元素独占一行）<br>2、元素的高度、宽度、行高以及顶和底边距都可设置。<br>3、元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。</p>
-<p>内联元素（行内元素）特点：<br>1、和其他元素都在一行上；<br>2、元素的高度、宽度及顶部和底部边距不可设置；<br>3、元素的宽度就是它包含的文字或图片的宽度，不可改变。<br>常见的行内元素（span、image、a、label、input、abbr（缩写）、em（强调）、big、cite（引用）、i（斜体）、q（短引用）、textarea、select、small、sub、sup，strong、u（下划线）、button（默认display：inline-block））</p>
-<p>内联块状元素（inline-block）就是同时具备内联元素、块状元素的特点。<br>inline-block 元素特点：<br>1、和其他元素都在一行上；<br>2、元素的高度、宽度、行高以及顶和底边距都可设置。</p>
-<h4 id="position">position</h4><blockquote>
-<ul>
-<li>static</li>
-<li>relative</li>
-<li>absolute</li>
-<li>fixed</li>
-<li>sticky</li>
-</ul>
-</blockquote>
-<h5 id="static">static</h5><p>如果不设置<code>position</code>，默认为<code>static</code>定位，浏览器会根据源码决定元素的位置，此时，<code>top</code>，<code>left</code>，<code>bottom</code>，<code>right</code> 属性无效。</p>
-<h5 id="relative,_absolute,_fixed">relative, absolute, fixed</h5><p>这三个属性值有一个共同点，都是相对于某个基点的定位，不同之处仅仅在于基点不同。<br><strong>relative</strong><br>相对于默认位置（即static时的位置）进行偏移，即定位基点是元素的默认位置。<br><strong>absolute</strong><br>相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。<br>它有一个重要的限制条件：定位基点（一般是父元素）不能是static定位，否则定位基点就会变成整个网页的根元素html<br><strong>fixed</strong><br>fixed表示，相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
-<h5 id="sticky">sticky</h5><p>sticky生效的前提是，必须搭配top、bottom、left、right这四个属性一起使用，不能省略，否则等同于relative定位，不产生”动态固定”的效果。原因是这四个属性用来定义”偏移距离”，浏览器把它当作sticky的生效门槛。</p>
-<p>它的具体规则是，当页面滚动，父元素开始脱离视口时（即部分不可见），只要与sticky元素的距离达到生效门槛，relative定位自动切换为fixed定位；等到父元素完全脱离视口时（即完全不可见），fixed定位自动切换回relative定位。</p>
-<p><a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">参考 CSS 定位详解</a></p>
-<h4 id="外边距重叠">外边距重叠</h4><p>在CSS中，<strong>两个或多个毗邻</strong>的普通流中的盒子（可能是父子元素，也可能是兄弟元素）在<strong>垂直方向</strong>上的外边距会发生叠加，这种形成的外边距称之为外边距叠加。<br>发生外边距重叠的情况：</p>
-<ul>
-<li>都属于普通流的块级盒子且参与到相同的块级格式上下文中</li>
-<li>没有被padding、border、clear和line box分隔开</li>
-<li><p>都属于垂直毗邻盒子边缘：</p>
-</li>
-<li><p>盒子的top margin和它第一个普通流子元素的top margin</p>
-</li>
-<li>盒子的bottom margin和它下一个普通流兄弟的top margin</li>
-<li>盒子的bottom margin和它父元素的bottom margin</li>
-<li>盒子的top margin和bottom margin，且没有创建一个新的块级格式上下文，且有被计算为0的min-height，被计算为0或auto的height，且没有普通流子元素</li>
-</ul>
-<p>如何避免：</p>
-<ul>
-<li>浮动元素不会与任何元素发生叠加，也包括它的子元素</li>
-<li>创建了 BFC 的元素不会和它的子元素发生外边距叠加</li>
-<li>绝对定位元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
-<li>inline-block 元素和其他任何元素之间不发生外边距叠加，也包括它的子元素</li>
-<li>普通流中的块级元素的 margin-bottom 永远和它相邻的下一个块级元素的 margin-top 叠加，除非相邻的兄弟元素 clear</li>
-<li>普通流中的块级元素（没有 border-top、没有 padding-top）的 margin-top 和它的第一个普通流中的子元素（没有clear）发生 margin-top 叠加</li>
-<li>普通流中的块级元素（height为 auto、min-height为0、没有 border-bottom、没有 padding-bottom）和它的最后一个普通流中的子元素（没有自身发生margin叠加或clear）发生 margin-bottom叠加</li>
-<li>如果一个元素的 min-height 为0、没有 border、没有padding、高度为0或者auto、不包含子元素，那么它自身的外边距会发生叠加</li>
-</ul>
-
-          
+          盒子模型问题： 父元素设置宽度为100%，设置padding会出现滚动条。1234567891011121314151617181920212223242526272829&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;    &lt;meta charset="utf-8"&gt;    &lt;title&gt;父元素width为100%，设置padding，出现滚动条&lt;/title&gt;    &lt;style type="text/css"&gt;    *&#123;        margin:0;        padding:
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/04/13/Web基础知识/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -444,7 +409,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -528,21 +493,17 @@
       
         
           
-            <h2 id="The_Responder_Chain">The Responder Chain</h2><p>Event 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）</p>
-<p>一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。<br>一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。<br>application单例对象从queue的顶部取出一个事件并分发出去。通常它把这个事件发送给app的keyWindow。keywindow 会把event传递给一个实例对象去处理。这个实例对象取决于这个事件的类型。</p>
-<h3 id="Gesture_Recognizers">Gesture Recognizers</h3><p>gesture recognizers 与UIView 不在一个层级中，所以不参加事件的响应链。系统在将事件发送给hit-test view 之前，系统会先将触摸事件发送到hit-test view上绑定的或hit-test view父视图(superview)上绑定的Gesture Recognizers上。<a href="http://www.cnblogs.com/Camier-myNiuer/p/3295670.html" target="_blank" rel="noopener">看这里</a></p>
-<h3 id="Hit-Testing">Hit-Testing</h3><p>iOS 通过 hit-testing 来发现touch事件下的view，Hit-testing 需要检测touch是否在任何一个有关联的View的bounds内，如果在，就会递归检测这个view的所有的子view，view层级中包含这个touch point的最低级的那个view就是 hit-test view。在iOS决定这个 hit-test view 之后，它会将这个touch 事件传递给这个view去处理。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">hitTest</span><span class="params">(point: CGPoint, withEvent event: UIEvent?)</span></span> -&gt; <span class="type">UIView?</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> !<span class="keyword">self</span>.userInteractionEnabled || <span class="keyword">self</span>.hidden || <span class="keyword">self</span>.alpha &lt;= <span class="number">0.01</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">self</span>.pointInside(point, withEvent: event) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> view: <span class="type">UIView</span> <span class="keyword">in</span> <span class="keyword">self</span>.subviews &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> covertPoint = view.convertPoint(point, fromView: <span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> hitTestView: <span class="type">UIView?</span> = view.hitTest(covertPoint, withEvent: event)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> hitTestView != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">return</span> hitTestView</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="The_Responder_Chain_Is_Made_Up_of_Responder_Objects">The Responder Chain Is Made Up of Responder Objects</h3><p>许多类型的事件依赖于响应链去分发事件。响应链是一系列的responder 对象。开始于first responder,结束于application对象。如果first responder 不能处理事件，它把事件传递给响应链中的next responder。</p>
-<p>responder object 能够响应和处理事件，所有的view和大多数的controller都是responder ，注意layer不可以接收事件</p>
-<h3 id="一个点击事件处理的过程。">一个点击事件处理的过程。</h3><p>application 取出touch event事件 调用 [hitTest: withEvent:] 方法 返回inital object 如果当前application 没有忽略触摸事件 <code>isIgnoringInteractionEvents</code> application 调用<code>sendEvent:</code> -&gt; <code>keyWindow sendEvent:</code>  如果hit-Test view 实现了以下方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesMoved</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesCancelled</span><span class="params">(touches: Set&lt;UITouch&gt;?, withEvent event: UIEvent?)</span></span></span><br></pre></td></tr></table></figure>
-<p>hit-test view 就会处理这个event， 如果hit-test view 没响应这个事件，会把这个event交给响应链来处理， 直到传递给application，仍然没人响应这个事件的话就扔掉这个事件。</p>
-<p>以下为通过time profile 观察的方法调用</p>
-<p><img src="http://cl.ly/2q1x041n3S3n/hit-test.png" alt="hit-test"></p>
-<p><img src="http://cl.ly/2y343m2B212X/responder%20chain.png" alt></p>
-
-          
+          The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）
+一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对象从queue的顶部取出一个事件并分发出去。通常它把这个事件发送给app的keyWindow。keywindow 会把event传递给一个实例对象去处理。这个实例对象取决于这个事件的类型。
+Gestu
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/30/iOS-Touch-Event-Responder-Chain/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -598,7 +559,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -682,32 +643,22 @@
       
         
           
-            <h2 id="变换">变换</h2><h3 id="仿射变换">仿射变换</h3><p><img src="http://cl.ly/image/3d0V383O3108/CGAffineTransform.png" alt="CGAffineTransform"></p>
-<blockquote>
-<p>“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行</p>
-</blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGAffineTransformMakeRotation</span>(<span class="built_in">CGFloat</span> angle) </span><br><span class="line"><span class="built_in">CGAffineTransformMakeScale</span>(<span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy)</span><br><span class="line"><span class="built_in">CGAffineTransformMakeTranslation</span>(<span class="built_in">CGFloat</span> tx, <span class="built_in">CGFloat</span> ty)</span><br></pre></td></tr></table></figure>
-<p>iOS 变换函数使用弧度为单位</p>
-<p>库中提供了两个宏定义做弧度角度转换</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RADIANS_TO_DEGREES(x) ((x)/M_PI*180.0) </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEGREES_TO_RADIANS(x) ((x)/180.0*M_PI)</span></span><br></pre></td></tr></table></figure>
-<h3 id="混合变换">混合变换</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGAffineTransformRotate</span>(<span class="built_in">CGAffineTransform</span> t, <span class="built_in">CGFloat</span> angle)     </span><br><span class="line"><span class="comment">// t 表示想要混合的CGAffineTransform</span></span><br><span class="line"><span class="built_in">CGAffineTransformScale</span>(<span class="built_in">CGAffineTransform</span> t, <span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy)      </span><br><span class="line"><span class="built_in">CGAffineTransformTranslate</span>(<span class="built_in">CGAffineTransform</span> t, <span class="built_in">CGFloat</span> tx, <span class="built_in">CGFloat</span> ty)</span><br></pre></td></tr></table></figure>
-<p>混合两个已存在的变换矩阵</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGAffineTransformConcat</span>(<span class="built_in">CGAffineTransform</span> t1, <span class="built_in">CGAffineTransform</span> t2);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>变换的顺序会影响最终的结果，也就是说旋转之后的平移和平移之后的旋转结果可能不同。<br><a href="http://wiki.jikexueyuan.com/project/ios-core-animation/transform.html" target="_blank" rel="noopener">阅读实例</a></p>
-</blockquote>
-<h3 id="3D变换">3D变换</h3><p><img src="http://cl.ly/image/163v3E1Q1V1z/CATransform3D.png" alt></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CATransform3DMakeRotation</span>(<span class="built_in">CGFloat</span> angle, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y, <span class="built_in">CGFloat</span> z)</span><br><span class="line"><span class="built_in">CATransform3DMakeScale</span>(<span class="built_in">CGFloat</span> sx, <span class="built_in">CGFloat</span> sy, <span class="built_in">CGFloat</span> sz) </span><br><span class="line"><span class="built_in">CATransform3DMakeTranslation</span>(Gloat tx, <span class="built_in">CGFloat</span> ty, <span class="built_in">CGFloat</span> tz)</span><br></pre></td></tr></table></figure>
-<p>iOS上的坐标系及绕x、y、z 轴旋转</p>
-<p><img src="http://cl.ly/image/1p091D2f3A0h/%E5%9D%90%E6%A0%87%E7%B3%BB.png" alt></p>
-<h4 id="透视投影">透视投影</h4><blockquote>
-<p>CATransform3D的透视效果通过一个矩阵中一个很简单的元素来控制：m34。m34用于按比例缩放X和Y的值来计算到底要离视角多远。</p>
-</blockquote>
-<blockquote>
-<p>m34的默认值是0，我们可以通过设置m34为-1.0 / d来应用透视效果，d 通常为 <a href="http://wiki.jikexueyuan.com/project/ios-core-animation/transform.html#5930ece8da08d1469c5ae1133bc84e07" target="_blank" rel="noopener">500-1000</a></p>
-</blockquote>
+          变换仿射变换
 
-          
+“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行
+
+123CGAffineTransformMakeRotation(CGFloat angle) CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)
+iOS 变换函数使用弧度为单位
+库中提供了两个宏定义做弧度角度转换
+12#define RADIANS_TO_DEGREES(x) ((x)/M_PI*180.0) #define DEGRE
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/30/CALayer-Transform/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -763,7 +714,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -847,31 +798,20 @@
       
         
           
-            <h2 id="CALayer">CALayer</h2><h3 id="contents属性">contents属性</h3><p>为<code>layer</code> 添加图片 </p>
-<h3 id="contentGravity">contentGravity</h3><p>相当于<code>UIView</code>的<code>contentMode</code> 属性</p>
-<h3 id="contentsScale">contentsScale</h3><p>为1 代表每个点绘制1个像素，一般设为图片的scale。当<code>contentGravity</code> 属性为kCAGravityResizeAspect时不会产生影响</p>
-<h3 id="contentsRect">contentsRect</h3><p>默认{0,0,1,1} 设置寄宿图的显示区域，其余区域会被剪裁</p>
-<h3 id="contentsCenter">contentsCenter</h3><p>设置拉伸区域,相当于UIImage的<code>resizableImageWithCapInsets:</code>方法的效果</p>
-<h3 id="CALayerDelegate">CALayerDelegate</h3><p><code>CALayerDelegate</code> CALayerDelegate是一个非正式协议，只是一个id类型的属性。</p>
-<p>需要被重绘时，CALayer会请求它的代理给他一个寄宿图来显示。它通过调用下面这个方法做到的:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayerCALayer</span> *)layer;</span><br></pre></td></tr></table></figure>
-<p>趁着这个机会，如果代理想直接设置contents属性的话，它就可以这么做，不然没有别的方法可以调用了。如果代理不实现-displayLayer:方法，CALayer就会转而尝试调用下面这个方法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>UIView</code> 在创建它的宿主图层时，会自动把图层的delegate设置为它自己，并提供一个<code>-displayLayer:</code>的实现。</p>
-</blockquote>
-<h2 id="图层几何学">图层几何学</h2><h3 id="layout">layout</h3><p>UIView 与 CALayer 坐标 </p>
-<p>frame bounds center 属性仅仅是存取方法，改变他们实际上是在改变位于视图下方的CALayer的frame</p>
-<p>当对图层做变换时，如旋转或缩放，frame实际上代表了覆盖在图层旋转之后的整个轴对齐的矩形区域，frame和bounds的宽高可能不一致了</p>
-<h3 id="锚点（anchorPoint）">锚点（anchorPoint）</h3><p><code>anchorPoint</code> 默认为 {0.5, 0.5} 图层会以 <code>anchorPoint</code>所在的点的位置 为图层相对于视图的中心点的位置</p>
-<h2 id="视觉效果">视觉效果</h2><h3 id="阴影">阴影</h3><p><code>shadowOpacity</code> 透明度 0 ~ 1</p>
-<p><code>shadowOffset</code> 偏移量 {0, -3} x , y 轴</p>
-<p><code>shadowRadius</code> 属性控制着阴影的模糊度，当它的值是0的时候，阴影就和视图一样有一个非常确定的边界线。当值越来越大的时候，边界线看上去就会越来越模糊和自然。苹果自家的应用设计更偏向于自然的阴影，所以一个非零值再合适不过了。</p>
-<h3 id="阴影剪裁">阴影剪裁</h3><p>当图层使用<code>maskToBounds</code> 的时候，阴影会被剪裁，这时可以在外层添加一个不使用<code>maskToBounds</code>的空视图 来显示阴影</p>
-<h3 id="shadowPath">shadowPath</h3><p><code>CGPath</code> 指针 通过<code>shadowPath</code> 属性可以指定阴影的形状</p>
-<h3 id="图层模板（mask）">图层模板（mask）</h3><p><code>public var mask: CALayer?</code> <code>mask</code>属性是一个<code>CALayer</code> 变量，定义了图层的可见区域。</p>
-
-          
+          CALayercontents属性为layer 添加图片 
+contentGravity相当于UIView的contentMode 属性
+contentsScale为1 代表每个点绘制1个像素，一般设为图片的scale。当contentGravity 属性为kCAGravityResizeAspect时不会产生影响
+contentsRect默认{0,0,1,1} 设置寄宿图的显示区域，其余区域会被剪裁
+contentsCenter设置拉伸区域,相当于UIImage的resizableImageWithCapInsets:方法的效果
+CALayerDelegateCALayerDelegate 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/30/CALayer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -927,7 +867,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -1011,26 +951,17 @@
       
         
           
-            <h2 id="泛型">泛型</h2><h3 id="泛型函数">泛型函数</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapTwoValues</span>&lt;T&gt;<span class="params">(<span class="keyword">inout</span> a: T, <span class="keyword">inout</span> <span class="number">_</span> b: T)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> temporaryA = a</span><br><span class="line">    a = b</span><br><span class="line">    b = temporaryA</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> someInt = <span class="number">3</span></span><br><span class="line"><span class="keyword">var</span> anotherInt = <span class="number">7</span></span><br><span class="line"></span><br><span class="line">swapTwoValues(&amp;someInt,&amp;anotherInt)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\(someInt)  \(anotherInt)"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="类型参数">类型参数</h3><p><code>&lt;T&gt;</code> <code>&lt;Key&gt;</code> <code>&lt;Value&gt;</code> 驼峰式命名法</p>
-<h3 id="泛型类型">泛型类型</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> items = [<span class="type">T</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(item: T)</span></span> &#123;</span><br><span class="line">        items.append(item)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stackOfStrings = <span class="type">Stack</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line"></span><br><span class="line">stackOfStrings.push(<span class="string">"a"</span>)</span><br><span class="line">stackOfStrings.push(<span class="string">"b"</span>)</span><br><span class="line">stackOfStrings.push(<span class="string">"c"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> popedString = stackOfStrings.pop()</span><br></pre></td></tr></table></figure>
-<h3 id="扩展一个泛型类型">扩展一个泛型类型</h3><blockquote>
-<p>扩展一个泛型类型，不需要在扩展的定义中提供类型参数列表。原始类中声明的类型参数列表也可在扩展中使用</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> topItem: <span class="type">T?</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> items.isEmpty ? <span class="literal">nil</span> : items[items.<span class="built_in">count</span> - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类型约束">类型约束</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunction</span>&lt;T: SomeClass, U: SomeProtocol&gt;<span class="params">(someT: T, someU: U)</span></span> &#123;</span><br><span class="line"><span class="comment">// 这里是函数主体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类型约束实例">类型约束实例</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex</span>&lt;T: Equatable&gt;<span class="params">(array: [T], <span class="number">_</span> valueToFind:T)</span></span> -&gt; <span class="type">Int?</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (index, value) <span class="keyword">in</span> array.<span class="built_in">enumerate</span>() <span class="keyword">where</span> value == valueToFind &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="关联类型">关联类型</h3><blockquote>
-<p>当定义一个协议时，有的时候声明一个或多个关联类型作为协议定义的一部分是非常有用的。一个关联类型作为协议的一部分，给定了类型的一个占位名（或别名）。作用于关联类型上实际类型在协议被实现前是不需要指定的。关联类型被指定为typealias关键字。</p>
-</blockquote>
-<h3 id="关联类型实例">关联类型实例</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">ItemType</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(item: ItemType)</span></span></span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">ItemType</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">IntStack</span>: <span class="title">Container</span> </span>&#123;</span><br><span class="line">    <span class="comment">// IntStack的原始实现</span></span><br><span class="line">    <span class="keyword">var</span> items = [<span class="type">Int</span>]()</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(item: Int)</span></span> &#123;</span><br><span class="line">        items.append(item)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 遵循Container协议的实现</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">ItemType</span> = <span class="type">Int</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(item: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.push(item)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items.<span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items[i]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="扩展一个存在的类型为一指定关联类型">扩展一个存在的类型为一指定关联类型</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span> : <span class="title">Container</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Array本身已经实现了Container 的方法,所以只需通过扩展使Array遵循协议，即可将Array当做Container类型使用</p>
-</blockquote>
-<h3 id="Where">Where</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">allItemsMatch</span>&lt;</span></span><br><span class="line"><span class="function">C1: Container, C2: Container</span></span><br><span class="line"><span class="function">where C1.ItemType == C2.ItemType, C1.ItemType: Equatable&gt;</span></span><br><span class="line"><span class="function"><span class="params">(someContainer: C1, anotherContainer: C2)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检查两个Container的元素个数是否相同</span></span><br><span class="line">    <span class="keyword">if</span> someContainer.<span class="built_in">count</span> != anotherContainer.<span class="built_in">count</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查两个Container相应位置的元素彼此是否相等</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;someContainer.<span class="built_in">count</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> someContainer[i] != anotherContainer[i] &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果所有元素检查都相同则返回true</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          泛型泛型函数123456789101112func swapTwoValues&lt;T&gt;(inout a: T, inout _ b: T) &#123;    let temporaryA = a    a = b    b = temporaryA&#125;var someInt = 3var anotherInt = 7swapTwoValues(&amp;someInt,&amp;anotherInt)print("\(someInt)  \(anotherInt)")
+类型参数&lt;T&gt; &lt;Key&gt; &lt;Value&gt; 驼峰式命名法
+泛型类型12
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/22/Swift-十二-泛型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1086,7 +1017,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -1170,56 +1101,22 @@
       
         
           
-            <h2 id="协议">协议</h2><h3 id="语法">语法</h3><blockquote>
-<p>类、结构体、枚举都可遵循协议</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 协议内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>类或结构体遵循协议</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span>: <span class="title">FirstProtocol</span>, <span class="title">AnotherProtocol</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 结构体内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对属性规定">对属性规定</h3><blockquote>
-<p>协议可以规定其遵循者提供特定名称和类型的<strong>实例属性</strong>(instance property)或<strong>类属性</strong>(type property)，而不用指定是存储型属性(stored property)还是计算型属性(calculate property)。此外还必须指明是只读的还是可读可写的。</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> mustBeSettable : <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> doesNotNeedToBeSettable: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="comment">// 类型属性</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> someTypeProperty: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对方法的规定">对方法的规定</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">someTypeMethod</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">someInstanceMethod</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对_Mutating_方法的规定">对 Mutating 方法的规定</h3><blockquote>
-<p>结构体和枚举是值类型。一般情况下，值类型的属性不能在它的实例方法中被修改。</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">ExProtocol1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">OnOffSwitch</span>: <span class="title">ExProtocol1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Off</span>, <span class="type">On</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="type">Off</span>:</span><br><span class="line">                <span class="keyword">self</span> = <span class="type">On</span></span><br><span class="line">            <span class="keyword">case</span> <span class="type">On</span>:</span><br><span class="line">                <span class="keyword">self</span> = <span class="type">Off</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> lightSwitch = <span class="type">OnOffSwitch</span>.<span class="type">Off</span></span><br><span class="line">lightSwitch.toggle()</span><br></pre></td></tr></table></figure>
-<h3 id="对构造器的规定">对构造器的规定</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">init</span>(someParameter: <span class="type">Int</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="协议构造器在类中的实现">协议构造器在类中的实现</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>: <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(someParameter: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="comment">//构造器实现</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">init</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeSuperClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="comment">// 构造器的实现</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeSubClass</span>: <span class="title">SomeSuperClass</span>, <span class="title">SomeProtocol</span> </span>&#123;</span><br><span class="line"><span class="comment">// 因为遵循协议，需要加上"required"; 因为继承自父类，需要加上"override"</span></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="comment">// 构造器实现</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="协议类型">协议类型</h3><ul>
-<li>作为函数、方法或构造器中的参数类型或返回值类型</li>
-<li>作为常量、变量或属性的类型</li>
-<li>作为数组、字典或其他容器中的元素类型</li>
-</ul>
-<h3 id="扩展中添加协议成员">扩展中添加协议成员</h3><blockquote>
-<p>即便无法修改源代码，依然可以通过扩展(Extension)来扩充已存在类型(译者注: 类，结构体，枚举等)。扩展可以为已存在的类型添加属性，方法，下标脚本，协议等成员</p>
-</blockquote>
-<h3 id="通过扩展补充协议声明">通过扩展补充协议声明</h3><blockquote>
-<p>当一个类型已经实现了协议中的所有要求，却没有声明为遵循该协议时，可以通过扩展(空的扩展体)来补充协议声明</p>
-</blockquote>
-<h3 id="协议继承">协议继承</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">InheritingProtocol</span>: <span class="title">SomeProtocol</span>, <span class="title">AnotherProtocol</span> </span>&#123;</span><br><span class="line"><span class="comment">// 协议定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类专属协议">类专属协议</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SomeClassOnlyProtocol</span>: <span class="title">class</span>, <span class="title">SomeInheritedProtocol</span> </span>&#123;</span><br><span class="line"><span class="comment">// 协议定义</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="协议合成">协议合成</h3><p><code>protocol &lt;AProtocol, BProtocol&gt;</code></p>
-<h3 id="可选协议">可选协议</h3><p><code>optional 方法</code></p>
-<p>见Xcode</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MyClassDelegate</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">method</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">weak</span> <span class="keyword">var</span> delegate: <span class="type">MyClassDelegate?</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译器会报错</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>由于swift中的结构体、枚举等值类型可以遵守协议，而值类型不通过引用计数来管理内存，所以不能用weak这种ARC的概念来修饰。</p>
-</blockquote>
-<blockquote>
-<p>解决方法 将协议声明为Objc的或者将协议声明为只能由类来实现。</p>
-</blockquote>
-<h3 id="协议扩展">协议扩展</h3><blockquote>
-<p>使用扩展协议的方式为协议的遵循者提供方法或属性的实现。通过这种方式，可以让你无需在每个遵循者中都实现一次，无需使用全局函数，你可以通过扩展协议的方式进行定义。</p>
-</blockquote>
-<blockquote>
-<p>如果遵循者自己实现了协议规定的方法，那么遵循者的实现方法将被使用。</p>
-</blockquote>
-<h3 id="为协议扩展添加限制条件">为协议扩展添加限制条件</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CollectionType</span> <span class="title">where</span> <span class="title">Generator</span>.<span class="title">Element</span> : <span class="title">TextRepresentable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> textualDescription: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> itemsAsText = <span class="keyword">self</span>.<span class="built_in">map</span> &#123; $<span class="number">0</span>.textualDescription &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"["</span> + itemsAsText.joinWithSeparator(<span class="string">", "</span>) + <span class="string">"]"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          协议语法
+类、结构体、枚举都可遵循协议
 
-          
+123protocol SomeProtocol &#123;    // 协议内容&#125;
+类或结构体遵循协议
+123struct SomeStructure: FirstProtocol, AnotherProtocol &#123;    // 结构体内容&#125;
+对属性规定
+协议可以规定其遵循者提供特定名称和类型的实例属性(instance property)或类属性(type property)，而不用指定是存储型属性(stored property)还是计算型属性(calculate property)。此外还必须指明是只读的还是可
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/20/Swift-十一-协议/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1275,7 +1172,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -1359,25 +1256,32 @@
       
         
           
-            <h2 id="扩展">扩展</h2><blockquote>
-<p>Swift中可以为类、结构体、枚举、协议添加扩展。</p>
-</blockquote>
-<blockquote>
-<p>Swift中扩展没有名字</p>
-</blockquote>
-<p><strong>Swift中扩展可以:</strong></p>
-<ul>
-<li>添加计算型属性和计算型静态属性</li>
-<li>定义实例方法和类型方法</li>
-<li>提供新的构造器(只能向类中添加新的便利构造器，但是它们不能向类中添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。)</li>
-<li>定义下标</li>
-<li>定义和使用新的嵌套类型</li>
-<li>使一个已有类型符合某个协议</li>
-</ul>
-<h3 id="语法">语法</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SomeType</span> </span>&#123;</span><br><span class="line"><span class="comment">// 加到SomeType的新功能写到这里</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>见Xcode</p>
+          扩展
+Swift中可以为类、结构体、枚举、协议添加扩展。
+
+
+Swift中扩展没有名字
+
+Swift中扩展可以:
+
+添加计算型属性和计算型静态属性
+定义实例方法和类型方法
+提供新的构造器(只能向类中添加新的便利构造器，但是它们不能向类中添加新的指定构造器或析构器。指定构造器和析构器必须总是由原始的类实现来提供。)
+定义下标
+定义和使用新的嵌套类型
+使一个已有类型符合某个协议
+
+语法123extension SomeType &#123;// 加到SomeType的新功能写到这里&#125;
+见Xcode
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/20/Swift-十-扩展/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1433,7 +1337,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -1517,54 +1421,22 @@
       
         
           
-            <h2 id="构造方法（Initialization）">构造方法（Initialization）</h2><blockquote>
-<p>Swift 中构造方法无需返回值，系统默认实现返回self。</p>
-</blockquote>
-<blockquote>
-<p>Swift初始化方法需要保证类型的所有属性都被初始化</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>() &#123;</span><br><span class="line">    <span class="comment">// 在此处执行构造过程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="构造参数">构造参数</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Celsius</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temperatureInCelsius: <span class="type">Double</span></span><br><span class="line">    <span class="keyword">init</span>(fromFahrenheit fahrenheit: <span class="type">Double</span>) &#123;</span><br><span class="line">        temperatureInCelsius = (fahrenheit - <span class="number">32.0</span>) / <span class="number">1.8</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(fromKelvin kelvin: <span class="type">Double</span>) &#123;</span><br><span class="line">        temperatureInCelsius = kelvin - <span class="number">273.15</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> boilingPointOfWater = <span class="type">Celsius</span>(fromFahrenheit: <span class="number">212.0</span>)</span><br><span class="line"><span class="comment">// boilingPointOfWater.temperatureInCelsius 是 100.0</span></span><br><span class="line"><span class="keyword">let</span> freezingPointOfWater = <span class="type">Celsius</span>(fromKelvin: <span class="number">273.15</span>)</span><br><span class="line"><span class="comment">// freezingPointOfWater.temperatureInCelsius 是 0.0”</span></span><br></pre></td></tr></table></figure>
-<h3 id="可选属性类型">可选属性类型</h3><blockquote>
-<p>可选类型在声明的时候默认为nil</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SurveyQuestion</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> text: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> response: <span class="type">String?</span></span><br><span class="line">    <span class="keyword">init</span>(text: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.text = text</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">ask</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(text)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> cheeseQuestion = <span class="type">SurveyQuestion</span>(text: <span class="string">"Do you like cheese?"</span>)</span><br><span class="line">cheeseQuestion.ask()</span><br><span class="line"><span class="comment">// 输出 "Do you like cheese?"</span></span><br><span class="line">cheeseQuestion.response = <span class="string">"Yes, I do like cheese."</span></span><br></pre></td></tr></table></figure>
-<h3 id="构造过程中常量属性的修改">构造过程中常量属性的修改</h3><blockquote>
-<p>可以在构造函数中修改常量属性的值，一旦赋值，将不可更改</p>
-</blockquote>
-<h3 id="默认构造器">默认构造器</h3><h3 id="结构体的逐一成员构造器">结构体的逐一成员构造器</h3><h3 id="值类型的构造器代理">值类型的构造器代理</h3><blockquote>
-<p>构造器可以通过调用其它构造器来完成实例的部分构造过程。这一过程称为构造器代理，它能减少多个构造器间的代码重复。</p>
-</blockquote>
-<blockquote>
-<p>如果为值类型构造器自定义了一个构造器，将不能使用默认构造器（结构体将不能使用逐一构造器）</p>
-</blockquote>
-<blockquote>
-<p>如果想使用？把自定义构造器写在扩展中。</p>
-</blockquote>
-<h3 id="类的继承和构造过程">类的继承和构造过程</h3><blockquote>
-<p>子类完成初始化必须调用父类初始化方法</p>
-</blockquote>
-<h3 id="指定构造器和便利构造器">指定构造器和便利构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>(parameters) &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">convenience</span> <span class="keyword">init</span>(parameters) &#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="类的构造器代理规则">类的构造器代理规则</h3><ul>
-<li><p>指定构造器必须向上代理</p>
-</li>
-<li><p>遍历构造器必须横向代理</p>
-</li>
-</ul>
-<h3 id="构造器继承和重写">构造器继承和重写</h3><blockquote>
-<p>“在某个类的子类中，初始化方法里语句的顺序并不是随意的，我们需要保证在当前子类实例的成员初始化完成后才能调用父类的初始化方法：”</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        name = <span class="string">"cat"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span>: <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> power: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        power = <span class="number">10</span> <span class="comment">// 1. 设置子类自己需要初始化的参数</span></span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>() <span class="comment">// 2. 调用父类初始化方法</span></span><br><span class="line">        name = <span class="string">"tiger"</span> <span class="comment">// 3. 对父类需要改变的成员赋值 如果不需要改变的话 就不需要2.3 部 swift会自动调用父类init方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="可失败构造器">可失败构造器</h3><blockquote>
-<p>类、结构体、枚举在构造过程中可能失败，如传入参数不符合要求。</p>
-</blockquote>
-<blockquote>
-<p>为了处理这种构造过程中可能出现的失败的情况，可以在类、结构体、枚举中添加一个或多个可失败的构造器，<code>init?</code></p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> species: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>?(species: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> species.isEmpty &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125; <span class="comment">// return nil 表明构造失败</span></span><br><span class="line">        <span class="keyword">self</span>.species = species</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="必要构造器">必要构造器</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">    <span class="comment">// 构造器的实现代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeSubclass</span>: <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 不需要写override</span></span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="comment">// 构造器的实现代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          构造方法（Initialization）
+Swift 中构造方法无需返回值，系统默认实现返回self。
+
+
+Swift初始化方法需要保证类型的所有属性都被初始化
+
+123init() &#123;    // 在此处执行构造过程&#125;
+构造参数12345678910111213struct Celsius &#123;    var temperatureInCelsius: Double    init(fromFahrenheit fahrenheit: Double) &#123;        temperatureInCelsius = (fahrenheit - 32.0) 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/20/Swift-九-构造方法-析构方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1620,7 +1492,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -1704,22 +1576,25 @@
       
         
           
-            <h2 id="下标脚本">下标脚本</h2><h3 id="定义">定义</h3><blockquote>
-<p>下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。</p>
-</blockquote>
-<blockquote>
-<p>下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。</p>
-</blockquote>
-<blockquote>
-<p>下标脚本可以设定为读写或只读有点类似计算属性</p>
-</blockquote>
-<p><strong>语法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// 返回一个适当的 Int 类型的值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span>(newValue) &#123;</span><br><span class="line">        <span class="comment">// 执行适当的赋值操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>用法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numberOfLegs = [<span class="string">"spider"</span>: <span class="number">8</span>, <span class="string">"ant"</span>: <span class="number">6</span>, <span class="string">"cat"</span>: <span class="number">4</span>]</span><br><span class="line">numberOfLegs[<span class="string">"bird"</span>] = <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h3 id="实例">实例</h3><p>Xcode</p>
+          下标脚本定义
+下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。
 
-          
+
+下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。
+
+
+下标脚本可以设定为读写或只读有点类似计算属性
+
+语法
+123456789subscript(index: Int) -&gt; Int &#123;    get &#123;        // 返回一个适当的 Int 类型的值    &#125;    set(newValue) &#123;      
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/19/Swift-八-下标脚本/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1775,7 +1650,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="成文的blog">
+      <meta itemprop="name" content="YCW'S ZONE">
     </span>
 
     
@@ -1859,69 +1734,32 @@
       
         
           
-            <h2 id="属性">属性</h2><h3 id="存储属性">存储属性</h3><blockquote>
-<p>定义 </p>
-</blockquote>
-<blockquote>
-<p>一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量</p>
-</blockquote>
-<p>见Xcode</p>
-<h3 id="mutating">mutating</h3><blockquote>
-<p>“Structures and enumerations are value types.<br>By default, the properties of a value type cannot be modified from within its instance methods.”</p>
-</blockquote>
-<blockquote>
-<p>结构体和枚举是值类型。一般情况下，值类型的属性不能在它的实例方法中被修改。</p>
-</blockquote>
-<h3 id="延迟存储属性">延迟存储属性</h3><blockquote>
-<p>相当于OC 的懒加载</p>
-</blockquote>
-<blockquote>
-<p>延迟存储属性是指当第一次被调用的时候才会计算其初始值的属性。在属性声明前使用lazy来标示一个延迟存储属性。</p>
-</blockquote>
-<blockquote>
-<p>必须将延迟存储属性声明成变量（使用var关键字），因为属性的初始值可能在实例构造完成之后才会得到。而常量属性在构造过程完成之前必须要有初始值，因此无法声明成延迟属性。</p>
-</blockquote>
-<h3 id="存储属性和实例变量">存储属性和实例变量</h3><blockquote>
-<p>在OC 中属性有对应的实例变量，在Swift中没有实例变量</p>
-</blockquote>
-<h3 id="计算属性">计算属性</h3><blockquote>
-<p>计算属性 ：可以用于类、结构体和枚举， 不能赋初始值， 主要为我们提供get set方法 必须用var关键字定义</p>
-</blockquote>
-<h3 id="便捷setter声明">便捷setter声明</h3><blockquote>
-<p>如果 <strong>setter</strong> 方法后 没有定义标识新值的参数名，可以使用默认名称newValue</p>
-</blockquote>
-<h3 id="只读_属性">只读 属性</h3><blockquote>
-<p>不写<strong>setter</strong>方法 可以省略get 关键字</p>
-</blockquote>
-<h3 id="属性观察器">属性观察器</h3><blockquote>
-<p>属性观察器监控和响应属性值的变化，每次属性被设置值的时候都会调用属性观察器，甚至新值和当前值相同的时候也不例外。</p>
-</blockquote>
-<p>可以为属性添加如下的一个或全部观察器：</p>
-<ul>
-<li>willSet在新的值被设置之前调用</li>
-<li>didSet在新的值被设置之后立即调用</li>
-</ul>
-<h3 id="类属性">类属性</h3><blockquote>
-<p>使用关键字static来定义类型属性, </p>
-</blockquote>
-<blockquote>
-<p>在为类定义计算型类型属性时，可以改用关键字class来支持子类对父类的实现进行重写</p>
-</blockquote>
-<blockquote>
-<p>注意</p>
-</blockquote>
-<blockquote>
-<p>跟实例的存储型属性不同，必须给存储型类型属性指定默认值，因为类型本身没有构造器，也就无法在初始化过程中使用构造器给类型属性赋值。</p>
-</blockquote>
-<blockquote>
-<p>存储型类型属性是延迟初始化的，它们只有在第一次被访问的时候才会被初始化。即使它们被多个线程同时访问，系统也保证只会对其进行一次初始化，并且不需要对其使用<code>lazy</code>修饰符。</p>
-</blockquote>
-<p>##方法</p>
-<blockquote>
-<p>类方法 static 类中可改用Class 关键字支持子类重写类方法</p>
-</blockquote>
+          属性存储属性
+定义 
 
-          
+
+一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量
+
+见Xcode
+mutating
+“Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods.”
+
+
+结构体和枚举是值类型。一般情况下，值类型的属性不能在它的实例方法中被修改。
+
+延迟存储属性
+相当于OC 的懒加载
+
+
+延迟存储属性是指当第一次被调用的时候才会计算其初始值的属性。在属性声明前
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/19/Swift-七-属性、方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1997,7 +1835,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="CWY">
             
               <p class="site-author-name" itemprop="name">CWY</p>
-              <p class="site-description motion-element" itemprop="description">Easy to say Hard to do.</p>
+              <p class="site-description motion-element" itemprop="description">Life is like a box of chocolates. You never know what you're gonna get.</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -2100,7 +1938,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
