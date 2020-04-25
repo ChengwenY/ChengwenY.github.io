@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机） 一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta name="description" content="iOS 事件类型123456typedef NS_ENUM(NSInteger, UIEventType) &amp;#123;    UIEventTypeTouches, //触摸事件    UIEventTypeMotion, // 运动事件（重力感应摇一摇等）    UIEventTypeRemoteControl, //远程事件    UIEventTypePresses API_AVAILAB">
 <meta name="keywords" content="Responder Chain,刨根问底">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS Touch Event &amp; Responder Chain">
-<meta property="og:url" content="http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/index.html">
+<meta property="og:title" content="iOS 事件传递机制与响应链">
+<meta property="og:url" content="http://chengweny.github.io/2015/12/30/iOS 事件传递机制与响应链/index.html">
 <meta property="og:site_name" content="YCW&#39;S ZONE">
-<meta property="og:description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机） 一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
+<meta property="og:description" content="iOS 事件类型123456typedef NS_ENUM(NSInteger, UIEventType) &amp;#123;    UIEventTypeTouches, //触摸事件    UIEventTypeMotion, // 运动事件（重力感应摇一摇等）    UIEventTypeRemoteControl, //远程事件    UIEventTypePresses API_AVAILAB">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://cl.ly/2q1x041n3S3n/hit-test.png">
-<meta property="og:image" content="http://cl.ly/2y343m2B212X/responder%20chain.png">
-<meta property="og:updated_time" content="2015-12-30T11:11:02.000Z">
+<meta property="og:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/04/25/15878258662837.png?x-oss-process=image/auto-orient,1/quality,q_90">
+<meta property="og:updated_time" content="2020-04-25T16:05:11.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS Touch Event &amp; Responder Chain">
-<meta name="twitter:description" content="The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机） 一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对">
-<meta name="twitter:image" content="http://cl.ly/2q1x041n3S3n/hit-test.png">
+<meta name="twitter:title" content="iOS 事件传递机制与响应链">
+<meta name="twitter:description" content="iOS 事件类型123456typedef NS_ENUM(NSInteger, UIEventType) &amp;#123;    UIEventTypeTouches, //触摸事件    UIEventTypeMotion, // 运动事件（重力感应摇一摇等）    UIEventTypeRemoteControl, //远程事件    UIEventTypePresses API_AVAILAB">
+<meta name="twitter:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/04/25/15878258662837.png?x-oss-process=image/auto-orient,1/quality,q_90">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/">
+  <link rel="canonical" href="http://chengweny.github.io/2015/12/30/iOS 事件传递机制与响应链/">
 
 
 
 
 
-  <title>iOS Touch Event & Responder Chain | YCW'S ZONE</title>
+  <title>iOS 事件传递机制与响应链 | YCW'S ZONE</title>
   
 
 
@@ -256,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/12/30/iOS 事件传递机制与响应链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CWY">
@@ -273,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS Touch Event & Responder Chain</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 事件传递机制与响应链</h1>
         
 
         <div class="post-meta">
@@ -345,19 +344,18 @@
       
 
       
-        <h2 id="The_Responder_Chain">The Responder Chain</h2><p>Event 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）</p>
-<p>一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。<br>一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。<br>application单例对象从queue的顶部取出一个事件并分发出去。通常它把这个事件发送给app的keyWindow。keywindow 会把event传递给一个实例对象去处理。这个实例对象取决于这个事件的类型。</p>
-<h3 id="Gesture_Recognizers">Gesture Recognizers</h3><p>gesture recognizers 与UIView 不在一个层级中，所以不参加事件的响应链。系统在将事件发送给hit-test view 之前，系统会先将触摸事件发送到hit-test view上绑定的或hit-test view父视图(superview)上绑定的Gesture Recognizers上。<a href="http://www.cnblogs.com/Camier-myNiuer/p/3295670.html" target="_blank" rel="noopener">看这里</a></p>
-<h3 id="Hit-Testing">Hit-Testing</h3><p>iOS 通过 hit-testing 来发现touch事件下的view，Hit-testing 需要检测touch是否在任何一个有关联的View的bounds内，如果在，就会递归检测这个view的所有的子view，view层级中包含这个touch point的最低级的那个view就是 hit-test view。在iOS决定这个 hit-test view 之后，它会将这个touch 事件传递给这个view去处理。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">hitTest</span><span class="params">(point: CGPoint, withEvent event: UIEvent?)</span></span> -&gt; <span class="type">UIView?</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> !<span class="keyword">self</span>.userInteractionEnabled || <span class="keyword">self</span>.hidden || <span class="keyword">self</span>.alpha &lt;= <span class="number">0.01</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">self</span>.pointInside(point, withEvent: event) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> view: <span class="type">UIView</span> <span class="keyword">in</span> <span class="keyword">self</span>.subviews &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> covertPoint = view.convertPoint(point, fromView: <span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> hitTestView: <span class="type">UIView?</span> = view.hitTest(covertPoint, withEvent: event)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> hitTestView != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="keyword">return</span> hitTestView</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="The_Responder_Chain_Is_Made_Up_of_Responder_Objects">The Responder Chain Is Made Up of Responder Objects</h3><p>许多类型的事件依赖于响应链去分发事件。响应链是一系列的responder 对象。开始于first responder,结束于application对象。如果first responder 不能处理事件，它把事件传递给响应链中的next responder。</p>
-<p>responder object 能够响应和处理事件，所有的view和大多数的controller都是responder ，注意layer不可以接收事件</p>
-<h3 id="一个点击事件处理的过程。">一个点击事件处理的过程。</h3><p>application 取出touch event事件 调用 [hitTest: withEvent:] 方法 返回inital object 如果当前application 没有忽略触摸事件 <code>isIgnoringInteractionEvents</code> application 调用<code>sendEvent:</code> -&gt; <code>keyWindow sendEvent:</code>  如果hit-Test view 实现了以下方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesMoved</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesCancelled</span><span class="params">(touches: Set&lt;UITouch&gt;?, withEvent event: UIEvent?)</span></span></span><br></pre></td></tr></table></figure>
-<p>hit-test view 就会处理这个event， 如果hit-test view 没响应这个事件，会把这个event交给响应链来处理， 直到传递给application，仍然没人响应这个事件的话就扔掉这个事件。</p>
-<p>以下为通过time profile 观察的方法调用</p>
-<p><img src="http://cl.ly/2q1x041n3S3n/hit-test.png" alt="hit-test"></p>
-<p><img src="http://cl.ly/2y343m2B212X/responder%20chain.png" alt></p>
+        <h2 id="iOS_事件类型">iOS 事件类型</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIEventType</span>) &#123;</span><br><span class="line">    <span class="built_in">UIEventTypeTouches</span>, <span class="comment">//触摸事件</span></span><br><span class="line">    <span class="built_in">UIEventTypeMotion</span>, <span class="comment">// 运动事件（重力感应摇一摇等）</span></span><br><span class="line">    <span class="built_in">UIEventTypeRemoteControl</span>, <span class="comment">//远程事件</span></span><br><span class="line">    <span class="built_in">UIEventTypePresses</span> API_AVAILABLE(ios(<span class="number">9.0</span>)),<span class="comment">//按压事件</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>iOS 中主要有以上几种事件，本文主要探讨触摸事件的产生、分发、响应过程。<br>整个iOS 触摸事件的产生到完成（销毁）的过程如下图：<br><img src="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/04/25/15878258662837.png?x-oss-process=image/auto-orient,1/quality,q_90" alt></p>
+<h2 id="事件的产生">事件的产生</h2><ol>
+<li>当用户手指触摸屏幕时，屏幕硬件会将感应到的事件传递给IOKit，IOKit封装触摸事件为<code>IOHIDEvent</code>对象，通过 <code>mach port</code>(IPC进程间通信) 将事件发送给 <code>SpringBoard.app</code>。<code>SpringBoard.app</code> 主线程runloop被IOKit.framework转发的消息唤醒，触发<code>Source1</code>回调<code>__IOHIDEventSystemClientQueueCallback()</code>。</li>
+<li>SpringBoard.app 检测到有app在前台，通过mach port（IPC）转发给app。</li>
+<li>前台app 主线程的Runloop被 <code>Springboard</code>转发来的消息唤醒，并触发<code>Source1</code>回调<code>__IOHIDEventSystemClientQueueCallback()</code>，该方法内部会触发<code>Source0</code>回调<code>__UIApplicationHandleEventQueue()</code>,<code>Source0</code> 回调内部封装<code>IOHIDEvent</code> 为<code>UIEvent</code>, <code>Source0</code>回调内部调用<code>UIApplication</code>的<code>sendEvent:</code> 方法。</li>
+</ol>
+<p>此时一个<code>UIEvent</code>事件产生了,开始进入事件传递流程。</p>
+<h2 id="事件传递机制">事件传递机制</h2><p><code>UIApplication</code> 通过<code>sendEvent:</code>方法将事件传递给UIWindow，UIWindow递归调用UIView层级的<code>hitTest:withEvent:</code>方法，找到事件的第一响应者，并将该view返回。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">hitTest</span><span class="params">(point: CGPoint, withEvent event: UIEvent?)</span></span> -&gt; <span class="type">UIView?</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> !<span class="keyword">self</span>.userInteractionEnabled || <span class="keyword">self</span>.hidden || <span class="keyword">self</span>.alpha &lt;= <span class="number">0.01</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">self</span>.pointInside(point, withEvent: event) &#123;</span><br><span class="line">        <span class="keyword">for</span> view: <span class="type">UIView</span> <span class="keyword">in</span> <span class="keyword">self</span>.subviews &#123;</span><br><span class="line">            <span class="keyword">let</span> covertPoint = view.convertPoint(point, fromView: <span class="keyword">self</span>)</span><br><span class="line">            <span class="keyword">let</span> hitTestView: <span class="type">UIView?</span> = view.hitTest(covertPoint, withEvent: event)</span><br><span class="line">            <span class="keyword">if</span> hitTestView != <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> hitTestView</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="响应链">响应链</h3><p>能响应事件的都是<code>UIResponder</code>及其子类，每个<code>UIResponder</code>都有<code>nextResponder</code>属性。UIWindow将事件分发给第一响应者后，如果第一响应者没有实现以下方法，那么就会将该事件交给nextResponder处理。如果沿着响应链没有发现能够响应事件的响应者，那么这个事件就会被忽略。<br>由此可见事件传递是由上向下传递，响应链是由下向上传递的。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesMoved</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesEnded</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesCancelled</span><span class="params">(touches: Set&lt;UITouch&gt;?, withEvent event: UIEvent?)</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="UIGestureRecognizer_&amp;_UIControl_响应事件过程">UIGestureRecognizer &amp; UIControl 响应事件过程</h3><h4 id="UIGestureRecognizer">UIGestureRecognizer</h4><p>在寻找第一响应者者的过程中，如果view绑定了<code>UIGestureRecognizer</code>，会将view的<code>Recognizer</code>添加进<code>UITouch</code>的<code>gestureRecognizers</code>数组中，<code>UIWindow</code>会先将事件发送给<code>Recognizer</code>，成功识别事件的<code>Recognizer</code>所关联的UIView会收到<code>touchesCancelled:</code>消息并且以后改view不会再收到这个UIEvent消息。如果<code>Recognizer</code>没有响应，事件将会传递给第一响应者，并沿响应链向上传递。</p>
+<h4 id="UIControl">UIControl</h4><p>如果第一响应者是<code>UIControl</code>的子类，非系统级的<code>UIControl</code>类如<code>UIButton</code>，则优先响应<code>UIGestureRecognizer</code>,如果<code>UIButton</code>是第一响应者，则直接由<code>UIApplication</code>派发事件，调用<code>sendEvent:forAction:</code>。</p>
 
       
     </div>
@@ -378,7 +376,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/" title="iOS Touch Event & Responder Chain">http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/</a>
+    <a href="http://chengweny.github.io/2015/12/30/iOS 事件传递机制与响应链/" title="iOS 事件传递机制与响应链">http://chengweny.github.io/2015/12/30/iOS 事件传递机制与响应链/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -570,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The_Responder_Chain"><span class="nav-number">1.</span> <span class="nav-text">The Responder Chain</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gesture_Recognizers"><span class="nav-number">1.1.</span> <span class="nav-text">Gesture Recognizers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hit-Testing"><span class="nav-number">1.2.</span> <span class="nav-text">Hit-Testing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The_Responder_Chain_Is_Made_Up_of_Responder_Objects"><span class="nav-number">1.3.</span> <span class="nav-text">The Responder Chain Is Made Up of Responder Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个点击事件处理的过程。"><span class="nav-number">1.4.</span> <span class="nav-text">一个点击事件处理的过程。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS_事件类型"><span class="nav-number">1.</span> <span class="nav-text">iOS 事件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的产生"><span class="nav-number">2.</span> <span class="nav-text">事件的产生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件传递机制"><span class="nav-number">3.</span> <span class="nav-text">事件传递机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应链"><span class="nav-number">3.1.</span> <span class="nav-text">响应链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIGestureRecognizer_&_UIControl_响应事件过程"><span class="nav-number">3.2.</span> <span class="nav-text">UIGestureRecognizer &amp; UIControl 响应事件过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIGestureRecognizer"><span class="nav-number">3.2.1.</span> <span class="nav-text">UIGestureRecognizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIControl"><span class="nav-number">3.2.2.</span> <span class="nav-text">UIControl</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

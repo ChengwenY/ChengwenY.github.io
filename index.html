@@ -345,9 +345,9 @@
       
         
           
-          Vue 双向绑定实现原理1、编译代码，将代码中的特殊模板替换成vue属性值，模板得到初始化。利用DocumentFragment存储dom，完成遍历后一次性添加到原始dom中，只发生1次渲染操作，提高性能。
+          Vue.js 双向绑定实现原理1、编译代码，将代码中的特殊模板替换成vue属性值，模板得到初始化。利用DocumentFragment存储dom，完成遍历后一次性添加到原始dom中，只发生1次渲染操作，提高性能。
 2、例如input控件text发生变化时需要同步修改data中对应的属性，所以监听input控件的输入事件，如有变化就调用data中属性的set方法，实现属性值更新。为属性添加get、set方法需要使用Object.defineProperty() 覆盖原始属性的实现。这一步骤即为响应式数据绑定 
-3、如何让文本节点实时变化? 利用订阅发布模式，通知文本节点属性变化。将每一个属性添加一个发
+3、如何让文本节点实时变化? 利用订阅发布模式，通知文本节点属性变化。将每一个属性添加
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -864,7 +864,7 @@ docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_ad
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/12/30/iOS-Touch-Event-Responder-Chain/">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/12/30/iOS 事件传递机制与响应链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CWY">
@@ -883,7 +883,7 @@ docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_ad
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/12/30/iOS-Touch-Event-Responder-Chain/" itemprop="url">iOS Touch Event & Responder Chain</a></h1>
+                <a class="post-title-link" href="/2015/12/30/iOS 事件传递机制与响应链/" itemprop="url">iOS 事件传递机制与响应链</a></h1>
         
 
         <div class="post-meta">
@@ -957,13 +957,14 @@ docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_ad
       
         
           
-          The Responder ChainEvent 有三种类型：Touch events Motion Events(摇一摇) and Remote Control Events（耳机）
-一个点击事件可以发生在屏幕上的多个不同的对象中，你需要去决定你想让哪个对象去响应这个事件，同时明白这个对象是怎样接收的这个事件。一个事件沿着特定的路径传递直到被一个可以处理它的对象接收。application单例对象从queue的顶部取出一个事件并分发出去。通常它把这个事件发送给app的keyWindow。keywindow 会把event传递给一个实例对象去处理。这个实例对象取决于这个事件的类型。
-Gestu
+          iOS 事件类型123456typedef NS_ENUM(NSInteger, UIEventType) &#123;    UIEventTypeTouches, //触摸事件    UIEventTypeMotion, // 运动事件（重力感应摇一摇等）    UIEventTypeRemoteControl, //远程事件    UIEventTypePresses API_AVAILABLE(ios(9.0)),//按压事件&#125;;
+iOS 中主要有以上几种事件，本文主要探讨触摸事件的产生、分发、响应过程。整个iOS 触摸事件的产生到完成（销毁）的过程如下图：
+事件的产生
+当用
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/12/30/iOS-Touch-Event-Responder-Chain/#more" rel="contents">
+            <a class="btn" href="/2015/12/30/iOS 事件传递机制与响应链/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
