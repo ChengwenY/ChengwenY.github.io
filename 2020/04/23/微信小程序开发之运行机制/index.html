@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Swift,基础知识,">
+  <meta name="keywords" content="小程序,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="属性存储属性 定义    一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量  见Xcode mutating “Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods">
-<meta name="keywords" content="Swift,基础知识">
+<meta name="description" content="运行机制前台/后台状态小程序启动后，界面被展示给用户，此时处于前台状态。当用户点击右上角胶囊按钮关闭小程序，或者按了home键离开微信，小程序并没有完全终止运行，而是进入后台状态，小程序还可以运行一小段时间。当用户再次进入微信或打开小程序，小程序会从后台进入前台，如果用户很久没有进入小程序或系统资源紧张，小程序可能被销毁。 小程序启动 冷启动：用户首次打开，或小程序被系统销毁后再次打开。 热启动：">
+<meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift (七) 属性、方法">
-<meta property="og:url" content="http://chengweny.github.io/2015/11/19/Swift-七-属性、方法/index.html">
+<meta property="og:title" content="微信小程序开发之运行机制">
+<meta property="og:url" content="http://chengweny.github.io/2020/04/23/微信小程序开发之运行机制/index.html">
 <meta property="og:site_name" content="YCW&#39;S ZONE">
-<meta property="og:description" content="属性存储属性 定义    一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量  见Xcode mutating “Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods">
+<meta property="og:description" content="运行机制前台/后台状态小程序启动后，界面被展示给用户，此时处于前台状态。当用户点击右上角胶囊按钮关闭小程序，或者按了home键离开微信，小程序并没有完全终止运行，而是进入后台状态，小程序还可以运行一小段时间。当用户再次进入微信或打开小程序，小程序会从后台进入前台，如果用户很久没有进入小程序或系统资源紧张，小程序可能被销毁。 小程序启动 冷启动：用户首次打开，或小程序被系统销毁后再次打开。 热启动：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2015-11-19T14:26:51.000Z">
+<meta property="og:updated_time" content="2020-04-23T16:09:54.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift (七) 属性、方法">
-<meta name="twitter:description" content="属性存储属性 定义    一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量  见Xcode mutating “Structures and enumerations are value types.By default, the properties of a value type cannot be modified from within its instance methods">
+<meta name="twitter:title" content="微信小程序开发之运行机制">
+<meta name="twitter:description" content="运行机制前台/后台状态小程序启动后，界面被展示给用户，此时处于前台状态。当用户点击右上角胶囊按钮关闭小程序，或者按了home键离开微信，小程序并没有完全终止运行，而是进入后台状态，小程序还可以运行一小段时间。当用户再次进入微信或打开小程序，小程序会从后台进入前台，如果用户很久没有进入小程序或系统资源紧张，小程序可能被销毁。 小程序启动 冷启动：用户首次打开，或小程序被系统销毁后再次打开。 热启动：">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://chengweny.github.io/2015/11/19/Swift-七-属性、方法/">
+  <link rel="canonical" href="http://chengweny.github.io/2020/04/23/微信小程序开发之运行机制/">
 
 
 
 
 
-  <title>Swift (七) 属性、方法 | YCW'S ZONE</title>
+  <title>微信小程序开发之运行机制 | YCW'S ZONE</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/11/19/Swift-七-属性、方法/">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/04/23/微信小程序开发之运行机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CWY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swift (七) 属性、方法</h1>
+          <h1 class="post-title" itemprop="name headline">微信小程序开发之运行机制</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-19T22:22:51+08:00">
-                2015-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T23:32:42+08:00">
+                2020-04-23
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
+                  <a href="/categories/Web-小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">Web 小程序</span>
                   </a>
                 </span>
 
@@ -342,67 +342,23 @@
       
 
       
-        <h2 id="属性">属性</h2><h3 id="存储属性">存储属性</h3><blockquote>
-<p>定义 </p>
-</blockquote>
-<blockquote>
-<p>一个存储属性就是存储在特定类或结构体的实例里的一个常量或变量</p>
-</blockquote>
-<p>见Xcode</p>
-<h3 id="mutating">mutating</h3><blockquote>
-<p>“Structures and enumerations are value types.<br>By default, the properties of a value type cannot be modified from within its instance methods.”</p>
-</blockquote>
-<blockquote>
-<p>结构体和枚举是值类型。一般情况下，值类型的属性不能在它的实例方法中被修改。</p>
-</blockquote>
-<h3 id="延迟存储属性">延迟存储属性</h3><blockquote>
-<p>相当于OC 的懒加载</p>
-</blockquote>
-<blockquote>
-<p>延迟存储属性是指当第一次被调用的时候才会计算其初始值的属性。在属性声明前使用lazy来标示一个延迟存储属性。</p>
-</blockquote>
-<blockquote>
-<p>必须将延迟存储属性声明成变量（使用var关键字），因为属性的初始值可能在实例构造完成之后才会得到。而常量属性在构造过程完成之前必须要有初始值，因此无法声明成延迟属性。</p>
-</blockquote>
-<h3 id="存储属性和实例变量">存储属性和实例变量</h3><blockquote>
-<p>在OC 中属性有对应的实例变量，在Swift中没有实例变量</p>
-</blockquote>
-<h3 id="计算属性">计算属性</h3><blockquote>
-<p>计算属性 ：可以用于类、结构体和枚举， 不能赋初始值， 主要为我们提供get set方法 必须用var关键字定义</p>
-</blockquote>
-<h3 id="便捷setter声明">便捷setter声明</h3><blockquote>
-<p>如果 <strong>setter</strong> 方法后 没有定义标识新值的参数名，可以使用默认名称newValue</p>
-</blockquote>
-<h3 id="只读_属性">只读 属性</h3><blockquote>
-<p>不写<strong>setter</strong>方法 可以省略get 关键字</p>
-</blockquote>
-<h3 id="属性观察器">属性观察器</h3><blockquote>
-<p>属性观察器监控和响应属性值的变化，每次属性被设置值的时候都会调用属性观察器，甚至新值和当前值相同的时候也不例外。</p>
-</blockquote>
-<p>可以为属性添加如下的一个或全部观察器：</p>
-<ul>
-<li>willSet在新的值被设置之前调用</li>
-<li>didSet在新的值被设置之后立即调用</li>
+        <h2 id="运行机制">运行机制</h2><h4 id="前台/后台状态">前台/后台状态</h4><p>小程序启动后，界面被展示给用户，此时处于前台状态。<br>当用户点击右上角胶囊按钮关闭小程序，或者按了home键离开微信，小程序并没有完全终止运行，而是进入<strong>后台</strong>状态，小程序还可以运行一小段时间。<br>当用户再次进入微信或打开小程序，小程序会从<strong>后台进入前台</strong>，如果用户很久没有进入小程序或系统资源紧张，小程序可能被<strong>销毁</strong>。</p>
+<h4 id="小程序启动">小程序启动</h4><ul>
+<li>冷启动：用户首次打开，或小程序被系统销毁后再次打开。</li>
+<li>热启动：小程序并未销毁，从后台进入前台状态。</li>
 </ul>
-<h3 id="类属性">类属性</h3><blockquote>
-<p>使用关键字static来定义类型属性, </p>
-</blockquote>
-<blockquote>
-<p>在为类定义计算型类型属性时，可以改用关键字class来支持子类对父类的实现进行重写</p>
-</blockquote>
-<blockquote>
-<p>注意</p>
-</blockquote>
-<blockquote>
-<p>跟实例的存储型属性不同，必须给存储型类型属性指定默认值，因为类型本身没有构造器，也就无法在初始化过程中使用构造器给类型属性赋值。</p>
-</blockquote>
-<blockquote>
-<p>存储型类型属性是延迟初始化的，它们只有在第一次被访问的时候才会被初始化。即使它们被多个线程同时访问，系统也保证只会对其进行一次初始化，并且不需要对其使用<code>lazy</code>修饰符。</p>
-</blockquote>
-<p>##方法</p>
-<blockquote>
-<p>类方法 static 类中可改用Class 关键字支持子类重写类方法</p>
-</blockquote>
+<h4 id="小程序销毁时机">小程序销毁时机</h4><ul>
+<li>小程序进入后台后，可以维持一小段时间的运行状态，如果这段时间未进入前台，小程序就会被销毁。</li>
+<li>小程序占用系统资源过高，可能会被系统销毁或被微信客户端主动回收。在iOS上，当微信客户端在一定时间间隔内连续收到系统内存告警时，会根据一定策略主动销毁小程序。可以通过<code>wx.onMemoryWarning</code>监听内存告警事件。</li>
+</ul>
+<h4 id="App-js_生命周期方法调用时机">App.js 生命周期方法调用时机</h4><ul>
+<li>onLaunch：小程序初始化完成时触发，全局触发一次。</li>
+<li>onShow：小程序启动或从后台进入前台显示时触发。</li>
+<li>onHide：前台进入后台时触发。</li>
+<li>onError：脚本错误或API调用报错时触发。</li>
+<li>onPageNotFound：小程序要打开的页面不存在时触发，可以在此方法中页面重定向</li>
+<li>onUnhandledRejection：小程序有未处理的 Promise 拒绝时触发。</li>
+</ul>
 
       
     </div>
@@ -423,7 +379,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://chengweny.github.io/2015/11/19/Swift-七-属性、方法/" title="Swift (七) 属性、方法">http://chengweny.github.io/2015/11/19/Swift-七-属性、方法/</a>
+    <a href="http://chengweny.github.io/2020/04/23/微信小程序开发之运行机制/" title="微信小程序开发之运行机制">http://chengweny.github.io/2020/04/23/微信小程序开发之运行机制/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -438,9 +394,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
-          
-            <a href="/tags/基础知识/" rel="tag"># 基础知识</a>
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
           
         </div>
       
@@ -453,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/19/Swift-六-类和结构体/" rel="next" title="Swift(六) 类和结构体">
-                <i class="fa fa-chevron-left"></i> Swift(六) 类和结构体
+              <a href="/2020/04/21/Laravel环境搭建/" rel="next" title="Laravel环境搭建">
+                <i class="fa fa-chevron-left"></i> Laravel环境搭建
               </a>
             
           </div>
@@ -463,8 +417,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/19/Swift-八-下标脚本/" rel="prev" title="Swift (八) 下标脚本">
-                Swift (八) 下标脚本 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/25/vue实现原理/" rel="prev" title="vue双向绑定实现原理">
+                vue双向绑定实现原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -615,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储属性"><span class="nav-number">1.1.</span> <span class="nav-text">存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mutating"><span class="nav-number">1.2.</span> <span class="nav-text">mutating</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟存储属性"><span class="nav-number">1.3.</span> <span class="nav-text">延迟存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储属性和实例变量"><span class="nav-number">1.4.</span> <span class="nav-text">存储属性和实例变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性"><span class="nav-number">1.5.</span> <span class="nav-text">计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#便捷setter声明"><span class="nav-number">1.6.</span> <span class="nav-text">便捷setter声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只读_属性"><span class="nav-number">1.7.</span> <span class="nav-text">只读 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性观察器"><span class="nav-number">1.8.</span> <span class="nav-text">属性观察器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类属性"><span class="nav-number">1.9.</span> <span class="nav-text">类属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行机制"><span class="nav-number">1.</span> <span class="nav-text">运行机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前台/后台状态"><span class="nav-number">1.0.1.</span> <span class="nav-text">前台/后台状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小程序启动"><span class="nav-number">1.0.2.</span> <span class="nav-text">小程序启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小程序销毁时机"><span class="nav-number">1.0.3.</span> <span class="nav-text">小程序销毁时机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#App-js_生命周期方法调用时机"><span class="nav-number">1.0.4.</span> <span class="nav-text">App.js 生命周期方法调用时机</span></a></li></ol></li></ol></div>
             
 
           </div>

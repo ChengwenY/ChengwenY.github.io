@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="搭建docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1  常见问题 当.env文件中 DB_HOST = 127.0.0.1 时，连接mysql失败，改为 mysql 容器名称时连接成功  123456DB_CONN">
+<meta name="description" content="搭建 docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1   进入docker容器bashdocker exec -it xxx_admin bash  运行composer install 配置.env datab">
 <meta name="keywords" content="Laravel 环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Laravel环境搭建">
 <meta property="og:url" content="http://chengweny.github.io/2020/04/21/Laravel环境搭建/index.html">
 <meta property="og:site_name" content="YCW&#39;S ZONE">
-<meta property="og:description" content="搭建docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1  常见问题 当.env文件中 DB_HOST = 127.0.0.1 时，连接mysql失败，改为 mysql 容器名称时连接成功  123456DB_CONN">
+<meta property="og:description" content="搭建 docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1   进入docker容器bashdocker exec -it xxx_admin bash  运行composer install 配置.env datab">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-21T08:11:33.209Z">
+<meta property="og:updated_time" content="2020-04-23T15:40:35.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel环境搭建">
-<meta name="twitter:description" content="搭建docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1  常见问题 当.env文件中 DB_HOST = 127.0.0.1 时，连接mysql失败，改为 mysql 容器名称时连接成功  123456DB_CONN">
+<meta name="twitter:description" content="搭建 docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1   进入docker容器bashdocker exec -it xxx_admin bash  运行composer install 配置.env datab">
 
 
 
@@ -342,7 +342,14 @@
       
 
       
-        <h2 id="搭建">搭建</h2><p>docker运行项目容器<br><code>docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1</code> </p>
+        <h2 id="搭建">搭建</h2><ul>
+<li><p>docker运行项目容器<br><code>docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1</code> </p>
+</li>
+<li><p>进入docker容器bash<br><code>docker exec -it xxx_admin bash</code></p>
+</li>
+<li>运行<code>composer install</code></li>
+<li>配置<code>.env database</code></li>
+</ul>
 <h2 id="常见问题">常见问题</h2><ul>
 <li>当.env文件中 <code>DB_HOST = 127.0.0.1</code> 时，连接mysql失败，改为 <code>mysql</code> 容器名称时连接成功</li>
 </ul>
@@ -405,6 +412,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/23/微信小程序开发之运行机制/" rel="prev" title="微信小程序开发之运行机制">
+                微信小程序开发之运行机制 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -483,7 +494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +505,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -505,7 +516,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
