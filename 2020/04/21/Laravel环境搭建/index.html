@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="YCW&#39;S ZONE">
 <meta property="og:description" content="搭建 docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1   进入docker容器bashdocker exec -it xxx_admin bash  运行composer install 配置.env datab">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-23T15:40:35.242Z">
+<meta property="og:updated_time" content="2020-04-26T05:57:47.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel环境搭建">
 <meta name="twitter:description" content="搭建 docker运行项目容器docker run -d -p 80:80 --name xxx_admin  -v /apps/xxx_admin:/var/www/html/app luffy94608/php_nginx:php7.1   进入docker容器bashdocker exec -it xxx_admin bash  运行composer install 配置.env datab">
@@ -355,6 +355,8 @@
 </ul>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">DB_CONNECTION</span>=mysql</span><br><span class="line"><span class="attr">DB_HOST</span>=<span class="number">127.0</span>.<span class="number">0.1</span> (mysql - works fine with docker mysql containers)</span><br><span class="line"><span class="attr">DB_PORT</span>=<span class="number">3306</span></span><br><span class="line"><span class="attr">DB_DATABASE</span>=laravel</span><br><span class="line"><span class="attr">DB_USERNAME</span>=root</span><br><span class="line"><span class="attr">DB_PASSWORD</span>=root</span><br></pre></td></tr></table></figure>
 <p>因为 <code>php-fpm container</code> 与 <code>mysql container</code>不在同一个容器中，因此<code>127.0.0.1</code> 或 <code>localhost</code> 不能连接，可以使用 <code>mysql container</code>的IP 或直接使用容器名即可。</p>
+<h2 id="docker">docker</h2><p>获取docker 容器内网IP<br><code>docker inspect container_id | grep IPAddress</code></p>
+<h2 id="参考文档">参考文档</h2><p><a href="https://yeasy.gitbooks.io/docker_practice/basic_concept/repository.html" target="_blank" rel="noopener">Docker 从入门到实践</a></p>
 
       
     </div>
@@ -494,7 +496,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -505,7 +507,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -516,7 +518,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -565,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建"><span class="nav-number">1.</span> <span class="nav-text">搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建"><span class="nav-number">1.</span> <span class="nav-text">搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker"><span class="nav-number">3.</span> <span class="nav-text">docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">4.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
             
 
           </div>

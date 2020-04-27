@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="循环引用,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="NSTimerNSTimer是日常常用控件，但在使用中需要注意避免循环引用的问题。NSTimer使用方式如下12345678- (void)initTimer &amp;#123;    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(beginTimer) userInfo:nil">
+<meta name="keywords" content="循环引用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSTimer解决循环引用的几种方式">
+<meta property="og:url" content="http://chengweny.github.io/2020/04/26/NSTimer解决循环引用的几种方式/index.html">
+<meta property="og:site_name" content="YCW&#39;S ZONE">
+<meta property="og:description" content="NSTimerNSTimer是日常常用控件，但在使用中需要注意避免循环引用的问题。NSTimer使用方式如下12345678- (void)initTimer &amp;#123;    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(beginTimer) userInfo:nil">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-27T13:05:59.707Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NSTimer解决循环引用的几种方式">
+<meta name="twitter:description" content="NSTimerNSTimer是日常常用控件，但在使用中需要注意避免循环引用的问题。NSTimer使用方式如下12345678- (void)initTimer &amp;#123;    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(beginTimer) userInfo:nil">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chengweny.github.io/2020/04/26/NSTimer解决循环引用的几种方式/">
+
+
+
+
+
+  <title>NSTimer解决循环引用的几种方式 | YCW'S ZONE</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YCW'S ZONE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/04/26/NSTimer解决循环引用的几种方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CWY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YCW'S ZONE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NSTimer解决循环引用的几种方式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T22:13:30+08:00">
+                2020-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="NSTimer">NSTimer</h2><p>NSTimer是日常常用控件，但在使用中需要注意避免循环引用的问题。NSTimer使用方式如下<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)initTimer &#123;</span><br><span class="line">    <span class="keyword">self</span>.timer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(beginTimer) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>]; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    [<span class="keyword">self</span>.timer invalidate];</span><br><span class="line">    <span class="keyword">self</span>.timer = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于timer与self相互强引用，导致走不到dealloc方法，造成内存泄露。<br>以下为解决NSTimer循环引用的几种方法。</p>
+<h2 id="选择合适时机手动释放">选择合适时机手动释放</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated</span><br><span class="line">&#123;</span><br><span class="line">   [<span class="keyword">super</span> viewDidDisappear:animated];</span><br><span class="line">    _textLabel.text = <span class="string">@"请按住说话"</span>;</span><br><span class="line">    [_timer invalidate];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方案在有些情况下是不合理的，比如控制器push到下一个页面，返回时需要重新实例化timer。</p>
+<h2 id="在NSTimer分类中添加类方法">在NSTimer分类中添加类方法</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSTimer</span> (<span class="title">BlockTimer</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)bl_scheduledTimerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval block:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))block repeats:(<span class="built_in">BOOL</span>)repeats &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> scheduledTimerWithTimeInterval:interval target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(bl_blockSelector:) userInfo:[block <span class="keyword">copy</span>] repeats:repeats];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)bl_blockSelector:(<span class="built_in">NSTimer</span> *)timer &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)(<span class="keyword">void</span>) = timer.userInfo;</span><br><span class="line">    <span class="keyword">if</span> (block) &#123;</span><br><span class="line">        block();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>设置timer的target为自身，解决了循环引用的问题。使用时要注意block引起的循环引用。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line"><span class="keyword">self</span>.timer = [<span class="built_in">NSTimer</span> bl_scheduledTimerWithTimeInterval:<span class="number">1</span> block:^&#123;</span><br><span class="line">     [weakSelf doSomething];</span><br><span class="line">&#125; repeats:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="给target添加中间件NSProxy">给target添加中间件NSProxy</h2><p>在YYKit中，作者使用YYWeakProxy类作为NSTimer、CADisplayLink 的target，使得Timer得引用变为 VC-&gt;NSTimer-&gt;YYWeakProxy–&gt;VC，YYWeakProxy弱引用VC，当触发timer的方法时，通过消息转发机制将消息转发至VC，避免了循环引用。<br>使用方式在头文件中可以看到：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> A proxy used to hold a weak object.</span></span><br><span class="line"><span class="comment"> It can be used to avoid retain cycles, such as the target in NSTimer or CADisplayLink.</span></span><br><span class="line"><span class="comment"> sample code:</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">     @implementation MyView &#123;</span></span><br><span class="line"><span class="comment">        NSTimer *_timer;</span></span><br><span class="line"><span class="comment">     &#125;</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     - (void)initTimer &#123;</span></span><br><span class="line"><span class="comment">        YYWeakProxy *proxy = [YYWeakProxy proxyWithTarget:self];</span></span><br><span class="line"><span class="comment">        _timer = [NSTimer timerWithTimeInterval:0.1 target:proxy selector:@selector(tick:) userInfo:nil repeats:YES];</span></span><br><span class="line"><span class="comment">     &#125;</span></span><br><span class="line"><span class="comment">     </span></span><br><span class="line"><span class="comment">     - (void)tick:(NSTimer *)timer &#123;...&#125;</span></span><br><span class="line"><span class="comment">     @end</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">YYWeakProxy</span> : <span class="title">NSProxy</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> The proxy target.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">weak</span>, <span class="keyword">readonly</span>) <span class="keyword">id</span> target;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Creates a new weak proxy for target.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> @param target Target object.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> @return A new proxy object.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithTarget:(<span class="keyword">id</span>)target;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Creates a new weak proxy for target.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> @param target Target object.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> @return A new proxy object.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)proxyWithTarget:(<span class="keyword">id</span>)target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"YYWeakProxy.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">YYWeakProxy</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithTarget:(<span class="keyword">id</span>)target &#123;</span><br><span class="line">    _target = target;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)proxyWithTarget:(<span class="keyword">id</span>)target &#123;</span><br><span class="line">    <span class="keyword">return</span> [[YYWeakProxy alloc] initWithTarget:target];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)forwardingTargetForSelector:(SEL)selector &#123;</span><br><span class="line">    <span class="keyword">return</span> _target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation &#123;</span><br><span class="line">    <span class="keyword">void</span> *null = <span class="literal">NULL</span>;</span><br><span class="line">    [invocation setReturnValue:&amp;null];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)selector &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSObject</span> instanceMethodSignatureForSelector:<span class="keyword">@selector</span>(init)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)respondsToSelector:(SEL)aSelector &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target respondsToSelector:aSelector];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)isEqual:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target isEqual:object];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSUInteger</span>)hash &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target hash];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (Class)superclass &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target superclass];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (Class)<span class="keyword">class</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target <span class="keyword">class</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)isKindOfClass:(Class)aClass &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target isKindOfClass:aClass];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)isMemberOfClass:(Class)aClass &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target isMemberOfClass:aClass];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)conformsToProtocol:(Protocol *)aProtocol &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target conformsToProtocol:aProtocol];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)isProxy &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)description &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target description];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)debugDescription &#123;</span><br><span class="line">    <span class="keyword">return</span> [_target debugDescription];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用GCD_timer">使用GCD timer</h2><p>以下为YYTimer,实现了线程安全的GCD timer,不会被runloop的mode影响。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> YYTimer is a thread-safe timer based on GCD. It has similar API with `NSTimer`.</span></span><br><span class="line"><span class="comment"> YYTimer object differ from NSTimer in a few ways:</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> * It use GCD to produce timer tick, and won't be affected by runLoop.</span></span><br><span class="line"><span class="comment"> * It make a weak reference to the target, so it can avoid retain cycles.</span></span><br><span class="line"><span class="comment"> * It always fire on main thread.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">YYTimer</span> : <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line">+ (YYTimer *)timerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                            target:(<span class="keyword">id</span>)target</span><br><span class="line">                          selector:(SEL)selector</span><br><span class="line">                           repeats:(<span class="built_in">BOOL</span>)repeats;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithFireTime:(<span class="built_in">NSTimeInterval</span>)start</span><br><span class="line">                        interval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                          target:(<span class="keyword">id</span>)target</span><br><span class="line">                        selector:(SEL)selector</span><br><span class="line">                         repeats:(<span class="built_in">BOOL</span>)repeats <span class="built_in">NS_DESIGNATED_INITIALIZER</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>) <span class="built_in">BOOL</span> repeats;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span> timeInterval;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readonly</span>, <span class="keyword">getter</span>=isValid) <span class="built_in">BOOL</span> valid;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)invalidate;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)fire;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"YYTimer.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LOCK(...) dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER); \</span></span><br><span class="line">__VA_ARGS__; \</span><br><span class="line">dispatch_semaphore_signal(_lock);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">YYTimer</span> </span>&#123;</span><br><span class="line">    <span class="built_in">BOOL</span> _valid;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> _timeInterval;</span><br><span class="line">    <span class="built_in">BOOL</span> _repeats;</span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">id</span> _target;</span><br><span class="line">    SEL _selector;</span><br><span class="line">    dispatch_source_t _source;</span><br><span class="line">    dispatch_semaphore_t _lock;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (YYTimer *)timerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                            target:(<span class="keyword">id</span>)target</span><br><span class="line">                          selector:(SEL)selector</span><br><span class="line">                           repeats:(<span class="built_in">BOOL</span>)repeats &#123;</span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] initWithFireTime:interval interval:interval target:target selector:selector repeats:repeats];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)init &#123;</span><br><span class="line">    <span class="keyword">@throw</span> [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"YYTimer init error"</span> reason:<span class="string">@"Use the designated initializer to init."</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> initWithFireTime:<span class="number">0</span> interval:<span class="number">0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(invalidate) repeats:<span class="literal">NO</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithFireTime:(<span class="built_in">NSTimeInterval</span>)start</span><br><span class="line">                        interval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">                          target:(<span class="keyword">id</span>)target</span><br><span class="line">                        selector:(SEL)selector</span><br><span class="line">                         repeats:(<span class="built_in">BOOL</span>)repeats &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    _repeats = repeats;</span><br><span class="line">    _timeInterval = interval;</span><br><span class="line">    _valid = <span class="literal">YES</span>;</span><br><span class="line">    _target = target;</span><br><span class="line">    _selector = selector;</span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) _<span class="keyword">self</span> = <span class="keyword">self</span>;</span><br><span class="line">    _lock = dispatch_semaphore_create(<span class="number">1</span>);</span><br><span class="line">    _source = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, <span class="number">0</span>, <span class="number">0</span>, dispatch_get_main_queue());</span><br><span class="line">    dispatch_source_set_timer(_source, dispatch_time(DISPATCH_TIME_NOW, (start * <span class="built_in">NSEC_PER_SEC</span>)), (interval * <span class="built_in">NSEC_PER_SEC</span>), <span class="number">0</span>);</span><br><span class="line">    dispatch_source_set_event_handler(_source, ^&#123;[_<span class="keyword">self</span> fire];&#125;);</span><br><span class="line">    dispatch_resume(_source);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)invalidate &#123;</span><br><span class="line">    dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER);</span><br><span class="line">    <span class="keyword">if</span> (_valid) &#123;</span><br><span class="line">        dispatch_source_cancel(_source);</span><br><span class="line">        _source = <span class="literal">NULL</span>;</span><br><span class="line">        _target = <span class="literal">nil</span>;</span><br><span class="line">        _valid = <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    dispatch_semaphore_signal(_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)fire &#123;</span><br><span class="line">    <span class="keyword">if</span> (!_valid) <span class="keyword">return</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> clang diagnostic push</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> clang diagnostic ignored <span class="meta-string">"-Warc-performSelector-leaks"</span></span></span><br><span class="line">    dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER);</span><br><span class="line">    <span class="keyword">id</span> target = _target;</span><br><span class="line">    <span class="keyword">if</span> (!target) &#123;</span><br><span class="line">        dispatch_semaphore_signal(_lock);</span><br><span class="line">        [<span class="keyword">self</span> invalidate];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dispatch_semaphore_signal(_lock);</span><br><span class="line">        [target performSelector:_selector withObject:<span class="keyword">self</span>];</span><br><span class="line">        <span class="keyword">if</span> (!_repeats) &#123;</span><br><span class="line">            [<span class="keyword">self</span> invalidate];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> clang diagnostic pop</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)repeats &#123;</span><br><span class="line">    LOCK(<span class="built_in">BOOL</span> repeat = _repeats); <span class="keyword">return</span> repeat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSTimeInterval</span>)timeInterval &#123;</span><br><span class="line">    LOCK(<span class="built_in">NSTimeInterval</span> t = _timeInterval) <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)isValid &#123;</span><br><span class="line">    LOCK(<span class="built_in">BOOL</span> valid = _valid) <span class="keyword">return</span> valid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    [<span class="keyword">self</span> invalidate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="更精确的Timer">更精确的Timer</h2><p>纳秒级精度的Timer<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> uint64_t NANOS_PER_USEC = <span class="number">1000</span>ULL;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">static</span> <span class="keyword">const</span> uint64_t NANOS_PER_MILLISEC = <span class="number">1000</span>ULL * NANOS_PER_USEC;</span><br><span class="line"> <span class="keyword">static</span> <span class="keyword">const</span> uint64_t NANOS_PER_SEC = <span class="number">1000</span>ULL * NANOS_PER_MILLISEC;</span><br><span class="line"> <span class="keyword">static</span> mach_timebase_info_data_t timebase_info;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">static</span> uint64_t nanos_to_abs(uint64_t nanos) &#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> nanos * timebase_info.denom / timebase_info.numer;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">void</span> waitSeconds(<span class="keyword">int</span> seconds) &#123;</span><br><span class="line"></span><br><span class="line"> mach_timebase_info(&amp;timebase_info);</span><br><span class="line"></span><br><span class="line"> uint64_t time_to_wait = nanos_to_abs(seconds * NANOS_PER_SEC);</span><br><span class="line"></span><br><span class="line"> uint64_t now = mach_absolute_time();</span><br><span class="line"></span><br><span class="line"> mach_wait_until(now + time_to_wait);</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文档">参考文档</h2><p><a href="https://juejin.im/post/5afaaf996fb9a07ac5604a92" target="_blank" rel="noopener">NSTimer使用详解</a><br><a href="https://juejin.im/post/5d5e653ff265da03e05b1948" target="_blank" rel="noopener">NSProxy使用</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    CWY
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://chengweny.github.io/2020/04/26/NSTimer解决循环引用的几种方式/" title="NSTimer解决循环引用的几种方式">http://chengweny.github.io/2020/04/26/NSTimer解决循环引用的几种方式/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/循环引用/" rel="tag"># 循环引用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/25/vue实现原理/" rel="next" title="vue双向绑定实现原理">
+                <i class="fa fa-chevron-left"></i> vue双向绑定实现原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="CWY">
+            
+              <p class="site-author-name" itemprop="name">CWY</p>
+              <p class="site-description motion-element" itemprop="description">Life is like a box of chocolates. You never know what you're gonna get.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chengwenY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="y_c_wen@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NSTimer"><span class="nav-number">1.</span> <span class="nav-text">NSTimer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择合适时机手动释放"><span class="nav-number">2.</span> <span class="nav-text">选择合适时机手动释放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在NSTimer分类中添加类方法"><span class="nav-number">3.</span> <span class="nav-text">在NSTimer分类中添加类方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给target添加中间件NSProxy"><span class="nav-number">4.</span> <span class="nav-text">给target添加中间件NSProxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用GCD_timer"><span class="nav-number">5.</span> <span class="nav-text">使用GCD timer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更精确的Timer"><span class="nav-number">6.</span> <span class="nav-text">更精确的Timer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档"><span class="nav-number">7.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CWY</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
