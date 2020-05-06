@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/05/15886088642168.png?x-oss-process=image/auto-orient,1/quality,q_90">
 <meta property="og:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/05/15886100460043.png?x-oss-process=image/auto-orient,1/quality,q_90">
 <meta property="og:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/05/15886696731750.png?x-oss-process=image/auto-orient,1/quality,q_90">
-<meta property="og:updated_time" content="2020-05-05T10:44:03.395Z">
+<meta property="og:updated_time" content="2020-05-06T14:37:09.637Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 多线程：GCD源码分析&lt;一&gt;">
 <meta name="twitter:description" content="GCD前言在日常开发中，GCD是我们常用的多线程开发工具，它隔离了我们与线程间的直接交互，所以在使用过程中我们很少关注到GCD的底层原理。此次带着几个问题来对GCD源码进行分析。源码版本339.92.1。  dispatch_async 如何实现的，分发到主队与全局队列有什么区别，一定会新建线程执行任务么？ dispatch_sync 如何实现的，为什么说 GCD 死锁是队列导致的而不是线程，死锁">
@@ -367,7 +367,18 @@
 <p><code>__builtin_expect</code> 是编译器优化汇编代码的，fastpath(x) 依然返回 x，只是告诉编译器 x 的值一般不为 0，从而编译器可以进行优化。同理，slowpath(x) 表示 x 的值很可能为 0，希望编译器进行优化。</p>
 <p><strong>TSD</strong></p>
 <p>Thread Specific Data(TSD)是指线程私有数据。在多线程中，会用全局变量来实现多个函数间的数据共享，局部变量来实现内部的单独访问。<strong>TSD则是能够在同一个线程的不同函数中被访问，在不同线程时，相同的键值获取的数据随线程不同而不同</strong>。可以通过pthread的相关api来实现TSD:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建key</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_key_create</span><span class="params">(<span class="keyword">pthread_key_t</span> *, <span class="keyword">void</span> (* _Nullable)(<span class="keyword">void</span> *))</span></span>;</span><br><span class="line"><span class="comment">//get方法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>* _Nullable <span class="title">pthread_getspecific</span><span class="params">(<span class="keyword">pthread_key_t</span>)</span></span>;</span><br><span class="line"><span class="comment">//set方法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_setspecific</span><span class="params">(<span class="keyword">pthread_key_t</span> , <span class="keyword">const</span> <span class="keyword">void</span> * _Nullable)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="libdispatch_关键数据结构">libdispatch 关键数据结构</h3><p>源码中数据结构的命名一般是以<strong>_s</strong>和<strong>_t</strong>结尾，其中<strong>_t</strong>是<strong>_s</strong>的指针类型，<strong>_s</strong>是结构体。比如<strong>dispatch_queue_t</strong>和<strong>dispatch_queue_s</strong>。</p>
+<p><strong>原子操作</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_xchg(p, n)  __sync_lock_test_and_set((p), (n))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_cmpxchg(p, o, n)    __sync_bool_compare_and_swap((p), (o), (n))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_inc(p)              __sync_add_and_fetch((p), 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_dec(p)              __sync_sub_and_fetch((p), 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_add(p, v)       __sync_add_and_fetch((p), (v))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_sub(p, v)       __sync_sub_and_fetch((p), (v))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_or(p, v)        __sync_fetch_and_or((p), (v))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dispatch_atomic_and(p, v)       __sync_fetch_and_and((p), (v))</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>__sync_lock_test_and_set((p), (n))</code> 将<em>p设为value并返回</em>p操作之前的值。</li>
+<li><code>__sync_bool_compare_and_swap((p), (o), (n))</code> 这两个函数提供原子的比较和交换：如果<em>p == o,就将n写入</em>p(p代表地址，o代表oldValue，n代表newValue)</li>
+<li><code>__sync_add_and_fetch((p), 1)</code> 先自加1，再返回</li>
+<li><code>__sync_sub_and_fetch((p), 1)</code> 先自减1，再返回</li>
+<li><code>__sync_add_and_fetch((p), (v))</code> 先自加v，再返回</li>
+<li><code>__sync_sub_and_fetch((p), (v))</code> 先自减v，再返回</li>
+<li><code>__sync_fetch_and_or((p), (v))</code> 先返回，再进行或运算</li>
+<li><code>__sync_fetch_and_and((p), (v))</code> 先返回，再进行与运算<h3 id="libdispatch_关键数据结构">libdispatch 关键数据结构</h3></li>
+</ul>
+<p>源码中数据结构的命名一般是以<strong>_s</strong>和<strong>_t</strong>结尾，其中<strong>_t</strong>是<strong>_s</strong>的指针类型，<strong>_s</strong>是结构体。比如<strong>dispatch_queue_t</strong>和<strong>dispatch_queue_s</strong>。</p>
 <h4 id="dispatch_object_s">dispatch_object_s</h4><p><code>dispatch_object_s</code> 是GCD最基础的结构体，相当于基类，类似OC中的id类型。定义如下</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> dispatch_object_s &#123;</span><br><span class="line">    DISPATCH_STRUCT_HEADER(object);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//os object头部宏定义</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _OS_OBJECT_HEADER(isa, ref_cnt, xref_cnt) \</span></span><br><span class="line">        isa; <span class="comment">/* must be pointer-sized */</span> \  <span class="comment">//isa</span></span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">volatile</span> ref_cnt; \             <span class="comment">//引用计数</span></span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">volatile</span> xref_cnt               <span class="comment">//外部引用计数，两者都为0释放</span></span><br><span class="line"><span class="comment">//dispatch 结构体头部  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DISPATCH_STRUCT_HEADER(x) \</span></span><br><span class="line">    _OS_OBJECT_HEADER( \</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">struct</span> dispatch_#<span class="meta">#x##_vtable_s *do_vtable, \  <span class="comment">//vtable 结构体</span></span></span><br><span class="line">    do_ref_cnt, \</span><br><span class="line">    do_xref_cnt); \</span><br><span class="line">    <span class="keyword">struct</span> dispatch_#<span class="meta">#x##_s *volatile do_next; \        <span class="comment">//下一个do 链表next</span></span></span><br><span class="line">    <span class="keyword">struct</span> dispatch_queue_s *do_targetq; \              <span class="comment">//目标队列</span></span><br><span class="line">    <span class="keyword">void</span> *do_ctxt; \                                    <span class="comment">//上下文</span></span><br><span class="line">    <span class="keyword">void</span> *do_finalizer; \                               <span class="comment">//销毁时调用函数</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> do_suspend_cnt;                        <span class="comment">//suspend计数， 用作暂停标志</span></span><br></pre></td></tr></table></figure>
 <h4 id="dispatch_object_t">dispatch_object_t</h4><p>dispatch_object_t是个union的联合体，可以用dispatch_object_t代表这个联合体里的所有数据结构。</p>
@@ -447,17 +458,20 @@
 <p><img src="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/05/15886696731750.png?x-oss-process=image/auto-orient,1/quality,q_90" alt></p>
 <h2 id="总结">总结</h2><ol>
 <li><p>dispatch_async如何实现？分发到主队列与全局队列有什么区别，一定会新建线程执行任务么？</p>
-<p> dispatch_async 会把任务添加到队列链表中，添加完成后唤醒队列，全局队列唤醒时会从线程池中取出可用线程，如果没有会新建线程，然后在线程中执行队列取出的任务；主队咧会唤醒主线程的Runloop，然后在Runloop中通知GCD执行主队列提交的任务。</p>
+<p> dispatch_async 会把任务添加到队列链表中，添加完成后唤醒队列，全局队列唤醒时会从线程池中取出可用线程，如果没有会新建线程，然后在线程中执行队列取出的任务；主队列会唤醒主线程的Runloop，然后在Runloop中通知GCD执行主队列提交的任务。</p>
 </li>
 <li><p>dispatch_sync 如何实现？</p>
 <p> dispatch_sync 一般在当前线程执行，如果是主队列的任务还是会切换到主线程执行。它使用与线程绑定的信号量来实现串行执行的功能。<br> 向串行队列提交同步任务</p>
 <ul>
 <li>如果队列无任务调用<code>_dispatch_barrier_sync_f_invoke</code>执行任务。</li>
-<li>如果队列存在其他任务或被挂起，则调用<code>_dispatch_barrier_sync_f_slow</code>，并且调用线程对应的信号量进行<code>wait</code>操作，等待该队列的任务执行完之后用信号量通知队列继续执行任务。<strong>向当前串行队列同步提交block时会进入这个方法，导致死锁</strong><br>向并发队列提交同步任务</li>
-<li>如果队列无任务调用<code>_dispatch_sync_f_invoke</code>执行任务。</li>
-<li>如果队列存在其他任务，或者队列被挂起，或者有正在执行的任务，则调用<code>_dispatch_sync_f_slow</code> 函数，使用信号量等待。</li>
+<li>如果队列存在其他任务或被挂起，则调用<code>_dispatch_barrier_sync_f_slow</code>，并且调用线程对应的信号量进行<code>wait</code>操作，等待该队列的任务执行完之后用信号量通知队列继续执行任务。<strong>向当前串行队列同步提交block时会进入这个方法，导致死锁</strong></li>
 </ul>
 </li>
+</ol>
+<pre><code>向并发队列提交同步任务
+*  如果队列无任务调用<span class="escape">`_</span>dispatch_sync_f_invoke<span class="escape">`执</span>行任务。
+*  如果队列存在其他任务，或者队列被挂起，或者有正在执行的任务，则调用<span class="escape">`_</span>dispatch_sync_f_slow<span class="escape">` </span>函数，使用信号量等待。
+</code></pre><ol start="3">
 <li><p>dispatch_barrier_async 如何实现？</p>
 <p> 改变了block <code>vtable</code>的标记位，当执行到该block时，会修改队列的suspend_count,待之前的任务都执行完毕，才会执行barrier block，待barrier_block执行完恢复suspend_count,并执行后面的任务。<br> 如果把Barrier block提交到global queue，执行效果与dispatch_async 一致，只有将Barrier blocks 提交到<code>DISPATCH_QUEUE_CONCURRENT</code>属性创建的自定义队列时它才有效。</p>
 </li>
@@ -522,6 +536,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/06/iOS多线程GCD分析-二-dispatch-group/" rel="prev" title="iOS多线程GCD分析<二>-dispatch_group">
+                iOS多线程GCD分析<二>-dispatch_group <i class="fa fa-chevron-right"></i>
+              </二></a>
             
           </div>
         </div>
@@ -600,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
