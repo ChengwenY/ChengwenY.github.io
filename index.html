@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/05/06/iOS多线程GCD分析-二-dispatch-group/">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/05/07/iOS多线程：GCD源码分析-三-dispatch-once/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CWY">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/06/iOS多线程GCD分析-二-dispatch-group/" itemprop="url">iOS多线程GCD分析<二>-dispatch_group</二></a></h1>
+                <a class="post-title-link" href="/2020/05/07/iOS多线程：GCD源码分析-三-dispatch-once/" itemprop="url">iOS多线程：GCD源码分析<三>dispatch_once</三></a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T23:43:41+08:00">
-                2020-05-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-07T00:23:05+08:00">
+                2020-05-07
               </time>
             
 
@@ -293,6 +293,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS多线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -323,8 +345,168 @@
       
         
           
+          dispatch_once概述dispatch_once能保证任务只会被执行一次，即使同时多线程调用也是线程安全的。常用于创建单例、swizzeld method等功能。
+使用1234static dispatch_once_t onceToken;dispatch_once(&amp;onceToken, ^&#123;    //创建单例、method swizzled或其他任务&#125;);
+源码分析1234//调用dispatch_once_f来处理void dispatch_once(dispatch_once_t *val, dispatch_block_t block) &#1
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/07/iOS多线程：GCD源码分析-三-dispatch-once/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/05/06/iOS多线程GCD分析-二-dispatch-group/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CWY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YCW'S ZONE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/06/iOS多线程GCD分析-二-dispatch-group/" itemprop="url">iOS多线程：GCD源码分析<二> dispatch_group</二></a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T23:43:41+08:00">
+                2020-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS多线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
           
           
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          dispatch_group转载于深入浅出 GCD 之 dispatch_group
+概述dispatch_group可以将GCD任务合并到一个组管理，也可以同时监听组内所有任务的执行情况。主要的API有以下几个,先看一下Dispatch Group的具体使用。
+
+dispatch_group_create
+dispatch_group_enter
+dispatch_group_leave
+dispatch_group_wait
+dispatch_group_notify
+dispatch_group_async
+
+使用123456789101112131415161718dispatch_g
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/05/06/iOS多线程GCD分析-二-dispatch-group/#more" rel="contents">
@@ -1584,161 +1766,6 @@ iOS 中主要有以上几种事件，本文主要探讨触摸事件的产生、�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/12/30/CALayer-Transform/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CWY">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YCW'S ZONE">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/12/30/CALayer-Transform/" itemprop="url">CALayer Transform</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-30T19:07:56+08:00">
-                2015-12-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS-UIKit/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS UIKit</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          变换仿射变换
-
-“仿射”的意思是无论变换矩阵用什么值，图层中平行的两条线在变换之后任然保持平行
-
-123CGAffineTransformMakeRotation(CGFloat angle) CGAffineTransformMakeScale(CGFloat sx, CGFloat sy)CGAffineTransformMakeTranslation(CGFloat tx, CGFloat ty)
-iOS 变换函数使用弧度为单位
-库中提供了两个宏定义做弧度角度转换
-12#define RADIANS_TO_DEGREES(x) ((x)/M_PI*180.0) #define DEGRE
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/12/30/CALayer-Transform/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1791,7 +1818,7 @@ iOS 变换函数使用弧度为单位
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
