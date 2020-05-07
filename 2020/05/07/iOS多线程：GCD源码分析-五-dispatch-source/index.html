@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础知识,iOS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="dispatch_source##概述Dispatch Source是BSD系统内核惯有功能kqueue的包装，kqueue是在XNU内核中发生各种事件时，在应用程序编程方执行处理的技术。它的CPU负荷非常小，尽量不占用资源。当事件发生时，Dispatch Source会在指定的Dispatch Queue中执行事件的处理。 使用dispatch_source 最常见的用途是实现定时器，GCD t">
+<meta name="keywords" content="基础知识,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS多线程：GCD源码分析&lt;五&gt;dispatch-source">
+<meta property="og:url" content="http://chengweny.github.io/2020/05/07/iOS多线程：GCD源码分析-五-dispatch-source/index.html">
+<meta property="og:site_name" content="YCW&#39;S ZONE">
+<meta property="og:description" content="dispatch_source##概述Dispatch Source是BSD系统内核惯有功能kqueue的包装，kqueue是在XNU内核中发生各种事件时，在应用程序编程方执行处理的技术。它的CPU负荷非常小，尽量不占用资源。当事件发生时，Dispatch Source会在指定的Dispatch Queue中执行事件的处理。 使用dispatch_source 最常见的用途是实现定时器，GCD t">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-07T15:30:05.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS多线程：GCD源码分析&lt;五&gt;dispatch-source">
+<meta name="twitter:description" content="dispatch_source##概述Dispatch Source是BSD系统内核惯有功能kqueue的包装，kqueue是在XNU内核中发生各种事件时，在应用程序编程方执行处理的技术。它的CPU负荷非常小，尽量不占用资源。当事件发生时，Dispatch Source会在指定的Dispatch Queue中执行事件的处理。 使用dispatch_source 最常见的用途是实现定时器，GCD t">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chengweny.github.io/2020/05/07/iOS多线程：GCD源码分析-五-dispatch-source/">
+
+
+
+
+
+  <title>iOS多线程：GCD源码分析<五>dispatch-source | YCW'S ZONE</五></title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YCW'S ZONE</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/05/07/iOS多线程：GCD源码分析-五-dispatch-source/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CWY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YCW'S ZONE">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS多线程：GCD源码分析<五>dispatch-source</五></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-07T22:42:19+08:00">
+                2020-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS多线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="dispatch_source">dispatch_source</h1><p>##概述<br>Dispatch Source是BSD系统内核惯有功能kqueue的包装，kqueue是在XNU内核中发生各种事件时，在应用程序编程方执行处理的技术。它的CPU负荷非常小，尽量不占用资源。当事件发生时，Dispatch Source会在指定的Dispatch Queue中执行事件的处理。</p>
+<h2 id="使用">使用</h2><p><code>dispatch_source</code> 最常见的用途是实现定时器，GCD timer不依赖runloop，因此任何线程都可以使用，由于使用block，不会忘记避免循环引用，定时器可以自由控制精度，随时修改时间间隔等。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, <span class="number">0</span>, <span class="number">0</span>, queue);  </span><br><span class="line">dispatch_source_set_timer(timer, dispatch_time(DISPATCH_TIME_NOW, <span class="number">0</span>), <span class="number">10</span>*<span class="built_in">NSEC_PER_SEC</span>, <span class="number">1</span>*<span class="built_in">NSEC_PER_SEC</span>); <span class="comment">//每10秒触发timer，误差1秒  </span></span><br><span class="line">dispatch_source_set_event_handler(timer, ^&#123;  </span><br><span class="line">    <span class="comment">// 定时器触发时执行的 block</span></span><br><span class="line">&#125;);</span><br><span class="line">dispatch_resume(timer);</span><br></pre></td></tr></table></figure></p>
+<h2 id="源码分析">源码分析</h2><p><strong>dispatch_source_create</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">dispatch_source_t dispatch_source_create(dispatch_source_type_t type,</span><br><span class="line">    uintptr_t handle,</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> mask,</span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> q) &#123;</span><br><span class="line">    <span class="comment">//申请内存空间</span></span><br><span class="line">    ds = _dispatch_alloc(DISPATCH_VTABLE(source),</span><br><span class="line">            <span class="keyword">sizeof</span>(<span class="keyword">struct</span> dispatch_source_s));</span><br><span class="line">    <span class="comment">//初始化ds</span></span><br><span class="line">    _dispatch_queue_init((<span class="built_in">dispatch_queue_t</span>)ds);</span><br><span class="line">    ds-&gt;dq_label = <span class="string">"source"</span>;</span><br><span class="line"></span><br><span class="line">    ds-&gt;do_ref_cnt++; <span class="comment">// the reference the manager queue holds</span></span><br><span class="line">    ds-&gt;do_ref_cnt++; <span class="comment">// since source is created suspended</span></span><br><span class="line">    <span class="comment">//默认处于暂状态，需要手动调用resume</span></span><br><span class="line">    ds-&gt;do_suspend_cnt = DISPATCH_OBJECT_SUSPEND_INTERVAL;</span><br><span class="line">    ds-&gt;do_targetq = &amp;_dispatch_mgr_q;</span><br><span class="line">    <span class="comment">// First item on the queue sets the user-specified target queue</span></span><br><span class="line">    <span class="comment">//设置事件回调的队列 q是回调队列 _dispatch_mgr_q是由哪个队列来管理这个source</span></span><br><span class="line">    dispatch_set_target_queue(ds, q);</span><br><span class="line">    _dispatch_object_debug(ds, <span class="string">"%s"</span>, __func__);</span><br><span class="line">    <span class="keyword">return</span> ds;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>dispatch_source_set_timer</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实际调用方法</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">void</span> _dispatch_source_set_timer(dispatch_source_t ds, dispatch_time_t start,</span><br><span class="line">        uint64_t interval, uint64_t leeway, <span class="keyword">bool</span> source_sync) &#123;</span><br><span class="line">    <span class="comment">//首先屏蔽非timer类型的source</span></span><br><span class="line">    <span class="keyword">if</span> (slowpath(!ds-&gt;ds_is_timer) ||</span><br><span class="line">            slowpath(ds_timer(ds-&gt;ds_refs).flags &amp; DISPATCH_TIMER_INTERVAL)) &#123;</span><br><span class="line">        DISPATCH_CLIENT_CRASH(<span class="string">"Attempt to set timer on a non-timer source"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建dispatch_set_timer_params结构体绑定source和timer参数</span></span><br><span class="line">    <span class="keyword">struct</span> dispatch_set_timer_params *params;</span><br><span class="line">    params = _dispatch_source_timer_params(ds, start, interval, leeway);</span><br><span class="line">    _dispatch_source_timer_telemetry(ds, params-&gt;ident, &amp;params-&gt;values);</span><br><span class="line">    dispatch_retain(ds);</span><br><span class="line">    <span class="keyword">if</span> (source_sync) &#123;</span><br><span class="line">       <span class="comment">//将source当做队列使用，执行dispatch_barrier_async_f压入队列，</span></span><br><span class="line">       <span class="comment">//核心函数为_dispatch_source_set_timer2</span></span><br><span class="line">        <span class="keyword">return</span> _dispatch_barrier_trysync_f((<span class="built_in">dispatch_queue_t</span>)ds, params,</span><br><span class="line">                _dispatch_source_set_timer2);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> _dispatch_source_set_timer2(params);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>_dispatch_source_set_timer</code>实际上是调用了<code>_dispatch_source_set_timer2</code>函数:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> _dispatch_source_set_timer2(<span class="keyword">void</span> *context) &#123;</span><br><span class="line">    <span class="comment">// Called on the source queue</span></span><br><span class="line">    <span class="keyword">struct</span> dispatch_set_timer_params *params = context;</span><br><span class="line">    <span class="comment">//暂停队列，避免修改过程中定时器被触发了。</span></span><br><span class="line">    dispatch_suspend(params-&gt;ds);</span><br><span class="line">    <span class="comment">//在_dispatch_mgr_q队列上执行_dispatch_source_set_timer3(params)</span></span><br><span class="line">    dispatch_barrier_async_f(&amp;_dispatch_mgr_q, params,</span><br><span class="line">            _dispatch_source_set_timer3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>_dispatch_source_set_timer2</code>函数的逻辑是在<code>_dispatch_mgr_q（序列号为2的manager queue）</code>队列执行<code>_dispatch_source_set_timer3(params)</code>，接下来的逻辑如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> _dispatch_source_set_timer3(<span class="keyword">void</span> *context) &#123;</span><br><span class="line">    <span class="comment">// Called on the _dispatch_mgr_q</span></span><br><span class="line">    <span class="keyword">struct</span> dispatch_set_timer_params *params = context;</span><br><span class="line">    dispatch_source_t ds = params-&gt;ds;</span><br><span class="line">    ds-&gt;ds_ident_hack = params-&gt;ident;</span><br><span class="line">    ds_timer(ds-&gt;ds_refs) = params-&gt;values;</span><br><span class="line">    ds-&gt;ds_pending_data = <span class="number">0</span>;</span><br><span class="line">    (<span class="keyword">void</span>)dispatch_atomic_or2o(ds, ds_atomic_flags, DSF_ARMED, release);</span><br><span class="line">    <span class="comment">//恢复队列，对应着_dispatch_source_set_timer2函数中的dispatch_suspend</span></span><br><span class="line">    dispatch_resume(ds);</span><br><span class="line">    <span class="comment">// Must happen after resume to avoid getting disarmed due to suspension</span></span><br><span class="line">    <span class="comment">//根据下一次触发时间将timer进行排序</span></span><br><span class="line">    _dispatch_timers_update(ds);</span><br><span class="line">    dispatch_release(ds);</span><br><span class="line">    <span class="keyword">if</span> (params-&gt;values.flags &amp; DISPATCH_TIMER_WALL_CLOCK) &#123;</span><br><span class="line">        _dispatch_mach_host_calendar_change_register();</span><br><span class="line">    &#125;</span><br><span class="line">    free(params);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当初提交到<code>_dispatch_mgr_q</code>队列的block会被执行，调用<code>&amp;dispatch_mgr_q-&gt;do_invoke</code> 函数，即<code>&amp;_dispatch_mgr_q</code>的<code>vtable</code>中定义的<code>_dispatch_mgr_thread</code>。接下来会走到<code>_dispatch_mgr_invoke</code>函数。在这个函数里用I/O多路复用功能的select来实现定时器功能:</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = select(<span class="name">FD_SETSIZE</span>, <span class="symbol">&amp;tmp_rfds</span>, <span class="symbol">&amp;tmp_wfds</span>, NULL, poll ? (<span class="name">struct</span> timeval*)<span class="symbol">&amp;timeout_immediately</span> : NULL)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>当内层的 <code>_dispatch_mgr_q</code> 队列被唤醒后，还会进一步唤醒外层的队列(当初用户指定的那个)，并在指定队列上执行 timer 触发时的 block。</p>
+<p><strong>dispatch_source_set_event_handler/dispatch_source_set_cancel_handler</strong></p>
+<p>保存和取消事件处理的上下文信息<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> dispatch_source_set_event_handler(dispatch_source_t ds,</span><br><span class="line">        dispatch_block_t handler) &#123;</span><br><span class="line">    <span class="comment">//将block进行copy后压入到队列中</span></span><br><span class="line">    handler = _dispatch_Block_copy(handler);</span><br><span class="line">    _dispatch_barrier_trysync_f((<span class="built_in">dispatch_queue_t</span>)ds, handler,</span><br><span class="line">            _dispatch_source_set_event_handler2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> _dispatch_source_set_event_handler2(<span class="keyword">void</span> *context) &#123;</span><br><span class="line">    dispatch_source_t ds = (dispatch_source_t)_dispatch_queue_get_current();</span><br><span class="line">    dispatch_assert(dx_type(ds) == DISPATCH_SOURCE_KEVENT_TYPE);</span><br><span class="line">    dispatch_source_refs_t dr = ds-&gt;ds_refs;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ds-&gt;ds_handler_is_block &amp;&amp; dr-&gt;ds_handler_ctxt) &#123;</span><br><span class="line">        Block_release(dr-&gt;ds_handler_ctxt);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//设置上下文，保存提交的block等信息</span></span><br><span class="line">    dr-&gt;ds_handler_func = context ? _dispatch_Block_invoke(context) : <span class="literal">NULL</span>;</span><br><span class="line">    dr-&gt;ds_handler_ctxt = context;</span><br><span class="line">    ds-&gt;ds_handler_is_block = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> dispatch_source_set_cancel_handler(dispatch_source_t ds,</span><br><span class="line">    dispatch_block_t handler) &#123;</span><br><span class="line">    <span class="comment">//将block进行copy后压入到队列中</span></span><br><span class="line">    handler = _dispatch_Block_copy(handler);</span><br><span class="line">    _dispatch_barrier_trysync_f((<span class="built_in">dispatch_queue_t</span>)ds, handler,</span><br><span class="line">            _dispatch_source_set_cancel_handler2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> _dispatch_source_set_cancel_handler2(<span class="keyword">void</span> *context) &#123;</span><br><span class="line">    dispatch_source_t ds = (dispatch_source_t)_dispatch_queue_get_current();</span><br><span class="line">    dispatch_assert(dx_type(ds) == DISPATCH_SOURCE_KEVENT_TYPE);</span><br><span class="line">    dispatch_source_refs_t dr = ds-&gt;ds_refs;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ds-&gt;ds_cancel_is_block &amp;&amp; dr-&gt;ds_cancel_handler) &#123;</span><br><span class="line">        Block_release(dr-&gt;ds_cancel_handler);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存事件取消的信息</span></span><br><span class="line">    dr-&gt;ds_cancel_handler = context;</span><br><span class="line">    ds-&gt;ds_cancel_is_block = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>dispatch_resume/dispatch_suspend</strong><br>GCD 对象的暂停和恢复由 <code>do_suspend_cnt</code> 决定，暂停时通过原子操作将改属性的值加 2，对应的在恢复时通过原子操作将该属性减二。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//恢复</span></span><br><span class="line"><span class="keyword">void</span> dispatch_resume(dispatch_object_t dou) &#123;</span><br><span class="line">    DISPATCH_OBJECT_TFB(_dispatch_objc_resume, dou);</span><br><span class="line">    <span class="comment">// Global objects cannot be suspended or resumed.</span></span><br><span class="line">    <span class="keyword">if</span> (slowpath(dou._do-&gt;do_ref_cnt == DISPATCH_OBJECT_GLOBAL_REFCNT) ||</span><br><span class="line">            slowpath(dx_type(dou._do) == DISPATCH_QUEUE_ROOT_TYPE)) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将do_suspend_cnt原子性减二，并返回之前存储的值</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> suspend_cnt = dispatch_atomic_sub_orig2o(dou._do,</span><br><span class="line">             do_suspend_cnt, DISPATCH_OBJECT_SUSPEND_INTERVAL, relaxed);</span><br><span class="line">    <span class="keyword">if</span> (fastpath(suspend_cnt &gt; DISPATCH_OBJECT_SUSPEND_INTERVAL)) &#123;</span><br><span class="line">        <span class="keyword">return</span> _dispatch_release(dou._do);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fastpath(suspend_cnt == DISPATCH_OBJECT_SUSPEND_INTERVAL)) &#123;</span><br><span class="line">        _dispatch_wakeup(dou._do);</span><br><span class="line">     <span class="keyword">return</span> _dispatch_release(dou._do);</span><br><span class="line">    &#125;</span><br><span class="line">    DISPATCH_CLIENT_CRASH(<span class="string">"Over-resume of an object"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//暂停</span></span><br><span class="line"><span class="keyword">void</span> dispatch_suspend(dispatch_object_t dou) &#123;</span><br><span class="line">    DISPATCH_OBJECT_TFB(_dispatch_objc_suspend, dou);</span><br><span class="line">    <span class="keyword">if</span> (slowpath(dou._do-&gt;do_ref_cnt == DISPATCH_OBJECT_GLOBAL_REFCNT) ||</span><br><span class="line">            slowpath(dx_type(dou._do) == DISPATCH_QUEUE_ROOT_TYPE)) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将do_suspend_cnt原子性加二</span></span><br><span class="line">    (<span class="keyword">void</span>)dispatch_atomic_add2o(dou._do, do_suspend_cnt,</span><br><span class="line">            DISPATCH_OBJECT_SUSPEND_INTERVAL, relaxed);</span><br><span class="line">    _dispatch_retain(dou._do);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>do_suspend_cnt</code>有两个默认值:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DISPATCH_OBJECT_SUSPEND_LOCK        1u</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DISPATCH_OBJECT_SUSPEND_INTERVAL    2u</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DISPATCH_OBJECT_SUSPENDED(x) \</span></span><br><span class="line">        ((x)-&gt;do_suspend_cnt &gt;= DISPATCH_OBJECT_SUSPEND_INTERVAL)</span><br></pre></td></tr></table></figure></p>
+<p>在唤醒队列时有如下代码:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _dispatch_queue_invoke(<span class="built_in">dispatch_queue_t</span> dq) &#123;  </span><br><span class="line">    <span class="keyword">if</span> (!dispatch_atomic_sub2o(dq, do_suspend_cnt, DISPATCH_OBJECT_SUSPEND_LOCK)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (dq-&gt;dq_running == <span class="number">0</span>) &#123;</span><br><span class="line">            _dispatch_wakeup(dq); <span class="comment">// verify that the queue is idle</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可见能够唤醒队列的前提是 <code>dp-&gt;do_suspend_cnt - 1 = 0</code>，也就是要求 <code>do_suspend_cnt</code> 的值就是 <code>DISPATCH_OBJECT_SUSPEND_LOCK</code><br>观察 8 个全局队列和主队列的定义就会发现，他们的 <code>do_suspend_cnt</code> 值确实为 <code>DISPATCH_OBJECT_SUSPEND_LOCK</code>，因此默认处于启动状态。<br>而 <code>dispatch_source</code> 的 create 方法中，<code>do_suspend_cnt</code> 的初始值为 <code>DISPATCH_OBJECT_SUSPEND_INTERVAL</code>，因此默认处于暂停状态，需要手动开启。</p>
+<h2 id="dispatch_after">dispatch_after</h2><p><code>dispatch_after</code> 是基于Dispatch Source的定时器实现的，函数内部直接调用<code>dispatch_after_f</code>，代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dispatch_after_f</span><span class="params">(<span class="keyword">dispatch_time_t</span> when, <span class="keyword">dispatch_queue_t</span> <span class="built_in">queue</span>, <span class="keyword">void</span> *ctxt, <span class="keyword">dispatch_function_t</span> func)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">uint64_t</span> delta, leeway;</span><br><span class="line">    <span class="keyword">dispatch_source_t</span> ds;</span><br><span class="line">    <span class="comment">//屏蔽DISPATCH_TIME_FOREVER类型</span></span><br><span class="line">    <span class="keyword">if</span> (when == DISPATCH_TIME_FOREVER) &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> DISPATCH_DEBUG</span></span><br><span class="line">        DISPATCH_CLIENT_CRASH(</span><br><span class="line">                <span class="string">"dispatch_after_f() called with 'when' == infinity"</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    delta = _dispatch_timeout(when);</span><br><span class="line">    <span class="keyword">if</span> (delta == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> dispatch_async_f(<span class="built_in">queue</span>, ctxt, func);</span><br><span class="line">    &#125;</span><br><span class="line">    leeway = delta / <span class="number">10</span>; <span class="comment">// &lt;rdar://problem/13447496&gt;</span></span><br><span class="line">    <span class="keyword">if</span> (leeway &lt; NSEC_PER_MSEC) leeway = NSEC_PER_MSEC;</span><br><span class="line">    <span class="keyword">if</span> (leeway &gt; <span class="number">60</span> * NSEC_PER_SEC) leeway = <span class="number">60</span> * NSEC_PER_SEC;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// this function can and should be optimized to not use a dispatch source</span></span><br><span class="line">    <span class="comment">//创建dispatch_source</span></span><br><span class="line">    ds = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, <span class="number">0</span>, <span class="number">0</span>, <span class="built_in">queue</span>);</span><br><span class="line">    dispatch_assert(ds);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">dispatch_continuation_t</span> dc = _dispatch_continuation_alloc();</span><br><span class="line">    dc-&gt;do_vtable = (<span class="keyword">void</span> *)(DISPATCH_OBJ_ASYNC_BIT | DISPATCH_OBJ_BARRIER_BIT);</span><br><span class="line">    dc-&gt;dc_func = func;</span><br><span class="line">    dc-&gt;dc_ctxt = ctxt;</span><br><span class="line">    dc-&gt;dc_data = ds;</span><br><span class="line">    <span class="comment">//将dispatch_continuation_t存储到上下文中</span></span><br><span class="line">    dispatch_set_context(ds, dc);</span><br><span class="line">    <span class="comment">//设置timer并启动</span></span><br><span class="line">    dispatch_source_set_event_handler_f(ds, _dispatch_after_timer_callback);</span><br><span class="line">    dispatch_source_set_timer(ds, when, DISPATCH_TIME_FOREVER, leeway);</span><br><span class="line">    dispatch_resume(ds);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>timer到时之后，会调用<code>_dispatch_after_timer_callback</code>函数，在这里取出上下文里的block并执行：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _dispatch_after_timer_callback(<span class="keyword">void</span> *ctxt) &#123;</span><br><span class="line">    dispatch_continuation_t dc = ctxt, dc1;</span><br><span class="line">    dispatch_source_t ds = dc-&gt;dc_data;</span><br><span class="line">    dc1 = _dispatch_continuation_free_cacheonly(dc);</span><br><span class="line">    <span class="comment">//执行任务的block并执行</span></span><br><span class="line">    _dispatch_client_callout(dc-&gt;dc_ctxt, dc-&gt;dc_func);</span><br><span class="line">    <span class="comment">//清理数据</span></span><br><span class="line">    dispatch_source_cancel(ds);</span><br><span class="line">    dispatch_release(ds);</span><br><span class="line">    <span class="keyword">if</span> (slowpath(dc1)) &#123;</span><br><span class="line">        _dispatch_continuation_free_to_cache_limit(dc1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2><p>Dispatch Source使用最多的就是用来实现定时器，source创建后默认是暂停状态，需要手动调用dispatch_resume启动定时器。dispatch_after只是封装调用了dispatch source定时器，然后在回调函数中执行定义的block。</p>
+<p>source 最终会被提交到manager队列中，按照触发时间排好序。随后找到最近触发的定时器，调用内核的select方法等待。等待结束后，依次唤醒manager队列和用户制定队列，最终触发设置的回调block。<br>GCD中的对象用do_suspend_cnt来表示是否暂停。队列默认处于启动状态，而<code>dispatch_source</code>需要手动启动。</p>
+<p>Dispatch Source定时器使用时也有一些需要注意的地方，不然很可能会引起crash：</p>
+<p>1、循环引用：<code>dispatch_source_set_event_handler</code> 使用时要避免循环引用。</p>
+<p>2、dispatch_resume和dispatch_suspend调用次数需要平衡，如果重复调用dispatch_resume则会崩溃,因为重复调用会让dispatch_resume代码里if分支不成立，从而执行了DISPATCH_CLIENT_CRASH(“Over-resume of an object”)导致崩溃。</p>
+<p>3、source在suspend状态下，如果直接设置source = nil或者重新创建source都会造成crash。正确的方式是在resume状态下调用dispatch_source_cancel(source)后再重新创建。</p>
+<h2 id="参考资料">参考资料</h2><p><a href="https://yq.aliyun.com/articles/17709" target="_blank" rel="noopener">从NSTimer的失效性谈起（二）：关于GCD Timer和libdispatch</a><br><a href="https://xiaozhuanlan.com/topic/9481560732" target="_blank" rel="noopener">深入浅出 GCD 之 dispatch_source</a><br><a href="https://bestswifter.com/deep-gcd/" target="_blank" rel="noopener">深入理解GCD</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    CWY
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://chengweny.github.io/2020/05/07/iOS多线程：GCD源码分析-五-dispatch-source/" title="iOS多线程：GCD源码分析<五>dispatch-source">http://chengweny.github.io/2020/05/07/iOS多线程：GCD源码分析-五-dispatch-source/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础知识/" rel="tag"># 基础知识</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/07/iOS多线程：GCD源码分析-四-dispatch-semaphore/" rel="next" title="iOS多线程：GCD源码分析<四>-dispatch_semaphore">
+                <i class="fa fa-chevron-left"></i> iOS多线程：GCD源码分析<四>-dispatch_semaphore
+              </四></a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="CWY">
+            
+              <p class="site-author-name" itemprop="name">CWY</p>
+              <p class="site-description motion-element" itemprop="description">Life is like a box of chocolates. You never know what you're gonna get.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chengwenY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="y_c_wen@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dispatch_source"><span class="nav-number">1.</span> <span class="nav-text">dispatch_source</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-number">1.2.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dispatch_after"><span class="nav-number">1.3.</span> <span class="nav-text">dispatch_after</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CWY</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
