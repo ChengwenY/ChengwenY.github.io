@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="基础知识,iOS,">
 
 
 
@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Life is like a box of chocolates. You never know what you&apos;re gonna get.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YCW&#39;S ZONE">
-<meta property="og:url" content="http://chengweny.github.io/archives/2015/page/2/index.html">
+<meta name="keywords" content="基础知识,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS多线程：GCD思维脑图">
+<meta property="og:url" content="http://chengweny.github.io/2020/05/09/iOS多线程：GCD思维脑图/index.html">
 <meta property="og:site_name" content="YCW&#39;S ZONE">
-<meta property="og:description" content="Life is like a box of chocolates. You never know what you&apos;re gonna get.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/09/gcdmindnode.jpg?x-oss-process=image/auto-orient,1/quality,q_90">
+<meta property="og:updated_time" content="2020-05-09T06:27:17.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YCW&#39;S ZONE">
-<meta name="twitter:description" content="Life is like a box of chocolates. You never know what you&apos;re gonna get.">
+<meta name="twitter:title" content="iOS多线程：GCD思维脑图">
+<meta name="twitter:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/09/gcdmindnode.jpg?x-oss-process=image/auto-orient,1/quality,q_90">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://chengweny.github.io/archives/2015/page/2/">
+  <link rel="canonical" href="http://chengweny.github.io/2020/05/09/iOS多线程：GCD思维脑图/">
 
 
 
 
 
-  <title>归档 | YCW'S ZONE</title>
+  <title>iOS多线程：GCD思维脑图 | YCW'S ZONE</title>
   
 
 
@@ -143,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,216 +238,189 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2020/05/09/iOS多线程：GCD思维脑图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CWY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YCW'S ZONE">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">iOS多线程：GCD思维脑图</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-09T14:24:59+08:00">
+                2020-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 27 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS多线程</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2015">2015</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/19/Swift-五-枚举/" itemprop="url">
-              
-                <span itemprop="name">Swift(五) 枚举</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-11-19T22:20:24+08:00" content="2015-11-19">
-          11-19
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/18/Swift-四-闭包/" itemprop="url">
-              
-                <span itemprop="name">Swift(四) 闭包</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-11-18T21:17:17+08:00" content="2015-11-18">
-          11-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/18/Swift-三-函数/" itemprop="url">
-              
-                <span itemprop="name">Swift(三) 函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-11-18T16:06:08+08:00" content="2015-11-18">
-          11-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p><img src="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/05/09/gcdmindnode.jpg?x-oss-process=image/auto-orient,1/quality,q_90" alt="GCDMindNode"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/18/Swift-二-基本运算符/" itemprop="url">
-              
-                <span itemprop="name">Swift(二) 基本运算符</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-11-18T12:03:06+08:00" content="2015-11-18">
-          11-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2015/11/16/Swift-一-基础部分/" itemprop="url">
-              
-                <span itemprop="name">Swift(一) 基础部分</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2015-11-16T15:56:09+08:00" content="2015-11-16">
-          11-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    CWY
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://chengweny.github.io/2020/05/09/iOS多线程：GCD思维脑图/" title="iOS多线程：GCD思维脑图">http://chengweny.github.io/2020/05/09/iOS多线程：GCD思维脑图/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础知识/" rel="tag"># 基础知识</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/07/iOS多线程：GCD源码分析-五-dispatch-source/" rel="next" title="iOS多线程：GCD源码分析<五>dispatch-source">
+                <i class="fa fa-chevron-left"></i> iOS多线程：GCD源码分析<五>dispatch-source
+              </五></a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2015/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2015/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -454,6 +428,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -686,6 +664,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
