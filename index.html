@@ -1411,7 +1411,8 @@ dispatch_source 用来做定时器如何实现
       
         
           
-          Block深入理解数据结构定义1234567891011121314struct Block_descriptor &#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&#125;;struct Block_layout &#123;    void *isa;    int flags;    int reserved;    void (*invoke)(void *, ...); 
+          Block深入理解数据结构定义
+1234567891011121314struct Block_descriptor &#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&#125;;struct Block_layout &#123;    void *isa;    int flags;    int reserved;    void (*invoke)(void *, ...);
           ...
           <!--noindex-->
           <div class="post-button text-center">

@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="Block深入理解数据结构定义1234567891011121314struct Block_descriptor &amp;#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&amp;#125;;stru">
+<meta name="description" content="Block深入理解数据结构定义 1234567891011121314struct Block_descriptor &amp;#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&amp;#125;;str">
 <meta name="keywords" content="iOS,基础知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Block深入理解">
 <meta property="og:url" content="http://chengweny.github.io/2020/04/27/Block深入理解/index.html">
 <meta property="og:site_name" content="YCW&#39;S ZONE">
-<meta property="og:description" content="Block深入理解数据结构定义1234567891011121314struct Block_descriptor &amp;#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&amp;#125;;stru">
+<meta property="og:description" content="Block深入理解数据结构定义 1234567891011121314struct Block_descriptor &amp;#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&amp;#125;;str">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-08T16:35:02.094Z">
+<meta property="og:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/06/09/blocklayout.png?x-oss-process=image/auto-orient,1/quality,q_90">
+<meta property="og:updated_time" content="2020-06-09T01:27:46.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block深入理解">
-<meta name="twitter:description" content="Block深入理解数据结构定义1234567891011121314struct Block_descriptor &amp;#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&amp;#125;;stru">
+<meta name="twitter:description" content="Block深入理解数据结构定义 1234567891011121314struct Block_descriptor &amp;#123;    unsigned long int reserved;    unsigned long int size;    void (*copy)(void *dst, void *src);    void (*dispose)(void *);&amp;#125;;str">
+<meta name="twitter:image" content="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/06/09/blocklayout.png?x-oss-process=image/auto-orient,1/quality,q_90">
 
 
 
@@ -342,7 +344,8 @@
       
 
       
-        <h2 id="Block深入理解">Block深入理解</h2><h3 id="数据结构定义">数据结构定义</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Block_descriptor &#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> reserved;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">void</span> (*<span class="keyword">copy</span>)(<span class="keyword">void</span> *dst, <span class="keyword">void</span> *src);</span><br><span class="line">    <span class="keyword">void</span> (*dispose)(<span class="keyword">void</span> *);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> Block_layout &#123;</span><br><span class="line">    <span class="keyword">void</span> *isa;</span><br><span class="line">    <span class="keyword">int</span> flags;</span><br><span class="line">    <span class="keyword">int</span> reserved;</span><br><span class="line">    <span class="keyword">void</span> (*invoke)(<span class="keyword">void</span> *, ...);</span><br><span class="line">    <span class="keyword">struct</span> Block_descriptor *descriptor;</span><br><span class="line">    <span class="comment">/* Imported variables. */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="Block深入理解">Block深入理解</h2><h3 id="数据结构定义">数据结构定义</h3><p><img src="https://cwyblog.oss-cn-beijing.aliyuncs.com/blog-img/2020/06/09/blocklayout.png?x-oss-process=image/auto-orient,1/quality,q_90" alt="block_layout"></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Block_descriptor &#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> reserved;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> size;</span><br><span class="line">    <span class="keyword">void</span> (*<span class="keyword">copy</span>)(<span class="keyword">void</span> *dst, <span class="keyword">void</span> *src);</span><br><span class="line">    <span class="keyword">void</span> (*dispose)(<span class="keyword">void</span> *);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> Block_layout &#123;</span><br><span class="line">    <span class="keyword">void</span> *isa;</span><br><span class="line">    <span class="keyword">int</span> flags;</span><br><span class="line">    <span class="keyword">int</span> reserved;</span><br><span class="line">    <span class="keyword">void</span> (*invoke)(<span class="keyword">void</span> *, ...);</span><br><span class="line">    <span class="keyword">struct</span> Block_descriptor *descriptor;</span><br><span class="line">    <span class="comment">/* Imported variables. */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>通过该图，我们可以知道，一个 block 实例实际上由 6 部分构成：</p>
 <ol>
 <li>isa 指针，所有对象都有该指针，block的本质是对象isa指向下面三种block类。</li>
