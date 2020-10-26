@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="基础知识,Swift,">
+  <meta name="keywords" content="基础知识,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="下标脚本定义 下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。   下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。   下标脚本可以设定为读写或只读有点类似计算属性  语法 123456789subscript(index: In">
-<meta name="keywords" content="基础知识,Swift">
+<meta name="description" content="字符编码ASCII 编码基于拉丁字母的一种编码，0~31及127是控制字符或通信专用字符（其余为可显示字符），如控制符：换行、回车、换页删除等。32~126是字符，起终48~57是0-9十个阿拉伯数字。65~90为26个大写英文字母，97~122为26个小写英文字母。其余为一些标点符号、运算符号等。ASCII编码无法标识汉字等其他文字系统。占用1个字节（8bits），可以组合出256种状态，高位统">
+<meta name="keywords" content="基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift (八) 下标脚本">
-<meta property="og:url" content="http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/index.html">
+<meta property="og:title" content="字符编码&amp;加解密">
+<meta property="og:url" content="http://chengweny.github.io/2018/10/27/字符编码/index.html">
 <meta property="og:site_name" content="YCW&#39;S ZONE">
-<meta property="og:description" content="下标脚本定义 下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。   下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。   下标脚本可以设定为读写或只读有点类似计算属性  语法 123456789subscript(index: In">
+<meta property="og:description" content="字符编码ASCII 编码基于拉丁字母的一种编码，0~31及127是控制字符或通信专用字符（其余为可显示字符），如控制符：换行、回车、换页删除等。32~126是字符，起终48~57是0-9十个阿拉伯数字。65~90为26个大写英文字母，97~122为26个小写英文字母。其余为一些标点符号、运算符号等。ASCII编码无法标识汉字等其他文字系统。占用1个字节（8bits），可以组合出256种状态，高位统">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2015-11-19T14:27:25.000Z">
+<meta property="og:updated_time" content="2020-10-26T16:07:48.366Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift (八) 下标脚本">
-<meta name="twitter:description" content="下标脚本定义 下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。   下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。   下标脚本可以设定为读写或只读有点类似计算属性  语法 123456789subscript(index: In">
+<meta name="twitter:title" content="字符编码&amp;加解密">
+<meta name="twitter:description" content="字符编码ASCII 编码基于拉丁字母的一种编码，0~31及127是控制字符或通信专用字符（其余为可显示字符），如控制符：换行、回车、换页删除等。32~126是字符，起终48~57是0-9十个阿拉伯数字。65~90为26个大写英文字母，97~122为26个小写英文字母。其余为一些标点符号、运算符号等。ASCII编码无法标识汉字等其他文字系统。占用1个字节（8bits），可以组合出256种状态，高位统">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/">
+  <link rel="canonical" href="http://chengweny.github.io/2018/10/27/字符编码/">
 
 
 
 
 
-  <title>Swift (八) 下标脚本 | YCW'S ZONE</title>
+  <title>字符编码&加解密 | YCW'S ZONE</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/">
+    <link itemprop="mainEntityOfPage" href="http://chengweny.github.io/2018/10/27/字符编码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CWY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Swift (八) 下标脚本</h1>
+          <h1 class="post-title" itemprop="name headline">字符编码&加解密</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-19T22:23:15+08:00">
-                2015-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-27T00:06:42+08:00">
+                2018-10-27
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Swift/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift</span>
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
                   </a>
                 </span>
 
@@ -342,20 +342,65 @@
       
 
       
-        <h2 id="下标脚本">下标脚本</h2><h3 id="定义">定义</h3><blockquote>
-<p>下标脚本允许你通过在实例名称后面的方括号中传入一个或者多个索引值来对实例进行存取。</p>
-</blockquote>
+        <h2 id="字符编码">字符编码</h2><h3 id="ASCII_编码">ASCII 编码</h3><p>基于拉丁字母的一种编码，0~31及127是控制字符或通信专用字符（其余为可显示字符），如控制符：换行、回车、换页删除等。32~126是字符，起终48~57是0-9十个阿拉伯数字。65~90为26个大写英文字母，97~122为26个小写英文字母。其余为一些标点符号、运算符号等。<br>ASCII编码无法标识汉字等其他文字系统。<br>占用1个字节（8bits），可以组合出256种状态，高位统一为0，定义了127个符号。<br><a href="https://tool.oschina.net/commons?type=4" target="_blank" rel="noopener">编码对照表</a></p>
+<h3 id="Unicode">Unicode</h3><p>对每一个符号都给予一个独一无二的编码，U+0041表示英文大写A，unicode只是一个符号集，只规定了符号的二进制代码，没有规定这个二进制代码应该如何存储（没有规定统一使用几个字节）。这就造成无法区分是两个还是三个字节代表一个符号。造成有很多不同的存储规则，无法统一。<br><a href="http://www.unicode.org/" target="_blank" rel="noopener">unicode.org</a></p>
+<h3 id="UTF-8">UTF-8</h3><p>是Unicode编码的一种统一编码方式（之一）。互联网广泛应用，特点是变长的编码方式，它可以使用1~4个字节表示一个符号，根据不同符号变化字节长度。<br>1）对于单字节符号，字节第一位设0，后面7位为这个符号的Unicode码，对于英文字母，与ASCII码相同。<br>2）对于n字节符号，第一个字节的前n位设为1，n+1位设为0，后面的字节前两位一律设为10。剩下的位为这个符号的Unicode码<br>3）不定长编码，每个字符的长度从1-6个字节不等。<br>|  Unicode符号范围(十六进制) | UTF-8编码方式（二进制）  |<br>|—|—|<br>|0000 0000-0000 007F|0xxxxxxx|<br>|0000 0080-0000 07FF|110xxxxx 10xxxxxx|<br>|0000 0800-0000 FFFF|1110xxxx 10xxxxxx 10xxxxxx|<br>|0001 0000-0010 FFFF|11110xxx 10xxxxxx 10xxxxxx 10xxxxxx|</p>
+<h3 id="ISO-8859-1">ISO-8859-1</h3><p>单字节编码，可以表示前256个unicode字符</p>
+<h3 id="GB2312">GB2312</h3><p>是一种针对中文的编码方式，使用两个字节表示一个汉字，理论上有256*256=65536种字符。</p>
+<h3 id="Base64编码">Base64编码</h3><p>是什么?</p>
 <blockquote>
-<p>下标脚本通常作为访问集合（collection），列表（list）或序列（sequence）中元素的快捷方式。你可以针对自己特定的类或结构体的功能来自由地以最恰当的方式实现下标脚本。</p>
+<p>本质是将二进制数据转换为文本数据的方案。对于非二进制数据，先将其转换为二进制数据，然后连续每6bits（2的6次方等于64）计算其十进制值，根据该值在索引表中找到对应的base64编码字符，最终得到一个文本字符串。<br>如果原始字符串长度不能被3整除，用0补充原始字符串，转换成base64编码后，结尾为A，由于A实际不带实际含义，所以通常用=代替结尾的A，其意义在于结束符号。</p>
 </blockquote>
+<p>什么时候使用？</p>
 <blockquote>
-<p>下标脚本可以设定为读写或只读有点类似计算属性</p>
+<p> 1.Base64一般用于在HTTP协议下传输二进制数据，由于HTTP协议是文本协议，所以在HTTP传输二进制数据需要将二进制数据转化为字符数据， 网络传输只能传输可打印字符，在ASCII码中规定，0-31、127这33个字符属于控制字符（回车，删除等），32~127这95个字符属于可打印字符,那么其它字符怎么传输呢，Base64就是其中一种方式，<br>2.将图片等资源文件以Base64编码形式直接放于代码中，使用的时候反Base64后转换成Image对象使用。<br>3.偶尔需要用这条纯文本通道传一张图片之类的情况发生的时候，就会用到Base64，比如多功能Internet 邮件扩充服务（MIME）就是用Base64对邮件的附件进行编码的。</p>
 </blockquote>
-<p><strong>语法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subscript</span>(index: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="comment">// 返回一个适当的 Int 类型的值</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span>(newValue) &#123;</span><br><span class="line">        <span class="comment">// 执行适当的赋值操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>用法</strong></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numberOfLegs = [<span class="string">"spider"</span>: <span class="number">8</span>, <span class="string">"ant"</span>: <span class="number">6</span>, <span class="string">"cat"</span>: <span class="number">4</span>]</span><br><span class="line">numberOfLegs[<span class="string">"bird"</span>] = <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h3 id="实例">实例</h3><p>Xcode</p>
+<h2 id="摘要算法(哈希算法或散列算法)">摘要算法(哈希算法或散列算法)</h2><blockquote>
+<p>任何消息经过散列函数处理后，都会获得唯一的散列值，这一过程称为 “消息摘要”，其散列值称为 “数字指纹”，其算法自然就是 “消息摘要算法”了。换句话说，如果其数字指纹一致，就说明其消息是一致的。<br>特点：</p>
+<ol>
+<li>无论输入的消息多长，最终输出的消息摘要的长度相同。如md5算法摘要的信息有128位，SHA-1算法最终有160位。</li>
+<li>相同输入产生相同摘要，不同输入产生不同摘要</li>
+<li>摘要算法函数是单向函数，无法逆向，只能暴力尝试破解。</li>
+</ol>
+</blockquote>
+<h3 id="MD5算法（信息摘要算法）">MD5算法（信息摘要算法）</h3><p>MD5 用的是 哈希函数，它的典型应用是对一段信息产生 信息摘要，以 防止被篡改。严格来说，MD5 不是一种 加密算法 而是 摘要算法。无论是多长的输入，MD5 都会输出长度为 128bits 的一个串 (通常用 16 进制 表示为 32 个字符)。</p>
+<h3 id="SHA算法">SHA算法</h3><p>是基于MD4算法实现的，SHA 与 MD 算法不同之处主要在于摘要长度，SHA 算法的摘要更长，安全性更高。</p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>摘要长度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHA-1</td>
+<td>160（主要应用在CA和数字证书中）</td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>256</td>
+</tr>
+<tr>
+<td>SHA-384</td>
+<td>384</td>
+</tr>
+<tr>
+<td>SHA-512</td>
+<td>512</td>
+</tr>
+</tbody>
+</table>
+<h3 id="MAC算法">MAC算法</h3><p>MAC（Message Authentication Code，消息认证码算法）是含有密钥散列函数算法，兼容了 MD 和 SHA 算法的特性，并在此基础上加入了密钥。因为 MAC 算法融合了密钥散列函数（keyed-Hash），通常我们也把 MAC 称为HMAC（Keyed-Hash Message Authentication Code）。</p>
+<h2 id="UUID_随机数构成">UUID 随机数构成</h2><p>UUID的编码规则：</p>
+<ol>
+<li>1~8位采用系统时间，在系统时间上精确到毫秒级保证时间上的惟一性；</li>
+<li>9~16位采用底层的IP地址，在服务器集群中的惟一性；</li>
+<li>17~24位采用当前对象的HashCode值，在一个内部对象上的惟一性；</li>
+<li>25~32位采用调用方法的一个随机数，在一个对象内的毫秒级的惟一性。<br>通过以上4种策略可以保证惟一性。在系统中需要用到随机数的地方都可以考虑采用UUID算法。</li>
+</ol>
+<h2 id="AES算法">AES算法</h2><p>AES 加密算法是密码学中的 高级加密标准，该加密算法采用 对称分组密码体制，密钥长度的最少支持为 128 位、 192 位、256 位，分组长度 128 位，算法应易于各种硬件和软件实现。这种加密算法是美国联邦政府采用的 区块加密标准。<br>AES 本身就是为了取代 DES 的，AES 具有更好的 安全性、效率 和 灵活性。</p>
+<h2 id="RSA算法">RSA算法</h2><p>RSA 加密算法是目前最有影响力的 公钥加密算法，并且被普遍认为是目前 最优秀的公钥方案 之一。RSA 是第一个能同时用于 加密 和 数字签名 的算法，它能够 抵抗 到目前为止已知的 所有密码攻击，已被 ISO 推荐为公钥数据加密标准。</p>
 
       
     </div>
@@ -376,7 +421,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/" title="Swift (八) 下标脚本">http://chengweny.github.io/2015/11/19/Swift-八-下标脚本/</a>
+    <a href="http://chengweny.github.io/2018/10/27/字符编码/" title="字符编码&加解密">http://chengweny.github.io/2018/10/27/字符编码/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -393,8 +438,6 @@
           
             <a href="/tags/基础知识/" rel="tag"># 基础知识</a>
           
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
-          
         </div>
       
 
@@ -406,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/19/Swift-七-属性、方法/" rel="next" title="Swift (七) 属性、方法">
-                <i class="fa fa-chevron-left"></i> Swift (七) 属性、方法
+              <a href="/2015/12/30/iOS 事件传递机制与响应链/" rel="next" title="iOS 事件传递机制与响应链">
+                <i class="fa fa-chevron-left"></i> iOS 事件传递机制与响应链
               </a>
             
           </div>
@@ -416,8 +459,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/20/Swift-九-构造方法-析构方法/" rel="prev" title="Swift(九) 构造方法/析构方法">
-                Swift(九) 构造方法/析构方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/13/Web基础知识/" rel="prev" title="Web基础知识">
+                Web基础知识 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -568,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下标脚本"><span class="nav-number">1.</span> <span class="nav-text">下标脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">1.2.</span> <span class="nav-text">实例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符编码"><span class="nav-number">1.</span> <span class="nav-text">字符编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCII_编码"><span class="nav-number">1.1.</span> <span class="nav-text">ASCII 编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unicode"><span class="nav-number">1.2.</span> <span class="nav-text">Unicode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UTF-8"><span class="nav-number">1.3.</span> <span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ISO-8859-1"><span class="nav-number">1.4.</span> <span class="nav-text">ISO-8859-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GB2312"><span class="nav-number">1.5.</span> <span class="nav-text">GB2312</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Base64编码"><span class="nav-number">1.6.</span> <span class="nav-text">Base64编码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要算法(哈希算法或散列算法)"><span class="nav-number">2.</span> <span class="nav-text">摘要算法(哈希算法或散列算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5算法（信息摘要算法）"><span class="nav-number">2.1.</span> <span class="nav-text">MD5算法（信息摘要算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SHA算法"><span class="nav-number">2.2.</span> <span class="nav-text">SHA算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC算法"><span class="nav-number">2.3.</span> <span class="nav-text">MAC算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UUID_随机数构成"><span class="nav-number">3.</span> <span class="nav-text">UUID 随机数构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AES算法"><span class="nav-number">4.</span> <span class="nav-text">AES算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA算法"><span class="nav-number">5.</span> <span class="nav-text">RSA算法</span></a></li></ol></div>
             
 
           </div>
